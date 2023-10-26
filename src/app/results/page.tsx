@@ -1,6 +1,5 @@
 import { getURL } from '@/utils/url';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 
 export default function Results() {
     const imageUrl = getURL('/epk');
