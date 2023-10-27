@@ -43,8 +43,8 @@ export async function GET(request: Request) {
             zIndex: -1,
             top: '20%',
             left: '-10%',
-            width: '400px',
-            height: '400px',
+            width: '420px',
+            height: '420px',
           }}
         ></div>
         <div
