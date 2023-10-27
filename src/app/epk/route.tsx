@@ -13,6 +13,7 @@ export async function GET(request: Request) {
   const username = searchParams.get('username');
   const bio = searchParams.get('bio');
   const profilePicture = searchParams.get('profilePicture') ?? "http://localhost:3000/niral.jpeg";
+  const overallRating = searchParams.get('profilePicture');
 
   // const qrcode = new QRCodeImpl(-1, ErrorCorrectLevel[level]);
   // qrcode.addData("https://jonaylor.xyz");
@@ -76,8 +77,6 @@ export async function GET(request: Request) {
             transform: 'translateX(-50%)',
           }}
         ></div>
-
-
         <div
           style={{
             display: 'flex',
@@ -92,6 +91,7 @@ export async function GET(request: Request) {
               width: '100%',
               height: '100%',
               overflow: 'hidden',
+              borderRadius: '50%',
             }}
           >
             <img
@@ -132,6 +132,7 @@ export async function GET(request: Request) {
         </div>
 
         <p>Northern Virginia</p>
+        <p>{overallRating} / 5 stars on Tapped</p>
         <p>Musician, Model, Actor, Audio Engineer</p>
   
         <div
