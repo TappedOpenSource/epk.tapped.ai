@@ -28,8 +28,13 @@ export default function Results() {
     }
 
     console.log({ user });
+    const userString = JSON.stringify(user);
+    // const urlParams = Object.entries(user).map(([key, val]) => {
+    //     const value = encodeURIComponent(val);
+    //     return `${key}=${value}`;
+    // }).join('&');
     const urlParams = new URLSearchParams({
-        ...user,
+        user: userString,
         theme: 'tapped',
     }).toString();
     return (

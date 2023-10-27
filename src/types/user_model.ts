@@ -10,6 +10,15 @@ export type UserModel = {
     artistName: string;
     bio: string;
     profilePicture?: string;
+    overallRating?: number;
+    placeId?: string;
+    tiktokHandle?: string;
+    twitterHandle?: string;
+    instagramHandle?: string;
+    youtubeChannelId?: string;
+    occupations?: string[];
+    label?: string;
+    genres?: string[];
 };
 
 export const firestoreConverter = {
@@ -27,6 +36,15 @@ export const firestoreConverter = {
             artistName: data.artistName,
             bio: data.bio,
             profilePicture: data.profilePicture,
+            overallRating: data.overallRating,
+            placeId: data.placeId,
+            tiktokHandle: data.tiktokHandle,
+            twitterHandle: data.twitterHandle,
+            instagramHandle: data.instagramHandle,
+            youtubeChannelId: data.youtubeChannelId,
+            occupations: data.occupations,
+            label: data.label,
+            genres: data.genres,
         };
     },
 };

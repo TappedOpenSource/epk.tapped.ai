@@ -10,11 +10,15 @@ export const runtime = 'edge';
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const theme = searchParams.get('theme');
-  const username = searchParams.get('username');
-  const bio = searchParams.get('bio');
-  const profilePicture = searchParams.get('profilePicture') ?? "http://localhost:3000/niral.jpeg";
-  const overallRating = searchParams.get('profilePicture');
+  // const username = searchParams.get('username');
+  // const bio = searchParams.get('bio');
+  // const profilePicture = searchParams.get('profilePicture') ?? "http://localhost:3000/niral.jpeg";
+  // const overallRating = searchParams.get('profilePicture');
 
+  const userString = searchParams.get('user') ?? '';
+  const user = JSON.parse(userString);
+
+  const { username, bio, profilePicture, overallRating } = user;
   // const qrcode = new QRCodeImpl(-1, ErrorCorrectLevel[level]);
   // qrcode.addData("https://jonaylor.xyz");
   // qrcode.make();
@@ -91,7 +95,7 @@ export async function GET(request: Request) {
               width: '100%',
               height: '100%',
               overflow: 'hidden',
-              borderRadius: '50%',
+              borderRadius: '10%',
             }}
           >
             <img
