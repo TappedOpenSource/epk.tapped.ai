@@ -26,6 +26,7 @@ export const firestoreConverter = {
             username: data.username,
             artistName: data.artistName,
             bio: data.bio,
+            profilePicture: data.profilePicture,
         };
     },
 };

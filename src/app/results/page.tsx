@@ -7,7 +7,6 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 export default function Results() {
-
     const [user, setUser] = useState<UserModel | null>(null);
     useEffect(() => {
         const fetchUser = async () => {
