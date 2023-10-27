@@ -144,7 +144,7 @@ export async function GET(request: Request) {
         >
           <div style={{display: 'flex', flexDirection: 'column', marginRight: '20px'}}>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <div style={{ display: 'flex', marginBottom: '10px', alignItems: 'center', justifyContent:'center', backgroundColor: '#303030', padding: 5, borderRadius: 10,}}>
+              <div style={{ display: 'flex', marginBottom: '10px', alignItems: 'center', justifyContent:'center', padding: 5, borderRadius: 10,}}>
                 <div
                   style={{
                     display: 'flex',
@@ -177,7 +177,7 @@ export async function GET(request: Request) {
                 </p>
               </div>
   
-              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', backgroundColor: '#303030', paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
                 <img
                   src="http://localhost:3000/instagram_icon.png"
                   alt="Instagram icon"
@@ -190,7 +190,7 @@ export async function GET(request: Request) {
                 </p>
               </div>
   
-              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', backgroundColor: '#303030', paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
                 <img
                   src="http://localhost:3000/tiktok_icon.png"
                   alt="TikTok icon"
@@ -203,7 +203,7 @@ export async function GET(request: Request) {
                 </p>
               </div>
   
-              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', backgroundColor: '#303030', paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
                 <img
                   src="http://localhost:3000/twitter_icon.png"
                   alt="Twitter icon"
