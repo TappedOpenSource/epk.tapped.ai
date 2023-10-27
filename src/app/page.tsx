@@ -7,7 +7,7 @@ export default function Home() {
       <main className="flex min-h-screen flex-col items-start justify-center p-24">
         {/* Nav Bar */}
         <h1
-          className='uppercase text-9xl font-black'
+          className='uppercase text-3xl md:text-9xl font-black'
         >
           your {' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-800 to-sky-300">
@@ -19,9 +19,9 @@ export default function Home() {
         </h2>
         <div className='h-8' />
         <Link
-          href="https://tapped.ai"
+          href="/login?returnUrl=/results"
           className='bg-blue-700 text-white font-extrabold px-4 py-2 rounded-full'>
-            join the label
+            get started
         </Link>
       </main>
       <section>
