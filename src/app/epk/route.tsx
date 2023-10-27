@@ -87,7 +87,7 @@ export async function GET(request: Request) {
         </div>
 
         <p>Northern Virginia</p>
-        <p>musician, model, actor, audio engineer</p>
+        <p>Musician, Model, Actor, Audio Engineer</p>
   
         <div
           style={{
@@ -101,7 +101,7 @@ export async function GET(request: Request) {
         >
           <div style={{display: 'flex', flexDirection: 'column', marginRight: '20px'}}>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <div style={{ display: 'flex', marginBottom: '10px', alignItems: 'center' }}>
+              <div style={{ display: 'flex', marginBottom: '10px', alignItems: 'center', justifyContent:'center', backgroundColor: '#303030', paddingTop: 10, paddingBottom: 10,  paddingLeft: 5, paddingRight: 5, borderRadius: 10,}}>
                 <div
                   style={{
                     display: 'flex',
@@ -111,9 +111,9 @@ export async function GET(request: Request) {
                 >
                   <img
                     src="http://localhost:3000/spotify_icon.png"
-                    alt="headshot of author"
-                    width={75}
-                    height={75}
+                    alt="spotify icon"
+                    width={50}
+                    height={50}
                     style={{
                       objectFit: 'cover',
                       marginBottom: '5px',
@@ -121,55 +121,55 @@ export async function GET(request: Request) {
                   />
                   <img
                     src="http://localhost:3000/applemusic_icon.png"
-                    alt="headshot of author"
-                    width={75}
-                    height={75}
+                    alt="apple icon"
+                    width={50}
+                    height={50}
                     style={{
                       objectFit: 'cover',
                       marginBottom: '5px',
                     }}
                   />
                 </div>
-                <p style={{ marginLeft: '20px' }}>
+                <p style={{ marginLeft: '20px', fontSize: '20px' }}>
                   Niral Desai | 6503 Monthly Listeners
                 </p>
               </div>
   
-              <div style={{ display: 'flex', marginBottom: '10px' }}>
+              <div style={{ display: 'flex', marginBottom: '10px', backgroundColor: '#303030', paddingTop: 10, paddingBottom: 10, paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
                 <img
                   src="http://localhost:3000/instagram_icon.png"
                   alt="Instagram icon"
-                  width={75}
-                  height={75}
+                  width={50}
+                  height={50}
                   style={{ objectFit: 'cover', marginBottom: '5px' }}
                 />
-                <p style={{ marginLeft: '20px' }}>
+                <p style={{ marginLeft: '20px', fontSize: '20px' }}>
                   @niraldesaiofficial | 1638 followers
                 </p>
               </div>
   
-              <div style={{ display: 'flex', marginBottom: '10px' }}>
+              <div style={{ display: 'flex', marginBottom: '10px', backgroundColor: '#303030', paddingTop: 10, paddingBottom: 10, paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
                 <img
                   src="http://localhost:3000/tiktok_icon.png"
                   alt="TikTok icon"
-                  width={75}
-                  height={75}
+                  width={50}
+                  height={50}
                   style={{ objectFit: 'cover', marginBottom: '5px' }}
                 />
-                <p style={{ marginLeft: '20px' }}>
+                <p style={{ marginLeft: '20px', fontSize: '20px' }}>
                   Niraldesai | 948 followers 
                 </p>
               </div>
   
-              <div style={{ display: 'flex' }}>
+              <div style={{ display: 'flex', backgroundColor: '#303030', paddingTop: 10, paddingBottom: 10, paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
                 <img
                   src="http://localhost:3000/twitter_icon.png"
                   alt="Twitter icon"
-                  width={75}
-                  height={75}
+                  width={50}
+                  height={50}
                   style={{ objectFit: 'cover' }}
                 />
-                <p style={{ marginLeft: '20px' }}>
+                <p style={{ marginLeft: '20px', fontSize: '20px' }}>
                   @imniraldesai
                 </p>
               </div>
@@ -180,10 +180,13 @@ export async function GET(request: Request) {
             style={{ 
               display: 'flex',
               flexDirection: 'column',
-              width: '400px',
+              width: '380px',
+              background: 'white',
+              borderRadius: 10,
+              padding: 10,
             }}
           >
-            <p>
+            <p style={{textAlign: 'center', fontSize: 18, color: 'black'}}>
               Niral Desai, the Indian American rapper,
               has taken his unique blend of trap rap and R&B to new heights.
               He&apos;s been featured on Times Square billboards twice and
@@ -197,8 +200,8 @@ export async function GET(request: Request) {
               With only six months of artistry under his belt,
               he&apos;s seen a 10,500% growth rate and doesn&apos;t plan on stopping.
             </p>
-            <p>sync + collabs</p>
           </div>
+          {/*<p>sync + collabs</p>*/}
         </div>
         <p>agent contact: +15402523375</p>
       </div>
