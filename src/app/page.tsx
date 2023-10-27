@@ -1,4 +1,5 @@
-import Link from 'next/link'
+import Link from 'next/link'  
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -20,14 +21,18 @@ export default function Home() {
         <Link
           href="https://tapped.ai"
           className='bg-blue-700 text-white font-extrabold px-4 py-2 rounded-full'>
-          get started
+            join the label
         </Link>
       </main>
       <section>
-        <div className='flex flex-col justify-center items-center p-24'>
-
-        <p>explaination of the process</p>
-        <p>hell, even include a diagram</p>
+        <div className='relative flex flex-col justify-center items-center p-24'>
+          <Image
+            src="/images/diagram.png"
+            alt="diagram of epk generator"
+            fill={true}
+            // layout='responsive'
+            objectFit='contain'
+          />
         </div>
       </section>
       <section>
