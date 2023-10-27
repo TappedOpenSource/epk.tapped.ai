@@ -1,4 +1,4 @@
-import { ImageResponse } from "next/server";
+import { ImageResponse } from "next/og";
 
 // // @ts-ignore
 // import QRCodeImpl from "qr.js/lib/QRCode";
@@ -11,7 +11,11 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const theme = searchParams.get('theme');
 
-  console.log({ theme });
+  const username = searchParams.get('username');
+  const bio = searchParams.get('bio');
+  const profilePicture = searchParams.get('profilePicture') ?? "http://localhost:3000/niral.jpeg";
+
+  console.log({ params: searchParams.keys() });
 
   // const qrcode = new QRCodeImpl(-1, ErrorCorrectLevel[level]);
   // qrcode.addData("https://jonaylor.xyz");
@@ -40,7 +44,7 @@ export async function GET(request: Request) {
             backgroundColor: '#63b2fd',
             borderRadius: '50%',
             filter: 'blur(100px)',
-            zIndex: -1,
+            // zIndex: -1,
             top: '20%',
             left: '-10%',
             width: '420px',
@@ -53,7 +57,7 @@ export async function GET(request: Request) {
             backgroundColor: '#63b2fd',
             borderRadius: '50%',
             filter: 'blur(100px)',
-            zIndex: -1,
+            // zIndex: -1,
             top: '80%',
             right: '0%',
             width: '400px',
@@ -66,7 +70,7 @@ export async function GET(request: Request) {
             backgroundColor: '#63b2fd',
             borderRadius: '50%',
             filter: 'blur(100px)',
-            zIndex: -1,
+            // zIndex: -1,
             bottom: '90%',
             left: '90%',
             width: '600px',
@@ -93,7 +97,7 @@ export async function GET(request: Request) {
             }}
           >
             <img
-              src="http://localhost:3000/niral.jpeg"
+              src={profilePicture}
               alt="headshot of author"
               width={512}
               height={512}
@@ -125,7 +129,7 @@ export async function GET(request: Request) {
               fontSize: '48px'
             }}
           >
-            Niral Desai
+            { username }
           </h1>
         </div>
 
@@ -232,18 +236,7 @@ export async function GET(request: Request) {
             }}
           >
             <p style={{textAlign: 'center', fontSize: 19, color: 'white'}}>
-              Niral Desai, the Indian American rapper,
-              has taken his unique blend of trap rap and R&B to new heights.
-              He&apos;s been featured on Times Square billboards twice and
-              gained over 100,000 streams on music platforms.
-              In addition to his music, Niral is a
-              powerful advocate for mental health and the
-              Indian American community.
-              He has already collaborated with big names in the U.S.
-              music scene and performed at tour stops,
-              including one in Virginia.
-              With only six months of artistry under his belt,
-              he&apos;s seen a 10,500% growth rate and doesn&apos;t plan on stopping.
+              { bio }
             </p>
           </div>
           {/*<p>sync + collabs</p>*/}

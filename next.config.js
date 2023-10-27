@@ -1,9 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: [
-            'localhost',
-            'epk.tapped.ai',
+        remotePatterns: [
+            { 
+                protocol: 'http',
+                hostname: 'localhost', 
+            },
+            {
+                protocol: 'https',
+                hostname: 'epk.tapped.ai',
+            },
         ],
     }
 }
