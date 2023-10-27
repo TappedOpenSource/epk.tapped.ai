@@ -27,12 +27,55 @@ export async function GET(request: Request) {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          backgroundColor: '#353935',
+          backgroundColor: '#15242d',
           color: 'white',
           padding: '20px', 
           paddingTop: '60px',
+          position: 'relative',
         }}
       >
+        <div
+          style={{
+            position: 'absolute',
+            backgroundColor: '#63b2fd',
+            borderRadius: '50%',
+            filter: 'blur(100px)',
+            zIndex: -1,
+            top: '20%',
+            left: '-10%',
+            width: '400px',
+            height: '400px',
+          }}
+        ></div>
+        <div
+          style={{
+            position: 'absolute',
+            backgroundColor: '#63b2fd',
+            borderRadius: '50%',
+            filter: 'blur(100px)',
+            zIndex: -1,
+            top: '80%',
+            right: '0%',
+            width: '400px',
+            height: '400px',
+          }}
+        ></div>
+        <div
+          style={{
+            position: 'absolute',
+            backgroundColor: '#63b2fd',
+            borderRadius: '50%',
+            filter: 'blur(100px)',
+            zIndex: -1,
+            bottom: '90%',
+            left: '90%',
+            width: '600px',
+            height: '600px',
+            transform: 'translateX(-50%)',
+          }}
+        ></div>
+
+
         <div
           style={{
             display: 'flex',
@@ -66,7 +109,7 @@ export async function GET(request: Request) {
                 left: 0,
                 right: 0,
                 height: '50%',
-                backgroundImage: 'linear-gradient(transparent, #353935)',
+                backgroundImage: 'linear-gradient(transparent, #15242d)',
               }}
             ></div>
           </div>
@@ -101,7 +144,7 @@ export async function GET(request: Request) {
         >
           <div style={{display: 'flex', flexDirection: 'column', marginRight: '20px'}}>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <div style={{ display: 'flex', marginBottom: '10px', alignItems: 'center', justifyContent:'center', backgroundColor: '#303030', paddingTop: 10, paddingBottom: 10,  paddingLeft: 5, paddingRight: 5, borderRadius: 10,}}>
+              <div style={{ display: 'flex', marginBottom: '10px', alignItems: 'center', justifyContent:'center', backgroundColor: '#303030', padding: 5, borderRadius: 10,}}>
                 <div
                   style={{
                     display: 'flex',
@@ -112,8 +155,8 @@ export async function GET(request: Request) {
                   <img
                     src="http://localhost:3000/spotify_icon.png"
                     alt="spotify icon"
-                    width={50}
-                    height={50}
+                    width={35}
+                    height={35}
                     style={{
                       objectFit: 'cover',
                       marginBottom: '5px',
@@ -122,11 +165,10 @@ export async function GET(request: Request) {
                   <img
                     src="http://localhost:3000/applemusic_icon.png"
                     alt="apple icon"
-                    width={50}
-                    height={50}
+                    width={30}
+                    height={35}
                     style={{
                       objectFit: 'cover',
-                      marginBottom: '5px',
                     }}
                   />
                 </div>
@@ -135,43 +177,47 @@ export async function GET(request: Request) {
                 </p>
               </div>
   
-              <div style={{ display: 'flex', marginBottom: '10px', backgroundColor: '#303030', paddingTop: 10, paddingBottom: 10, paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', backgroundColor: '#303030', paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
                 <img
                   src="http://localhost:3000/instagram_icon.png"
                   alt="Instagram icon"
-                  width={50}
-                  height={50}
-                  style={{ objectFit: 'cover', marginBottom: '5px' }}
+                  width={35}
+                  height={35}
+                  style={{ objectFit: 'cover', }}
                 />
                 <p style={{ marginLeft: '20px', fontSize: '20px' }}>
                   @niraldesaiofficial | 1638 followers
                 </p>
               </div>
   
-              <div style={{ display: 'flex', marginBottom: '10px', backgroundColor: '#303030', paddingTop: 10, paddingBottom: 10, paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', backgroundColor: '#303030', paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
                 <img
                   src="http://localhost:3000/tiktok_icon.png"
                   alt="TikTok icon"
-                  width={50}
-                  height={50}
-                  style={{ objectFit: 'cover', marginBottom: '5px' }}
+                  width={35}
+                  height={35}
+                  style={{ objectFit: 'cover', }}
                 />
                 <p style={{ marginLeft: '20px', fontSize: '20px' }}>
                   Niraldesai | 948 followers 
                 </p>
               </div>
   
-              <div style={{ display: 'flex', backgroundColor: '#303030', paddingTop: 10, paddingBottom: 10, paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', backgroundColor: '#303030', paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
                 <img
                   src="http://localhost:3000/twitter_icon.png"
                   alt="Twitter icon"
-                  width={50}
-                  height={50}
+                  width={35}
+                  height={35}
                   style={{ objectFit: 'cover' }}
                 />
                 <p style={{ marginLeft: '20px', fontSize: '20px' }}>
                   @imniraldesai
                 </p>
+              </div>
+              <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: '#202020', borderRadius: 10, color: '#63b2fd', paddingLeft: 4, paddingRight: 4}}>
+                  <h2>Top Songs</h2>
+                  <p style={{ fontSize: '20px', }}>Trust Issues: 46,621 | Winning: 30,612</p>
               </div>
             </div>
           </div>
@@ -181,12 +227,11 @@ export async function GET(request: Request) {
               display: 'flex',
               flexDirection: 'column',
               width: '380px',
-              background: 'white',
               borderRadius: 10,
               padding: 10,
             }}
           >
-            <p style={{textAlign: 'center', fontSize: 18, color: 'black'}}>
+            <p style={{textAlign: 'center', fontSize: 19, color: 'white'}}>
               Niral Desai, the Indian American rapper,
               has taken his unique blend of trap rap and R&B to new heights.
               He&apos;s been featured on Times Square billboards twice and
