@@ -1,11 +1,23 @@
 'use client';
 
+import { useState } from 'react';
 import { useAuth } from '@/context/AuthProvider';
 import { getURL } from '@/utils/url';
 import Image from 'next/image';
 
 export default function Results() {
     const { user, claim } = useAuth();
+    const [error, setError] = useState<boolean>(false);
+
+    if (error) {
+        return (
+            <>
+                <div className='min-h-screen flex justify-center items-center'>
+                    <p>There was an error generating your EPK. Please try again later.</p>
+                </div>
+            </>
+        );
+    }
 
     if (user === null) {
         return (
@@ -34,16 +46,50 @@ export default function Results() {
     const url = getURL(`/epk?${urlParams}`);
     console.log({ url });
     return (
-        <div
-            className="min-h-screen flex flex-col justify-center items-center"
-        >
-            <Image
-                src={url}
-                alt="EPK"
-                width={512}
-                height={512}
-                priority
-            />
-        </div>
+        <>
+            <div
+                className="min-h-screen flex flex-col md:flex-row justify-center"
+            >
+                <div className='flex flex-col items-center'>
+                    <div className="h-12" />
+                    <h1 className='text-4xl font-extrabold'>pick your style</h1>
+                    <div className='flex flex-row'>
+                        <div className='p-6'>
+                            <Image
+                                src={url}
+                                alt="EPK"
+                                width={512}
+                                height={512}
+                                priority
+                                onError={(e) => { setError(true) }}
+                                className='rounded-xl'
+                            />
+                        </div>
+                        <div className='p-6'>
+                            <Image
+                                src={url}
+                                alt="EPK"
+                                width={512}
+                                height={512}
+                                priority
+                                onError={(e) => { setError(true) }}
+                                className='rounded-xl'
+                            />
+                        </div>
+                        <div className='p-6'>
+                            <Image
+                                src={url}
+                                alt="EPK"
+                                width={512}
+                                height={512}
+                                priority
+                                onError={(e) => { setError(true) }}
+                                className='rounded-xl'
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
     );
 }
