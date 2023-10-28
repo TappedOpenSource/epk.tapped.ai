@@ -31,12 +31,14 @@ export default function Results() {
         user: userString,
         theme: 'tapped',
     }).toString();
+    const url = getURL(`/epk?${urlParams}`);
+    console.log({ url });
     return (
         <div
             className="min-h-screen flex flex-col justify-center items-center"
         >
             <Image
-                src={getURL(`/epk?${urlParams}`)}
+                src={url}
                 alt="EPK"
                 width={512}
                 height={512}
