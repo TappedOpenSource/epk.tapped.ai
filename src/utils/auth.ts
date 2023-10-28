@@ -3,6 +3,7 @@ import {
     createUserWithEmailAndPassword,
     GoogleAuthProvider,
     signInWithPopup,
+    onAuthStateChanged,
 } from "firebase/auth";
 import { auth } from "@/utils/firebase";
 

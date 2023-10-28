@@ -1,21 +1,11 @@
 'use client';
 
-import { UserModel } from '@/types/user_model';
-import { getCurrentUser } from '@/utils/database';
+import { useAuth } from '@/context/AuthProvider';
 import { getURL } from '@/utils/url';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
 
 export default function Results() {
-    const [user, setUser] = useState<UserModel | null>(null);
-    useEffect(() => {
-        const fetchUser = async () => {
-            const currentUser = await getCurrentUser();
-            setUser(currentUser);
-        }
-
-        fetchUser();
-    }, []);
+    const { user } = useAuth();
 
     if (user === null) {
         return (

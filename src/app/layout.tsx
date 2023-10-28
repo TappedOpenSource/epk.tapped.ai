@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react';
 import { Rubik } from 'next/font/google'
 import './globals.css'
+import { AuthContextProvider } from '@/context/AuthProvider';
 
 const rubik = Rubik({
   subsets: ['latin'],
@@ -13,6 +14,8 @@ export const metadata: Metadata = {
   description: 'create your unique electronic press kit (EPK) in minutes',
 }
 
+export const dynamic = 'force-dynamic';
+
 export default function RootLayout({
   children,
 }: {
@@ -20,7 +23,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={rubik.className}>{children}</body>
+      <body className={rubik.className}>
+        <AuthContextProvider>
+          {children}
+        </AuthContextProvider>
+      </body>
       <Analytics />
     </html>
   )
