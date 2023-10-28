@@ -1,3 +1,4 @@
+import { getURL } from "@/utils/url";
 import { ImageResponse } from "next/og";
 
 // // @ts-ignore
@@ -95,7 +96,7 @@ export async function GET(request: Request) {
               width: '100%',
               height: '100%',
               overflow: 'hidden',
-              borderRadius: '10%',
+              borderRadius: '5%',
             }}
           >
             <img
@@ -160,7 +161,7 @@ export async function GET(request: Request) {
                   }}
                 >
                   <img
-                    src="http://localhost:3000/spotify_icon.png"
+                    src={getURL('/spotify_icon.png')}
                     alt="spotify icon"
                     width={35}
                     height={35}
@@ -170,7 +171,7 @@ export async function GET(request: Request) {
                     }}
                   />
                   <img
-                    src="http://localhost:3000/applemusic_icon.png"
+                    src={getURL('/applemusic_icon.png')}
                     alt="apple icon"
                     width={30}
                     height={35}
@@ -186,7 +187,7 @@ export async function GET(request: Request) {
   
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
                 <img
-                  src="http://localhost:3000/instagram_icon.png"
+                  src={getURL("/instagram_icon.png")}
                   alt="Instagram icon"
                   width={35}
                   height={35}
@@ -199,7 +200,7 @@ export async function GET(request: Request) {
   
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
                 <img
-                  src="http://localhost:3000/tiktok_icon.png"
+                  src={getURL("/tiktok_icon.png")}
                   alt="TikTok icon"
                   width={35}
                   height={35}
@@ -212,7 +213,7 @@ export async function GET(request: Request) {
   
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
                 <img
-                  src="http://localhost:3000/twitter_icon.png"
+                  src={getURL("/twitter_icon.png")}
                   alt="Twitter icon"
                   width={35}
                   height={35}
