@@ -11,11 +11,6 @@ export const runtime = 'edge';
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const theme = searchParams.get('theme');
-  // const username = searchParams.get('username');
-  // const bio = searchParams.get('bio');
-  // const profilePicture = searchParams.get('profilePicture') ?? "http://localhost:3000/niral.jpeg";
-  // const overallRating = searchParams.get('profilePicture');
-
   const userString = searchParams.get('user') ?? '';
   const user = JSON.parse(userString);
 
