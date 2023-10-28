@@ -5,8 +5,10 @@ import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { loginWithCredentials } from '@/utils/auth';
 import ContinueWithGoogleButton from '@/components/continue_with_google_button';
+import { useAuth } from '@/context/AuthProvider';
 
 export default function Login() {
+
     const router = useRouter();
     const [data, setData] = useState({
         email: '',
@@ -15,6 +17,12 @@ export default function Login() {
     const searchParams = useSearchParams();
     const returnTo = searchParams.get('returnUrl') || '/tmp_home';
     console.log({ returnTo });
+
+    const { user } = useAuth();
+    if (user) {
+        router.push(returnTo);
+        return;
+    }
 
     const handleLogin = async (e: any) => {
         e.preventDefault();
