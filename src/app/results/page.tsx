@@ -5,7 +5,7 @@ import { getURL } from '@/utils/url';
 import Image from 'next/image';
 
 export default function Results() {
-    const { user } = useAuth();
+    const { user, claim } = useAuth();
 
     if (user === null) {
         return (
@@ -17,7 +17,7 @@ export default function Results() {
         );
     }
 
-    console.log({ user });
+    console.log({ user, claim });
     const userString = JSON.stringify({
         ...user,
         appleMusicHandle: '',
