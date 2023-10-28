@@ -1,4 +1,3 @@
-import { getURL } from "@/utils/url";
 import { ImageResponse } from "next/og";
 import TappedTheme from "./tapped_theme";
 
