@@ -1,3 +1,4 @@
+import { UserModel } from "@/types/user_model";
 import { getURL } from "@/utils/url";
 
 export default function TappedTheme({
@@ -10,17 +11,7 @@ export default function TappedTheme({
     twitterHandle,
     spotifyHandle,
     phoneNumber,
-}: {
-    username: string,
-    bio: string,
-    profilePicture: string,
-    overallRating: string,
-    tiktokHandle: string,
-    instagramHandle: string,
-    twitterHandle: string,
-    spotifyHandle: string,
-    phoneNumber: string,
-}) {
+}: Omit<UserModel, "id"> & { phoneNumber: string; spotifyHandle: string; }) {
     return (
         <div
             style={{

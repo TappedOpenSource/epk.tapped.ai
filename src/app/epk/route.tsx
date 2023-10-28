@@ -15,6 +15,7 @@ export async function GET(request: Request) {
   const user = JSON.parse(userString);
 
   const {
+    artistName,
     username,
     bio,
     profilePicture,
@@ -26,6 +27,7 @@ export async function GET(request: Request) {
     phoneNumber,
   } = user;
   console.log({
+    artistName,
     username,
     bio,
     profilePicture,
@@ -44,6 +46,7 @@ export async function GET(request: Request) {
 
   return new ImageResponse(
     <TappedTheme
+      artistName={artistName}
       username={username}
       bio={bio}
       profilePicture={profilePicture}
