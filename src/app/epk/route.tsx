@@ -19,7 +19,28 @@ export async function GET(request: Request) {
   const userString = searchParams.get('user') ?? '';
   const user = JSON.parse(userString);
 
-  const { username, bio, profilePicture, overallRating } = user;
+  const {
+    username,
+    bio,
+    profilePicture,
+    overallRating,
+    tiktokHandle,
+    instagramHandle,
+    twitterHandle,
+    spotifyHandle,
+    phoneNumber,
+  } = user;
+  console.log({
+    username,
+    bio,
+    profilePicture,
+    overallRating,
+    tiktokHandle,
+    instagramHandle,
+    twitterHandle,
+    spotifyHandle,
+    phoneNumber,
+  })
   // const qrcode = new QRCodeImpl(-1, ErrorCorrectLevel[level]);
   // qrcode.addData("https://jonaylor.xyz");
   // qrcode.make();
@@ -37,7 +58,7 @@ export async function GET(request: Request) {
           alignItems: 'center',
           backgroundColor: '#15242d',
           color: 'white',
-          padding: '20px', 
+          padding: '20px',
           paddingTop: '60px',
           position: 'relative',
         }}
@@ -120,7 +141,7 @@ export async function GET(request: Request) {
               }}
             ></div>
           </div>
-  
+
           <h1
             style={{
               display: 'flex',
@@ -132,14 +153,14 @@ export async function GET(request: Request) {
               fontSize: '48px'
             }}
           >
-            { username }
+            {username}
           </h1>
         </div>
 
         <p>Northern Virginia</p>
         <p>{overallRating} / 5 stars on Tapped</p>
         <p>Musician, Model, Actor, Audio Engineer</p>
-  
+
         <div
           style={{
             display: 'flex',
@@ -150,88 +171,87 @@ export async function GET(request: Request) {
             padding: '0 20px'
           }}
         >
-          <div style={{display: 'flex', flexDirection: 'column', marginRight: '20px'}}>
+          <div style={{ display: 'flex', flexDirection: 'column', marginRight: '20px' }}>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <div style={{ display: 'flex', marginBottom: '10px', alignItems: 'center', justifyContent:'center', padding: 5, borderRadius: 10,}}>
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                  }}
-                >
+              {(spotifyHandle !== undefined && spotifyHandle !== null && spotifyHandle !== '')
+                ? < div style={{ display: 'flex', marginBottom: '10px', alignItems: 'center', justifyContent: 'center', padding: 5, borderRadius: 10, }}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <img
+                      src={getURL('/spotify_icon.png')}
+                      alt="spotify icon"
+                      width={35}
+                      height={35}
+                      style={{
+                        objectFit: 'cover',
+                        marginBottom: '5px',
+                      }}
+                    />
+                  </div>
+                  <p style={{ marginLeft: '20px', fontSize: '20px' }}>
+                    {spotifyHandle} | 6503 Monthly Listeners
+                  </p>
+                </div>
+                : null}
+              {(instagramHandle !== undefined && instagramHandle !== null && instagramHandle !== '')
+                ? <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
                   <img
-                    src={getURL('/spotify_icon.png')}
-                    alt="spotify icon"
+                    src={getURL("/instagram_icon.png")}
+                    alt="Instagram icon"
                     width={35}
                     height={35}
-                    style={{
-                      objectFit: 'cover',
-                      marginBottom: '5px',
-                    }}
+                    style={{ objectFit: 'cover', }}
                   />
-                  <img
-                    src={getURL('/applemusic_icon.png')}
-                    alt="apple icon"
-                    width={30}
-                    height={35}
-                    style={{
-                      objectFit: 'cover',
-                    }}
-                  />
+                  <p style={{ marginLeft: '20px', fontSize: '20px' }}>
+                    @{instagramHandle} | 1638 followers
+                  </p>
                 </div>
-                <p style={{ marginLeft: '20px', fontSize: '20px' }}>
-                  Niral Desai | 6503 Monthly Listeners
-                </p>
-              </div>
-  
-              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
-                <img
-                  src={getURL("/instagram_icon.png")}
-                  alt="Instagram icon"
-                  width={35}
-                  height={35}
-                  style={{ objectFit: 'cover', }}
-                />
-                <p style={{ marginLeft: '20px', fontSize: '20px' }}>
-                  @niraldesaiofficial | 1638 followers
-                </p>
-              </div>
-  
-              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
-                <img
-                  src={getURL("/tiktok_icon.png")}
-                  alt="TikTok icon"
-                  width={35}
-                  height={35}
-                  style={{ objectFit: 'cover', }}
-                />
-                <p style={{ marginLeft: '20px', fontSize: '20px' }}>
-                  Niraldesai | 948 followers 
-                </p>
-              </div>
-  
-              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
-                <img
-                  src={getURL("/twitter_icon.png")}
-                  alt="Twitter icon"
-                  width={35}
-                  height={35}
-                  style={{ objectFit: 'cover' }}
-                />
-                <p style={{ marginLeft: '20px', fontSize: '20px' }}>
-                  @imniraldesai
-                </p>
-              </div>
-              <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: '#202020', borderRadius: 10, color: '#63b2fd', paddingLeft: 4, paddingRight: 4}}>
-                  <h2>Top Songs</h2>
-                  <p style={{ fontSize: '20px', }}>Trust Issues: 46,621 | Winning: 30,612</p>
+                : null}
+
+              {(tiktokHandle !== undefined && tiktokHandle !== null && tiktokHandle !== '')
+                ? <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
+                  <img
+                    src={getURL("/tiktok_icon.png")}
+                    alt="TikTok icon"
+                    width={35}
+                    height={35}
+                    style={{ objectFit: 'cover', }}
+                  />
+                  <p style={{ marginLeft: '20px', fontSize: '20px' }}>
+                    @{tiktokHandle} | 948 followers
+                  </p>
+                </div>
+                : null}
+
+              {(twitterHandle !== undefined && twitterHandle !== null && twitterHandle !== '')
+                ? <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
+                  <img
+                    src={getURL("/twitter_icon.png")}
+                    alt="Twitter icon"
+                    width={35}
+                    height={35}
+                    style={{ objectFit: 'cover' }}
+                  />
+                  <p style={{ marginLeft: '20px', fontSize: '20px' }}>
+                    @{twitterHandle}
+                  </p>
+                </div>
+                : null}
+
+              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: '#202020', borderRadius: 10, color: '#63b2fd', paddingLeft: 4, paddingRight: 4 }}>
+                <h2>Top Songs</h2>
+                <p style={{ fontSize: '20px', }}>Trust Issues: 46,621 | Winning: 30,612</p>
               </div>
             </div>
           </div>
-  
-          <div 
-            style={{ 
+
+          <div
+            style={{
               display: 'flex',
               flexDirection: 'column',
               width: '380px',
@@ -239,14 +259,16 @@ export async function GET(request: Request) {
               padding: 10,
             }}
           >
-            <p style={{textAlign: 'center', fontSize: 19, color: 'white'}}>
-              { bio }
+            <p style={{ textAlign: 'center', fontSize: 19, color: 'white' }}>
+              {bio}
             </p>
           </div>
           {/*<p>sync + collabs</p>*/}
         </div>
-        <p>agent contact: +15402523375</p>
-      </div>
+        {(phoneNumber !== undefined && phoneNumber !== null && phoneNumber !== '')
+          ? <p>agent contact: {phoneNumber}</p>
+          : null}
+      </div >
     ),
     {
       height: 1200,
@@ -254,10 +276,10 @@ export async function GET(request: Request) {
       debug: false,
     },
   );
-  
+
 }
 
-        {/* <div
+{/* <div
           style={{
             display: 'flex',
             flexDirection: 'column',

@@ -28,7 +28,11 @@ export default function Results() {
     }
 
     console.log({ user });
-    const userString = JSON.stringify(user);
+    const userString = JSON.stringify({
+        ...user,
+        appleMusicHandle: '',
+        phoneNumber: '',
+    });
     // const urlParams = Object.entries(user).map(([key, val]) => {
     //     const value = encodeURIComponent(val);
     //     return `${key}=${value}`;
