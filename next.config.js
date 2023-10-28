@@ -10,6 +10,10 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'epk.tapped.ai',
             },
+            {
+                protocol: 'https',
+                hostname: 'getmusicepk.com',
+            },
         ],
     }
 }
