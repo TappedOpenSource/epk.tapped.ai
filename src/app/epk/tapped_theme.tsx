@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import { UserModel } from "@/types/user_model";
 import { getURL } from "@/utils/url";
 
@@ -209,9 +211,11 @@ export default function TappedTheme({
                                 </p>
                             </div>
                             : null}
-                        <div tw="flex flex-shrink-0 border -mt-24 justify-between p-2">
+                        <div style={{
+                            display: 'flex',
+                        }}>
                             <img
-                                src={`https://api.qrserver.com/v1/create-qr-code/?size=84x84&bgcolor=0f172a&color=cbd5e1&data=${`https://instagram.com/${instagramHandle}`}`}
+                                src={`https://api.qrserver.com/v1/create-qr-code/?size=24x24&bgcolor=010F16&color=cbd5e1&data=${`https://instagram.com/${instagramHandle}`}`}
                             />
                         </div>
                         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: '#202020', borderRadius: 10, color: '#63b2fd', paddingLeft: 4, paddingRight: 4 }}>
