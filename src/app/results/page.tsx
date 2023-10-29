@@ -15,7 +15,7 @@ const themes: EPKTheme[] = [
 export default function Results() {
     const { user, claim } = useAuth();
     const [error, setError] = useState<boolean>(false);
-    const [selectedtheme, setselectedtheme] = useState<EPKTheme | null>(null);
+    const [selectedtheme, setselectedtheme] = useState<number | null>(null);
 
     if (error) {
         return (
@@ -37,7 +37,7 @@ export default function Results() {
         );
     }
 
-    console.log({ user, claim });
+    console.debug({ user, claim });
     const userString = JSON.stringify({
         ...user,
         appleMusicHandle: '',
@@ -66,10 +66,12 @@ export default function Results() {
                     <div className="h-12" />
                     <h1 className='text-4xl font-extrabold'>pick your style</h1>
                     <div className='flex flex-row'>
-                        {imageUrls.map(({ url, theme }, index) => (
+                        {imageUrls.map(({ url }, index) => (
                             <div
                                 key={index}
-                                className='p-6'>
+                                onClick={() => { setselectedtheme(index) }}
+                                className={`m-6 rounded-xl ${(selectedtheme === index) && 'border-4 border-white'}`}
+                                >
                                 <Image
                                     src={url}
                                     alt="EPK"
@@ -77,8 +79,7 @@ export default function Results() {
                                     height={512}
                                     priority
                                     onError={(e) => { setError(true) }}
-                                    className='rounded-xl'
-                                    onClick={() => { setselectedtheme(theme) }}
+                                    className='rounded-lg'
                                 />
                             </div>
                         ),
