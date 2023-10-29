@@ -7,7 +7,7 @@ export default function Home() {
       <main className="flex min-h-screen flex-col items-start justify-center p-24">
         {/* Nav Bar */}
         <h1
-          className='uppercase text-3xl md:text-9xl font-black'
+          className='uppercase text-3xl md:text-9xl font-black w-3/4'
         >
           your {' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-800 to-sky-300">

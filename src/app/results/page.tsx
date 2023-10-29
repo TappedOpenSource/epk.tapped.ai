@@ -4,10 +4,18 @@ import { useState } from 'react';
 import { useAuth } from '@/context/AuthProvider';
 import { getURL } from '@/utils/url';
 import Image from 'next/image';
+import { EPKTheme } from '@/types/themes';
+
+const themes: EPKTheme[] = [
+    'tapped',
+    'tapped',
+    'tapped',
+];
 
 export default function Results() {
     const { user, claim } = useAuth();
     const [error, setError] = useState<boolean>(false);
+    const [selectedtheme, setselectedtheme] = useState<EPKTheme | null>(null);
 
     if (error) {
         return (
@@ -39,12 +47,16 @@ export default function Results() {
     //     const value = encodeURIComponent(val);
     //     return `${key}=${value}`;
     // }).join('&');
-    const urlParams = new URLSearchParams({
-        user: userString,
-        theme: 'tapped',
-    }).toString();
-    const url = getURL(`/epk?${urlParams}`);
-    console.log({ url });
+    const imageUrls = themes.map((theme) => {
+        const urlParams = new URLSearchParams({
+            user: userString,
+            theme,
+        }).toString();
+        return {
+            theme,
+            url: getURL(`/epk?${urlParams}`),
+        };
+    })
     return (
         <>
             <div
@@ -54,39 +66,23 @@ export default function Results() {
                     <div className="h-12" />
                     <h1 className='text-4xl font-extrabold'>pick your style</h1>
                     <div className='flex flex-row'>
-                        <div className='p-6'>
-                            <Image
-                                src={url}
-                                alt="EPK"
-                                width={512}
-                                height={512}
-                                priority
-                                onError={(e) => { setError(true) }}
-                                className='rounded-xl'
-                            />
-                        </div>
-                        <div className='p-6'>
-                            <Image
-                                src={url}
-                                alt="EPK"
-                                width={512}
-                                height={512}
-                                priority
-                                onError={(e) => { setError(true) }}
-                                className='rounded-xl'
-                            />
-                        </div>
-                        <div className='p-6'>
-                            <Image
-                                src={url}
-                                alt="EPK"
-                                width={512}
-                                height={512}
-                                priority
-                                onError={(e) => { setError(true) }}
-                                className='rounded-xl'
-                            />
-                        </div>
+                        {imageUrls.map(({ url, theme }, index) => (
+                            <div
+                                key={index}
+                                className='p-6'>
+                                <Image
+                                    src={url}
+                                    alt="EPK"
+                                    width={512}
+                                    height={512}
+                                    priority
+                                    onError={(e) => { setError(true) }}
+                                    className='rounded-xl'
+                                    onClick={() => { setselectedtheme(theme) }}
+                                />
+                            </div>
+                        ),
+                        )}
                     </div>
                 </div>
             </div>
