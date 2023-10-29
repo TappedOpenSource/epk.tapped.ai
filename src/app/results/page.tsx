@@ -143,7 +143,7 @@ export default function Results() {
                                     rel="noreferrer"
                                     className='text-2xl font-bold px-12 py-2 rounded-xl bg-blue-300 text-black hover:scale-105 transform transition-all duration-200 ease-in-out'
                                 >
-                                    download
+                                    get as png
                                 </Link>
                                 <button
                                     onClick={() => pdfHandler(selectedTheme)}
