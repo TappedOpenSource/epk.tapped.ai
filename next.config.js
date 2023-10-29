@@ -14,6 +14,10 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'getmusicepk.com',
             },
+            {
+                protocol: 'https',
+                hostname: 'www.getmusicepk.com',
+            },
         ],
     }
 }
