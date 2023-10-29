@@ -15,7 +15,7 @@ export default function Login() {
         password: '',
     });
     const searchParams = useSearchParams();
-    const returnTo = searchParams.get('returnUrl') || '/tmp_home';
+    const returnTo = searchParams.get('returnUrl') || '/';
     console.log({ returnTo });
 
     const { user } = useAuth();
