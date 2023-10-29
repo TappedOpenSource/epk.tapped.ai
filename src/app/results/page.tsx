@@ -14,7 +14,6 @@ import SVGtoPDF from 'svg-to-pdfkit'
 import blobStream from 'blob-stream'
 import { generateEpkSvg } from '@/utils/image_generation';
 import { useRouter } from 'next/navigation';
-import EPKSVG from '@/components/epk_svg';
 
 const themes: EPKTheme[] = [
     'tapped',
