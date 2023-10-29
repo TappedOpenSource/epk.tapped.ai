@@ -5,6 +5,7 @@ import { useAuth } from '@/context/AuthProvider';
 import { getURL } from '@/utils/url';
 import Image from 'next/image';
 import { EPKTheme } from '@/types/themes';
+import Link from 'next/link';
 
 const themes: EPKTheme[] = [
     'tapped',
@@ -15,7 +16,7 @@ const themes: EPKTheme[] = [
 export default function Results() {
     const { user, claim } = useAuth();
     const [error, setError] = useState<boolean>(false);
-    const [selectedtheme, setselectedtheme] = useState<number | null>(null);
+    const [selectedTheme, setSelectedTheme] = useState<number | null>(null);
 
     if (error) {
         return (
@@ -69,9 +70,9 @@ export default function Results() {
                         {imageUrls.map(({ url }, index) => (
                             <div
                                 key={index}
-                                onClick={() => { setselectedtheme(index) }}
-                                className={`m-6 rounded-xl ${(selectedtheme === index) && 'border-4 border-white'}`}
-                                >
+                                onClick={() => { setSelectedTheme(index) }}
+                                className={`m-6 rounded-xl ${(selectedTheme === index) && 'border-4 border-white'}`}
+                            >
                                 <Image
                                     src={url}
                                     alt="EPK"
@@ -85,6 +86,16 @@ export default function Results() {
                         ),
                         )}
                     </div>
+                    {selectedTheme !== null && (
+                        <Link
+                            href={imageUrls[selectedTheme].url}
+                            download="epk.png"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            download
+                        </Link>
+                    )}
                 </div>
             </div>
         </>
