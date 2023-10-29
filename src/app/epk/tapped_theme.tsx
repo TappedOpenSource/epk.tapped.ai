@@ -2,7 +2,7 @@ import { UserModel } from "@/types/user_model";
 import { getURL } from "@/utils/url";
 
 export default function TappedTheme({
-    username,
+    artistName,
     bio,
     profilePicture,
     overallRating,
@@ -11,7 +11,10 @@ export default function TappedTheme({
     twitterHandle,
     spotifyHandle,
     phoneNumber,
-}: Omit<UserModel, "id"> & { phoneNumber: string; spotifyHandle: string; }) {
+}: Omit<UserModel, "id"> & { 
+    phoneNumber: string; 
+    spotifyHandle: string; 
+}) {
     return (
         <div
             style={{
@@ -117,7 +120,7 @@ export default function TappedTheme({
                         fontSize: '48px'
                     }}
                 >
-                    {username}
+                    {artistName}
                 </h1>
             </div>
 

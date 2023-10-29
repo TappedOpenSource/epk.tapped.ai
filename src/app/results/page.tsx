@@ -7,16 +7,63 @@ import Image from 'next/image';
 import { EPKTheme } from '@/types/themes';
 import Link from 'next/link';
 
+// @ts-ignore
+import PDFDocument from 'pdfkit/js/pdfkit.standalone'
+
+import SVGtoPDF from 'svg-to-pdfkit'
+import blobStream from 'blob-stream'
+import { generateEpkSvg } from '@/utils/image_generation';
+import { useRouter } from 'next/navigation';
+
 const themes: EPKTheme[] = [
     'tapped',
     'tapped',
     'tapped',
 ];
 
+const width = 900;
+const height = 1200;
+
 export default function Results() {
+    const router = useRouter();
     const { user, claim } = useAuth();
     const [error, setError] = useState<boolean>(false);
     const [selectedTheme, setSelectedTheme] = useState<number | null>(null);
+    const [objectUrl, setObjectURL] = useState<string | null>(null);
+
+    const pdfHandler = async (themeIndex: number) => {
+        if (user === null) {
+            return;
+        }
+
+        let tmpObjectUrl = '';
+        const result = await generateEpkSvg({
+            ...user,
+            spotifyHandle: '',
+            phoneNumber: '',
+            height,
+            width,
+        });
+
+        const doc = new PDFDocument({
+            compress: false,
+            size: [width, height],
+        })
+        SVGtoPDF(doc, result, 0, 0, {
+            width,
+            height,
+            preserveAspectRatio: `xMidYMid meet`,
+        })
+        const stream = doc.pipe(blobStream())
+        stream.on('finish', () => {
+            const blob = stream.toBlob('application/pdf')
+            tmpObjectUrl = URL.createObjectURL(blob)
+            setObjectURL(tmpObjectUrl)
+            console.log({ tmpObjectUrl })
+            router.push(tmpObjectUrl);
+        })
+        doc.end()
+    }
 
     if (error) {
         return (
@@ -87,14 +134,25 @@ export default function Results() {
                         )}
                     </div>
                     {selectedTheme !== null && (
-                        <Link
-                            href={imageUrls[selectedTheme].url}
-                            download="epk.png"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            download
-                        </Link>
+                        <>
+                            <div className='flex flex-col md:flex-row gap-4'>
+                                <Link
+                                    href={imageUrls[selectedTheme].url}
+                                    download="epk.png"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className='text-2xl font-bold px-12 py-2 rounded-xl bg-blue-300 text-black hover:scale-105 transform transition-all duration-200 ease-in-out'
+                                >
+                                    download
+                                </Link>
+                                <button
+                                    onClick={() => pdfHandler(selectedTheme)}
+                                    className='text-2xl font-bold px-12 py-2 rounded-xl bg-blue-300 text-black hover:scale-105 transform transition-all duration-200 ease-in-out'
+                                >
+                                    get as pdf
+                                </button>
+                            </div>
+                        </>
                     )}
                 </div>
             </div>

@@ -6,6 +6,9 @@ import TappedTheme from "./tapped_theme";
 // // @ts-ignore
 // import ErrorCorrectLevel from "qr.js/lib/ErrorCorrectLevel";
 
+const width = 900;
+const height = 1200;
+
 export const runtime = 'edge';
 
 export async function GET(request: Request) {
@@ -58,12 +61,11 @@ export async function GET(request: Request) {
       phoneNumber={phoneNumber}
     />,
     {
-      height: 1200,
-      width: 900,
+      height,
+      width,
       debug: false,
     },
   );
-
 }
 
 {/* <div
