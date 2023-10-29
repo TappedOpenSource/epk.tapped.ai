@@ -13,6 +13,7 @@ import { UserModel } from '@/types/user_model';
 import { getUser } from '@/utils/database';
 import { getCustomClaims } from '@/utils/auth';
 import { useRouter } from 'next/navigation';
+import Loading from '@/components/loading';
 
 // Create the authentication context
 export const AuthContext = createContext<{
@@ -70,7 +71,7 @@ export function AuthContextProvider({
   return (
     <>
       <AuthContext.Provider value={{ authUser, user, claim }}>
-        {loading ? <div>Loading...</div> : children}
+        {loading ? <Loading /> : children}
       </AuthContext.Provider>
     </>
   );
