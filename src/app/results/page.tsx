@@ -14,6 +14,7 @@ import SVGtoPDF from 'svg-to-pdfkit'
 import blobStream from 'blob-stream'
 import { generateEpkSvg } from '@/utils/image_generation';
 import { useRouter } from 'next/navigation';
+import EPKSVG from '@/components/epk_svg';
 
 const themes: EPKTheme[] = [
     'tapped',
@@ -128,7 +129,7 @@ export default function Results() {
                     <div className="h-12" />
                     <h1 className='text-4xl font-extrabold'>pick your style</h1>
                     <div className='flex flex-row'>
-                        {imageUrls.map(({ url }, index) => (
+                        {imageUrls.map(({ url, params }, index) => (
                             <div
                                 key={index}
                                 onClick={() => { setSelectedTheme(index) }}
