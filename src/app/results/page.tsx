@@ -100,9 +100,23 @@ export default function Results() {
             user: userString,
             theme,
         }).toString();
+        generateEpkSvg({
+            ...user,
+            spotifyHandle: '',
+            phoneNumber: '',
+            width,
+            height,
+        }).then((result) => {
+            console.log({ result });
+        });
         return {
             theme,
             url: getURL(`/epk?${urlParams}`),
+            params: {
+                ...user,
+                spotifyHandle: '',
+                phoneNumber: '',
+            },
         };
     })
     return (

@@ -11,9 +11,9 @@ export default function TappedTheme({
     twitterHandle,
     spotifyHandle,
     phoneNumber,
-}: Omit<UserModel, "id"> & { 
-    phoneNumber: string; 
-    spotifyHandle: string; 
+}: Omit<UserModel, "id"> & {
+    phoneNumber: string;
+    spotifyHandle: string;
 }) {
     return (
         <div
@@ -209,7 +209,11 @@ export default function TappedTheme({
                                 </p>
                             </div>
                             : null}
-
+                        <div tw="flex flex-shrink-0 border -mt-24 justify-between p-2">
+                            <img
+                                src={`https://api.qrserver.com/v1/create-qr-code/?size=84x84&bgcolor=0f172a&color=cbd5e1&data=${`https://instagram.com/${instagramHandle}`}`}
+                            />
+                        </div>
                         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: '#202020', borderRadius: 10, color: '#63b2fd', paddingLeft: 4, paddingRight: 4 }}>
                             <h2>Top Songs</h2>
                             <p style={{ fontSize: '20px', }}>Trust Issues: 46,621 | Winning: 30,612</p>
