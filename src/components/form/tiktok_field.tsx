@@ -42,7 +42,7 @@ const TiktokField = ({ formData, updateFormData, onValidation }) => {
         <div className="flex h-full w-full items-center justify-center">
           <input
             type="text"
-            name="tiktok"
+            name="tiktokHandle"
             placeholder="type here..."
             value={formData['tiktokHandle'] || ''}
             onChange={handleInputChange}

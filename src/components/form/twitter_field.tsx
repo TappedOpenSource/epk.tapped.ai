@@ -42,7 +42,7 @@ const TwitterField = ({ formData, updateFormData, onValidation }) => {
         <div className="flex h-full w-full items-center justify-center">
           <input
             type="text"
-            name="twitter"
+            name="twitterHandle"
             placeholder="type here..."
             value={formData['twitterHandle'] || ''}
             onChange={handleInputChange}
