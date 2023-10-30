@@ -17,7 +17,6 @@ import TiktokField from '@/components/form/tiktok_field';
 import TwitterField from '@/components/form/twitter_field';
 import NotableSongsField from '@/components/form/notable_songs_field';
 import AgentField from '@/components/form/agent_field';
-import ThemeField from '@/components/form/theme_field';
 import ImageUploadField from '@/components/form/image_field';
 
 const EpkForm: NextPage = () => {
@@ -31,7 +30,6 @@ const EpkForm: NextPage = () => {
     NameField,
     ImageUploadField,
     BioField,
-    SubmitField,
     LocationField,
     CareerField,
     SpotifyField,
@@ -40,7 +38,7 @@ const EpkForm: NextPage = () => {
     TwitterField,
     NotableSongsField,
     AgentField,
-    ThemeField,
+    SubmitField,
   ];
 
   useEffect(() => {
