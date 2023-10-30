@@ -1,25 +1,34 @@
 import React, { useEffect, useState } from 'react';
 
-const CareerField = ({ formData, updateFormData, onValidation }) => {
+const CareerField = ({ formData, updateFormData, onValidation, user }) => {
   const [error, setError] = useState(null);
 
+  useEffect(() => {
+    if (user && user.occupations) {
+      updateFormData({
+        ...formData,
+        career: user.occupations,
+      });
+    }
+  }, [user]);
+
   const validateForUI = (value) => {
-    if (value.trim() === '') {
+    if (Array.isArray(value) && value.length === 0) {
       setError('career cannot be empty');
       onValidation(false);
     } else {
       setError(null);
       onValidation(true);
     }
-  };
+};
 
-  const justValidate = (value) => {
-    if (value.trim() === '') {
+const justValidate = (value) => {
+    if (Array.isArray(value) && value.length === 0) {
       onValidation(false);
     } else {
       onValidation(true);
     }
-  };
+};
 
   useEffect(() => {
     justValidate(formData['career'] || '');
@@ -27,11 +36,13 @@ const CareerField = ({ formData, updateFormData, onValidation }) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    const arrayValue = value.split(',').map(item => item.trim());
+
     updateFormData({
       ...formData,
-      [name]: value,
+      [name]: arrayValue,
     });
-    validateForUI(value);
+    validateForUI(arrayValue);
   };
 
   return (
@@ -45,7 +56,7 @@ const CareerField = ({ formData, updateFormData, onValidation }) => {
             type="text"
             name="career"
             placeholder="type here..."
-            value={formData['career'] || ''}
+            value={formData['career'] ? formData['career'].join(', ') : ''}
             onChange={handleInputChange}
             className={`white_placeholder w-full appearance-none rounded ${
               error ? 'border-2 border-red-500' : ''

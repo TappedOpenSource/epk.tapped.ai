@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
-const BioField = ({ formData, updateFormData, onValidation }) => {
+const BioField = ({ formData, updateFormData, onValidation, user }) => {
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (user && user.bio) {
+      updateFormData({
+        ...formData,
+        bio: user.bio,
+      });
+    }
+  }, [user]);
 
   const validateForUI = (value) => {
     if (value.trim() === '') {

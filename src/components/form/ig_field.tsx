@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
-const IgField = ({ formData, updateFormData, onValidation }) => {
+const IgField = ({ formData, updateFormData, onValidation, user }) => {
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (user && user.instagramHandle) {
+      updateFormData({
+        ...formData,
+        instagramHandle: user.instagramHandle,
+      });
+    }
+  }, [user]);
 
   const validateForUI = (value) => {
     if (value.trim() === '') {
