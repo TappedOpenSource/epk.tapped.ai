@@ -26,7 +26,7 @@ export async function GET(request: Request) {
     tiktokHandle,
     instagramHandle,
     twitterHandle,
-    spotifyHandle,
+    spotifyId,
     phoneNumber,
   } = user;
   console.log({
@@ -38,7 +38,7 @@ export async function GET(request: Request) {
     tiktokHandle,
     instagramHandle,
     twitterHandle,
-    spotifyHandle,
+    spotifyId,
     phoneNumber,
   })
   // const qrcode = new QRCodeImpl(-1, ErrorCorrectLevel[level]);
@@ -57,7 +57,7 @@ export async function GET(request: Request) {
       tiktokHandle={tiktokHandle}
       instagramHandle={instagramHandle}
       twitterHandle={twitterHandle}
-      spotifyHandle={spotifyHandle}
+      spotifyId={spotifyId}
       phoneNumber={phoneNumber}
     />,
     {
