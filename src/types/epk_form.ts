@@ -1,13 +1,13 @@
 
 export type EpkForm = {
-  Bio: string;
-  Location: string;
-  Job: string;
-  Spotify: string;
-  IgField: string;
-  TiktokField: string;
-  TwitterField: string;
-  NotableSongs: string;
-  AgentField: string;
-  ThemeField: string;
+  bio: string;
+  location: string;
+  job: string;
+  spotify: string;
+  ig: string;
+  tiktok: string;
+  twitter: string;
+  notableSongs: string;
+  agent: string;
+  theme: string;
 };
