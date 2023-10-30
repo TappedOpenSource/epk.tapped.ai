@@ -16,6 +16,7 @@ export type UserModel = {
     twitterHandle?: string;
     instagramHandle?: string;
     youtubeChannelId?: string;
+    spotifyId?: string;
     occupations?: string[];
     label?: string;
     genres?: string[];

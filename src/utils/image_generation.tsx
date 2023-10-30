@@ -14,13 +14,12 @@ export async function generateEpkSvg({
     tiktokHandle,
     instagramHandle,
     twitterHandle,
-    spotifyHandle,
+    spotifyId,
     phoneNumber,
 }: Omit<UserModel, "id"> & {
     height: number;
     width: number;
     phoneNumber: string;
-    spotifyHandle: string;
 }): Promise<string> {
     const fontData = await fetch(
         new URL('../app/fonts/Inter-Medium.ttf', import.meta.url),
@@ -36,7 +35,7 @@ export async function generateEpkSvg({
             tiktokHandle={tiktokHandle}
             instagramHandle={instagramHandle}
             twitterHandle={twitterHandle}
-            spotifyHandle={spotifyHandle}
+            spotifyId={spotifyId}
             phoneNumber={phoneNumber}
         />,
         {

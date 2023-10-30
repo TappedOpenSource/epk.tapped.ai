@@ -29,17 +29,14 @@ export default function Results() {
     const { user, claim } = useAuth();
     const [error, setError] = useState<boolean>(false);
     const [selectedTheme, setSelectedTheme] = useState<number | null>(null);
-    const [objectUrl, setObjectURL] = useState<string | null>(null);
 
     const pdfHandler = async (themeIndex: number) => {
         if (user === null) {
             return;
         }
 
-        let tmpObjectUrl = '';
         const result = await generateEpkSvg({
             ...user,
-            spotifyHandle: '',
             phoneNumber: '',
             height,
             width,
@@ -57,10 +54,9 @@ export default function Results() {
         const stream = doc.pipe(blobStream())
         stream.on('finish', () => {
             const blob = stream.toBlob('application/pdf')
-            tmpObjectUrl = URL.createObjectURL(blob)
-            setObjectURL(tmpObjectUrl)
-            console.log({ tmpObjectUrl })
-            router.push(tmpObjectUrl);
+            const objectUrl = URL.createObjectURL(blob)
+            console.log({ objectUrl })
+            router.push(objectUrl);
         })
         doc.end()
     }
@@ -102,7 +98,6 @@ export default function Results() {
         }).toString();
         generateEpkSvg({
             ...user,
-            spotifyHandle: '',
             phoneNumber: '',
             width,
             height,
@@ -112,11 +107,6 @@ export default function Results() {
         return {
             theme,
             url: getURL(`/epk?${urlParams}`),
-            params: {
-                ...user,
-                spotifyHandle: '',
-                phoneNumber: '',
-            },
         };
     })
     return (
@@ -128,7 +118,7 @@ export default function Results() {
                     <div className="h-12" />
                     <h1 className='text-4xl font-extrabold'>pick your style</h1>
                     <div className='flex flex-row'>
-                        {imageUrls.map(({ url, params }, index) => (
+                        {imageUrls.map(({ url }, index) => (
                             <div
                                 key={index}
                                 onClick={() => { setSelectedTheme(index) }}
