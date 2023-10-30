@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '@/context/AuthProvider';
 import { getURL } from '@/utils/url';
 import Image from 'next/image';
@@ -13,7 +13,9 @@ import PDFDocument from 'pdfkit/js/pdfkit.standalone'
 import SVGtoPDF from 'svg-to-pdfkit'
 import blobStream from 'blob-stream'
 import { generateEpkSvg } from '@/utils/image_generation';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { EpkForm } from '@/types/epk_form';
+import { getLatestEpkFormByUserId } from '@/utils/database';
 
 const themes: EPKTheme[] = [
     'tapped',
@@ -25,10 +27,26 @@ const width = 900;
 const height = 1200;
 
 export default function Results() {
-    const router = useRouter();
     const { user, claim } = useAuth();
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const formId = searchParams.get('id');
+
     const [error, setError] = useState<boolean>(false);
     const [selectedTheme, setSelectedTheme] = useState<number | null>(null);
+    const [form, setForm] = useState<EpkForm | null>(null);
+
+    useEffect(() => {
+        const fetchForm = async () => {
+            if (user === null) {
+                console.debug('user is null')
+                return;
+            }
+            const epkForm = await getLatestEpkFormByUserId(user.id);
+            setForm(epkForm);
+        };
+        fetchForm();
+    }, [user]);
 
     const pdfHandler = async (themeIndex: number) => {
         if (user === null) {
@@ -71,7 +89,7 @@ export default function Results() {
         );
     }
 
-    if (user === null) {
+    if (user === null || form === null) {
         return (
             <>
                 <div className='min-h-screen flex justify-center items-center'>
@@ -109,6 +127,7 @@ export default function Results() {
             url: getURL(`/epk?${urlParams}`),
         };
     })
+
     return (
         <>
             <div
