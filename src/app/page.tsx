@@ -19,7 +19,7 @@ export default function Home() {
         </h2>
         <div className='h-8' />
         <Link
-          href="/login?returnUrl=/results"
+          href="/login?returnUrl=/epk_form"
           className='bg-blue-700 text-white font-extrabold px-4 py-2 rounded-full'>
             get started
         </Link>

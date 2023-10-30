@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-const AgentField = ({ formData, updateFormData, onValidation }) => {
+const PhoneNumberField = ({ formData, updateFormData, onValidation }) => {
   const [error, setError] = useState(null);
 
   const validateForUI = (value) => {
     if (value.trim() === '') {
-      setError('Agent cannot be empty');
+      setError('phone number cannot be empty');
       onValidation(false);
     } else {
       setError(null);
@@ -13,6 +13,7 @@ const AgentField = ({ formData, updateFormData, onValidation }) => {
     }
   };
 
+  useEffect(() => {
   const justValidate = (value) => {
     if (value.trim() === '') {
       onValidation(false);
@@ -21,9 +22,9 @@ const AgentField = ({ formData, updateFormData, onValidation }) => {
     }
   };
 
-  useEffect(() => {
-    justValidate(formData['agent'] || '');
-  }, [formData['agent']]);
+
+    justValidate(formData['phoneNumber'] || '');
+  }, [formData, onValidation]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -38,14 +39,14 @@ const AgentField = ({ formData, updateFormData, onValidation }) => {
     <div className="page flex h-full flex-col items-center justify-center">
       <div className="flex w-full flex-col items-start px-6">
         <h1 className="mb-2 text-2xl font-bold text-white">
-          what is your agents phone number?
+          what&pos;s your phone number?
         </h1>
         <div className="flex h-full w-full items-center justify-center">
           <input
             type="text"
-            name="agent"
+            name="phoneNumber"
             placeholder="type here..."
-            value={formData['agent'] || ''}
+            value={formData['phoneNumber'] || ''}
             onChange={handleInputChange}
             className={`white_placeholder w-full appearance-none rounded ${
               error ? 'border-2 border-red-500' : ''
@@ -58,4 +59,4 @@ const AgentField = ({ formData, updateFormData, onValidation }) => {
   );
 };
 
-export default AgentField;
+export default PhoneNumberField;

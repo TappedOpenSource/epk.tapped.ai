@@ -5,7 +5,7 @@ const TiktokField = ({ formData, updateFormData, onValidation }) => {
 
   const validateForUI = (value) => {
     if (value.trim() === '') {
-      setError('tiktok cannot be empty');
+      setError('tiktok handle cannot be empty');
       onValidation(false);
     } else {
       setError(null);
@@ -13,17 +13,16 @@ const TiktokField = ({ formData, updateFormData, onValidation }) => {
     }
   };
 
-  const justValidate = (value) => {
-    if (value.trim() === '') {
-      onValidation(false);
-    } else {
-      onValidation(true);
-    }
-  };
-
   useEffect(() => {
-    justValidate(formData['tiktok'] || '');
-  }, [formData['tiktok']]);
+    const justValidate = (value) => {
+      if (value.trim() === '') {
+        onValidation(false);
+      } else {
+        onValidation(true);
+      }
+    };
+    justValidate(formData['tiktokHandle'] || '');
+  }, [formData, onValidation]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -45,11 +44,10 @@ const TiktokField = ({ formData, updateFormData, onValidation }) => {
             type="text"
             name="tiktok"
             placeholder="type here..."
-            value={formData['tiktok'] || ''}
+            value={formData['tiktokHandle'] || ''}
             onChange={handleInputChange}
-            className={`white_placeholder w-full appearance-none rounded ${
-              error ? 'border-2 border-red-500' : ''
-            } bg-[#63b2fd] px-4 py-2 leading-tight text-white focus:bg-white focus:text-black font-semibold focus:outline-none`}
+            className={`white_placeholder w-full appearance-none rounded ${error ? 'border-2 border-red-500' : ''
+              } bg-[#63b2fd] px-4 py-2 leading-tight text-white focus:bg-white focus:text-black font-semibold focus:outline-none`}
           />
         </div>
         {error && <p className="mt-2 text-red-500">{error}</p>}
