@@ -3,6 +3,8 @@
 import { UserModel } from "@/types/user_model";
 import { getURL } from "@/utils/url";
 
+const qrCodeDimensions = 256;
+
 export default function TappedTheme({
     artistName,
     bio,
@@ -16,6 +18,13 @@ export default function TappedTheme({
 }: Omit<UserModel, "id"> & {
     phoneNumber: string;
 }) {
+    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${
+        qrCodeDimensions
+    }x${
+        qrCodeDimensions
+    }&bgcolor=010F16&color=cbd5e1&data=https://instagram.com/${
+        instagramHandle
+    }`
     return (
         <div
             style={{
@@ -139,10 +148,21 @@ export default function TappedTheme({
                     padding: '0 20px'
                 }}
             >
-                <div style={{ display: 'flex', flexDirection: 'column', marginRight: '20px' }}>
+                <div style={{ 
+                    display: 'flex', 
+                    flexDirection: 'column', 
+                    marginRight: '20px',
+                }}>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         {(spotifyId !== undefined && spotifyId !== null && spotifyId !== '')
-                            ? < div style={{ display: 'flex', marginBottom: '10px', alignItems: 'center', justifyContent: 'center', padding: 5, borderRadius: 10, }}>
+                            ? < div style={{
+                                display: 'flex', 
+                                marginBottom: '10px', 
+                                alignItems: 'center', 
+                                justifyContent: 'center', 
+                                padding: 5, 
+                                borderRadius: 10,
+                            }}>
                                 <div
                                     style={{
                                         display: 'flex',
@@ -161,13 +181,23 @@ export default function TappedTheme({
                                         }}
                                     />
                                 </div>
-                                <p style={{ marginLeft: '20px', fontSize: '20px' }}>
-                                    {spotifyId} | 6503 Monthly Listeners
+                                <p style={{ 
+                                    marginLeft: '20px', 
+                                    fontSize: '20px',
+                                }}>
+                                    open.spotify.com/artist/{spotifyId} | 6503 Monthly Listeners
                                 </p>
                             </div>
                             : null}
                         {(instagramHandle !== undefined && instagramHandle !== null && instagramHandle !== '')
-                            ? <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
+                            ? <div style={{ 
+                                display: 'flex', 
+                                alignItems: 'center', 
+                                marginBottom: '10px', 
+                                paddingLeft: 5, 
+                                paddingRight: 5, 
+                                borderRadius: 10,
+                            }}>
                                 <img
                                     src={getURL("/instagram_icon.png")}
                                     alt="Instagram icon"
@@ -182,7 +212,14 @@ export default function TappedTheme({
                             : null}
 
                         {(tiktokHandle !== undefined && tiktokHandle !== null && tiktokHandle !== '')
-                            ? <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
+                            ? <div style={{ 
+                                display: 'flex', 
+                                alignItems: 'center', 
+                                marginBottom: '10px', 
+                                paddingLeft: 5, 
+                                paddingRight: 5, 
+                                borderRadius: 10,
+                            }}>
                                 <img
                                     src={getURL("/tiktok_icon.png")}
                                     alt="TikTok icon"
@@ -197,7 +234,14 @@ export default function TappedTheme({
                             : null}
 
                         {(twitterHandle !== undefined && twitterHandle !== null && twitterHandle !== '')
-                            ? <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', paddingLeft: 5, paddingRight: 5, borderRadius: 10, }}>
+                            ? <div style={{ 
+                                display: 'flex', 
+                                alignItems: 'center', 
+                                marginBottom: '10px', 
+                                paddingLeft: 5, 
+                                paddingRight: 5, 
+                                borderRadius: 10,
+                            }}>
                                 <img
                                     src={getURL("/twitter_icon.png")}
                                     alt="Twitter icon"
@@ -214,12 +258,25 @@ export default function TappedTheme({
                             display: 'flex',
                         }}>
                             <img
-                                src={`https://api.qrserver.com/v1/create-qr-code/?size=24x24&bgcolor=010F16&color=cbd5e1&data=${`https://instagram.com/${instagramHandle}`}`}
+                                src={qrCodeUrl}
+                                width={qrCodeDimensions}
+                                height={qrCodeDimensions}
                             />
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: '#202020', borderRadius: 10, color: '#63b2fd', paddingLeft: 4, paddingRight: 4 }}>
+                        <div style={{ 
+                            display: 'flex', 
+                            flexDirection: 'column', 
+                            justifyContent: 'center', 
+                            alignItems: 'center', 
+                            backgroundColor: '#202020', 
+                            borderRadius: 10, color: '#63b2fd', 
+                            paddingLeft: 4, 
+                            paddingRight: 4,
+                         }}>
                             <h2>Top Songs</h2>
-                            <p style={{ fontSize: '20px', }}>Trust Issues: 46,621 | Winning: 30,612</p>
+                            <p style={{ 
+                                fontSize: '20px',
+                            }}>Trust Issues: 46,621 | Winning: 30,612</p>
                         </div>
                     </div>
                 </div>
