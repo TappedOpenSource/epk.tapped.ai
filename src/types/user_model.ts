@@ -22,7 +22,7 @@ export type UserModel = {
     genres?: string[];
 };
 
-export const firestoreConverter = {
+export const userModelConverter = {
     toFirestore(user: UserModel): DocumentData {
         return { ...user };
     },

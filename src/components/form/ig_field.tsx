@@ -5,7 +5,7 @@ const IgField = ({ formData, updateFormData, onValidation }) => {
 
   const validateForUI = (value) => {
     if (value.trim() === '') {
-      setError('ig cannot be empty');
+      setError('instagram handle cannot be empty');
       onValidation(false);
     } else {
       setError(null);
@@ -13,6 +13,7 @@ const IgField = ({ formData, updateFormData, onValidation }) => {
     }
   };
 
+  useEffect(() => {
   const justValidate = (value) => {
     if (value.trim() === '') {
       onValidation(false);
@@ -20,10 +21,8 @@ const IgField = ({ formData, updateFormData, onValidation }) => {
       onValidation(true);
     }
   };
-
-  useEffect(() => {
-    justValidate(formData['ig'] || '');
-  }, [formData['ig']]);
+    justValidate(formData['instagramHandle'] || '');
+  }, [formData, onValidation]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -43,9 +42,9 @@ const IgField = ({ formData, updateFormData, onValidation }) => {
         <div className="flex h-full w-full items-center justify-center">
           <input
             type="text"
-            name="ig"
+            name="instagramHandle"
             placeholder="type here..."
-            value={formData['ig'] || ''}
+            value={formData['instagramHandle'] || ''}
             onChange={handleInputChange}
             className={`white_placeholder w-full appearance-none rounded ${
               error ? 'border-2 border-red-500' : ''

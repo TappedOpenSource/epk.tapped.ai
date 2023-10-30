@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { storage, auth } from '../../utils/firebase';
+import React, { useState } from 'react';
+import { storage, auth } from '@/utils/firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import Image from 'next/image';
 
 const ImageUploadField = ({ formData, updateFormData, onValidation }) => {
   const [error, setError] = useState(null);
@@ -47,7 +48,6 @@ const ImageUploadField = ({ formData, updateFormData, onValidation }) => {
     }
 };
   
-
   return (
     <div className="page flex h-full flex-col items-center justify-center">
         <div className="flex w-full flex-col items-start px-6">
@@ -56,7 +56,12 @@ const ImageUploadField = ({ formData, updateFormData, onValidation }) => {
             </h1>
             <div className="flex w-full justify-center mt-4 mb-4">
                 {imagePreviewUrl && (
-                    <img src={imagePreviewUrl} alt="Uploaded preview" className="w-1/2 h-auto rounded" />
+                    <Image 
+                        src={imagePreviewUrl} 
+                        alt="Uploaded preview" 
+                        height={150}
+                        width={150}
+                        className="w-1/2 h-auto rounded" />
                 )}
             </div>
             <div className="flex h-full w-full items-center justify-center">

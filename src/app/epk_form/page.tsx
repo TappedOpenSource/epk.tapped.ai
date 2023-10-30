@@ -5,7 +5,6 @@ import { NextPage } from 'next';
 import { useRouter } from 'next/navigation';
 import FormDataManager from '@/components/FormDataManager';
 import SegmentedLine from '@/components/SegmentedLine';
-import { track } from '@vercel/analytics';
 import NameField from '@/components/form/name_field';
 import SubmitField from '@/components/form/submit_field';
 import BioField from '@/components/form/bio_field';
@@ -16,19 +15,22 @@ import IgField from '@/components/form/ig_field';
 import TiktokField from '@/components/form/tiktok_field';
 import TwitterField from '@/components/form/twitter_field';
 import NotableSongsField from '@/components/form/notable_songs_field';
-import AgentField from '@/components/form/agent_field';
+import PhoneNumberField from '@/components/form/phone_number_field';
 import ImageUploadField from '@/components/form/image_field';
+import { useAuth } from '@/context/AuthProvider';
 
 const EpkForm: NextPage = () => {
-
+  const { user } = useAuth();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isValid, setIsValid] = useState(false);
   const router = useRouter();
   const [formData, setFormData] = useState({});
 
+
+
   const pages = [
     NameField,
-    ImageUploadField,
+    // ImageUploadField,
     BioField,
     LocationField,
     CareerField,
@@ -37,7 +39,7 @@ const EpkForm: NextPage = () => {
     TiktokField,
     TwitterField,
     NotableSongsField,
-    AgentField,
+    PhoneNumberField,
     SubmitField,
   ];
 
@@ -47,10 +49,6 @@ const EpkForm: NextPage = () => {
 
   const handleNextPage = () => {
     if (isValid) {
-      track('next-question', {
-        index: currentIndex,
-        question: pages[currentIndex].name,
-      });
       setCurrentIndex((prev) => prev + 1);
     }
   };
@@ -62,6 +60,16 @@ const EpkForm: NextPage = () => {
       setCurrentIndex((prev) => prev - 1);
     }
   };
+
+    if (user === null) {
+        return (
+            <>
+                <div className='min-h-screen flex justify-center items-center'>
+                    <p>fetching user...</p>
+                </div>
+            </>
+        );
+    }
 
   if (pages.length <= 0) {
     return <h1>Form is empty</h1>;
