@@ -22,7 +22,7 @@ const SubmitField = ({ formData, updateFormData, onValidation }: {
             ready for your epk?
           </p>
         </div>
-        <div className="flex items-center justify-center w-[60%] mx-auto">
+        <div className="flex items-center justify-center w-[75%] mx-auto">
           {loading && (
             <div className="flex items-center justify-center">
               <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
@@ -33,7 +33,7 @@ const SubmitField = ({ formData, updateFormData, onValidation }: {
               onClick={handleButtonClick}
               className='tapped_btn_rounded'
             >
-              submit
+              let&apos;s get it
             </button>
           )}
 

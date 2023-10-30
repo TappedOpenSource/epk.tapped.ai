@@ -30,16 +30,16 @@ const EpkForm: NextPage = () => {
 
   const pages = [
     NameField,
-    ImageUploadField,
-    BioField,
-    LocationField,
-    CareerField,
-    SpotifyField,
-    IgField,
-    TiktokField,
-    TwitterField,
-    NotableSongsField,
-    PhoneNumberField,
+    // ImageUploadField,
+    // BioField,
+    // LocationField,
+    // CareerField,
+    // SpotifyField,
+    // IgField,
+    // TiktokField,
+    // TwitterField,
+    // NotableSongsField,
+    // PhoneNumberField,
     SubmitField,
   ];
 
