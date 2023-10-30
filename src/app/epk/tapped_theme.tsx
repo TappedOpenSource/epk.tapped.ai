@@ -11,11 +11,10 @@ export default function TappedTheme({
     tiktokHandle,
     instagramHandle,
     twitterHandle,
-    spotifyHandle,
+    spotifyId,
     phoneNumber,
 }: Omit<UserModel, "id"> & {
     phoneNumber: string;
-    spotifyHandle: string;
 }) {
     return (
         <div
@@ -142,7 +141,7 @@ export default function TappedTheme({
             >
                 <div style={{ display: 'flex', flexDirection: 'column', marginRight: '20px' }}>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        {(spotifyHandle !== undefined && spotifyHandle !== null && spotifyHandle !== '')
+                        {(spotifyId !== undefined && spotifyId !== null && spotifyId !== '')
                             ? < div style={{ display: 'flex', marginBottom: '10px', alignItems: 'center', justifyContent: 'center', padding: 5, borderRadius: 10, }}>
                                 <div
                                     style={{
@@ -163,7 +162,7 @@ export default function TappedTheme({
                                     />
                                 </div>
                                 <p style={{ marginLeft: '20px', fontSize: '20px' }}>
-                                    {spotifyHandle} | 6503 Monthly Listeners
+                                    {spotifyId} | 6503 Monthly Listeners
                                 </p>
                             </div>
                             : null}
