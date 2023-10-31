@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
-const TwitterField = ({ formData, updateFormData, onValidation }) => {
+const TwitterField = ({ formData, updateFormData, onValidation, user }) => {
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (user && user.twitterHandle) {
+      updateFormData({
+        ...formData,
+        twitterHandle: user.twitterHandle,
+      });
+    }
+  }, [user]);
 
   const validateForUI = (value) => {
     if (value.trim() === '') {
