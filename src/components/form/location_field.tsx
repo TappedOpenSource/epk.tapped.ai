@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const LocationField = ({ formData, updateFormData, onValidation }) => {
+const LocationField = ({ formData, updateFormData, onValidation, user }) => {
   const [error, setError] = useState(null);
 
   const validateForUI = (value) => {

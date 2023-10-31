@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
-const NameField = ({ formData, updateFormData, onValidation }) => {
+const NameField = ({ formData, updateFormData, onValidation, user }) => {
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (user && user.artistName) {
+      updateFormData({
+        ...formData,
+        name: user.artistName,
+      });
+    }
+  }, [user]);
 
   const validateForUI = (value) => {
     if (value.trim() === '') {
