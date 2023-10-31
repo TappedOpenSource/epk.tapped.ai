@@ -22,8 +22,8 @@ const NameField = ({ formData, updateFormData, onValidation }) => {
   };
 
   useEffect(() => {
-    justValidate(formData['name'] || '');
-  }, [formData['name']]);
+    justValidate(formData['artistName'] || '');
+  }, [formData['artistName']]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -45,7 +45,7 @@ const NameField = ({ formData, updateFormData, onValidation }) => {
             type="text"
             name="name"
             placeholder="type here..."
-            value={formData['name'] || ''}
+            value={formData['artistName'] || ''}
             onChange={handleInputChange}
             className={`white_placeholder w-full appearance-none rounded ${
               error ? 'border-2 border-red-500' : ''
