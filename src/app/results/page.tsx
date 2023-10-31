@@ -57,6 +57,7 @@ export default function Results() {
     }, [user, formId]);
 
     if (formId === null) {
+        console.log('formId is null')
         return (
             <>
                 <div className='min-h-screen flex justify-center items-center'>
