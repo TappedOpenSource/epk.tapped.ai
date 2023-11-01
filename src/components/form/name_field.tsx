@@ -7,10 +7,10 @@ const NameField = ({ formData, updateFormData, onValidation, user }) => {
     if (user && user.artistName) {
       updateFormData({
         ...formData,
-        name: user.artistName,
+        artistName: user.artistName ?? user.username,
       });
     }
-  }, [user]);
+  }, [user, formData, updateFormData]);
 
   const validateForUI = (value) => {
     if (value.trim() === '') {
@@ -22,6 +22,9 @@ const NameField = ({ formData, updateFormData, onValidation, user }) => {
     }
   };
 
+
+
+  useEffect(() => {
   const justValidate = (value) => {
     if (value.trim() === '') {
       onValidation(false);
@@ -29,10 +32,8 @@ const NameField = ({ formData, updateFormData, onValidation, user }) => {
       onValidation(true);
     }
   };
-
-  useEffect(() => {
-    justValidate(formData['name'] || '');
-  }, [formData['name']]);
+    justValidate(formData['artistName'] || '');
+  }, [formData['artistName'], formData, updateFormData]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -52,9 +53,9 @@ const NameField = ({ formData, updateFormData, onValidation, user }) => {
         <div className="flex h-full w-full items-center justify-center">
           <input
             type="text"
-            name="name"
+            name="artistName"
             placeholder="type here..."
-            value={formData['name'] || ''}
+            value={formData['artistName'] || ''}
             onChange={handleInputChange}
             className={`white_placeholder w-full appearance-none rounded ${
               error ? 'border-2 border-red-500' : ''

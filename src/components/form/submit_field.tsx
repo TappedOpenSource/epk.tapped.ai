@@ -47,15 +47,15 @@ const SubmitField = ({ formData, updateFormData, onValidation }: {
       }
     });
     
-    // await addEpkForm({
-    //   userId: authUser.uid,
-    //   epkForm: {
-    //     ...formData,
-    //     userId: authUser.uid,
-    //     timestamp: Timestamp.now(),
-    //   }
-    // });
-    // router.push(`/results?id=${formData.id}`);
+    await addEpkForm({
+      userId: authUser.uid,
+      epkForm: {
+        ...formData,
+        userId: authUser.uid,
+        timestamp: Timestamp.now(),
+      }
+    });
+    router.push(`/results?id=${formData.id}`);
   };
 
   return (
