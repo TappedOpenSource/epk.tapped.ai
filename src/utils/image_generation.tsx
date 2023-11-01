@@ -2,6 +2,7 @@
 import TappedTheme from '@/app/epk/tapped_theme';
 import FunkyTheme from '@/app/epk/funky_theme';
 import { UserModel } from '@/types/user_model';
+import { EpkForm } from '@/types/epk_form';
 import satori from 'satori'
 
 const themeComponents = {
@@ -14,20 +15,22 @@ export async function generateEpkSvg({
     height,
     width,
     artistName,
-    username,
     bio,
-    profilePicture,
-    overallRating,
+    imageUrl,
+    tappedRating,
     tiktokHandle,
     instagramHandle,
     twitterHandle,
     spotifyId,
     phoneNumber,
-}: Omit<UserModel, "id"> & {
+    location,
+    notableSongs,
+    job,
+}: Omit<EpkForm, "id" | "userId" | "timestamp"> & {
     theme: string,
     height: number;
     width: number;
-    phoneNumber: string;
+    tappedRating: string;
 }): Promise<string> {
     const fontData = await fetch(
         new URL('../app/fonts/Inter-Medium.ttf', import.meta.url),
@@ -38,10 +41,12 @@ export async function generateEpkSvg({
     const result = await satori(
         <ThemeComponent
             artistName={artistName}
-            username={username}
+            location={location}
+            notableSongs={notableSongs}
+            job={job}
             bio={bio}
-            profilePicture={profilePicture}
-            overallRating={overallRating}
+            imageUrl={imageUrl}
+            tappedRating={tappedRating}
             tiktokHandle={tiktokHandle}
             instagramHandle={instagramHandle}
             twitterHandle={twitterHandle}

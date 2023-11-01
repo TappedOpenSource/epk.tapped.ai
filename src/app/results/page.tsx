@@ -15,7 +15,7 @@ import blobStream from 'blob-stream'
 import { generateEpkSvg } from '@/utils/image_generation';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { EpkForm } from '@/types/epk_form';
-import { getLatestEpkFormByUserId } from '@/utils/database';
+import { getEpkFormById } from '@/utils/database';
 
 const themes: EPKTheme[] = [
     'tapped',
@@ -30,8 +30,7 @@ export default function Results() {
     const { user, claim } = useAuth();
     const router = useRouter();
     const searchParams = useSearchParams();
-    const formId = searchParams.get('id');
-
+    const formId = searchParams.get('id') ?? null;
     const [error, setError] = useState<boolean>(false);
     const [selectedTheme, setSelectedTheme] = useState<number | null>(null);
     const [form, setForm] = useState<EpkForm | null>(null);
@@ -42,14 +41,34 @@ export default function Results() {
                 console.debug('user is null')
                 return;
             }
-            const epkForm = await getLatestEpkFormByUserId(user.id);
+
+            if (formId === null) {
+                console.debug('formId is null')
+                return;
+            }
+
+            const epkForm = await getEpkFormById({
+                userId: user.id, 
+                formId: formId,
+            });
             setForm(epkForm);
         };
         fetchForm();
-    }, [user]);
+    }, [user, formId]);
+
+    if (formId === null) {
+        console.log('formId is null')
+        return (
+            <>
+                <div className='min-h-screen flex justify-center items-center'>
+                    <p>There was an error generating your EPK. Please try again later.</p>
+                </div>
+            </>
+        );
+    }
 
     const pdfHandler = async (themeIndex: number) => {
-        if (user === null) {
+        if (form === null) {
             return;
         }
 
@@ -57,8 +76,8 @@ export default function Results() {
 
         const result = await generateEpkSvg({
             theme: theme,
-            ...user,
-            phoneNumber: '',
+            ...form,
+            tappedRating: `${user?.overallRating}` ?? '0',
             height,
             width,
         });
@@ -105,7 +124,6 @@ export default function Results() {
     console.debug({ user, claim });
     const userString = JSON.stringify({
         ...user,
-        appleMusicHandle: '',
         phoneNumber: '',
     });
     // const urlParams = Object.entries(user).map(([key, val]) => {
@@ -119,10 +137,10 @@ export default function Results() {
         }).toString();
         generateEpkSvg({
             theme: theme,
-            ...user,
-            phoneNumber: '',
-            width,
+            ...form,
+            tappedRating: `${user?.overallRating}` ?? '0',
             height,
+            width,
         }).then((result) => {
             console.log({ result });
         });

@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 import TappedTheme from "./tapped_theme";
 import FunkyTheme from "./funky_theme";
+import { EpkForm } from "@/types/epk_form";
 
 // // @ts-ignore
 // import QRCodeImpl from "qr.js/lib/QRCode";
@@ -20,27 +21,28 @@ const themeComponents = {
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const theme = searchParams.get('theme');
-  const userString = searchParams.get('user') ?? '';
-  const user = JSON.parse(userString);
+  const tappedRating = searchParams.get('tappedRating');
+  const epkString = searchParams.get('epkData') ?? '';
+  const epkForm = JSON.parse(epkString) as EpkForm;
 
   const {
     artistName,
-    username,
     bio,
-    profilePicture,
-    overallRating,
+    imageUrl,
     tiktokHandle,
     instagramHandle,
     twitterHandle,
     spotifyId,
     phoneNumber,
-  } = user;
+    notableSongs,
+    location,
+    job,
+  } = epkForm;
   console.log({
     artistName,
-    username,
     bio,
-    profilePicture,
-    overallRating,
+    imageUrl,
+    tappedRating,
     tiktokHandle,
     instagramHandle,
     twitterHandle,
@@ -58,10 +60,12 @@ export async function GET(request: Request) {
   return new ImageResponse(
     <ThemeComponent
       artistName={artistName}
-      username={username}
+      location={location}
+      notableSongs={notableSongs}
+      job={job}
       bio={bio}
-      profilePicture={profilePicture}
-      overallRating={overallRating}
+      imageUrl={imageUrl}
+      tappedRating={tappedRating}
       tiktokHandle={tiktokHandle}
       instagramHandle={instagramHandle}
       twitterHandle={twitterHandle}

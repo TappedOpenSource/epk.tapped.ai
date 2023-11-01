@@ -35,21 +35,17 @@ export async function addEpkForm({ userId, epkForm }: {
     await setDoc(docRef, epkForm);
 }
 
-export async function getLatestEpkFormByUserId(userId: string): Promise<EpkForm | null> {
+export async function getEpkFormById({ userId, formId }: {
+    userId: string;
+    formId: string;
+}): Promise<EpkForm | null> {
     const collectionRef = collection(
         db,
         `epkForms/${userId}/userForms`,
-    ).withConverter(epkFormConverter);
-    const querySnapshot = query(
-        collectionRef, 
-        orderBy("timestamp", "desc"), 
-        limit(1),
-    ).withConverter(epkFormConverter);
-    const queryDocs = await getDocs(querySnapshot);
+    )
+    const docSnap = await getDoc(
+        doc(collectionRef, formId).withConverter(epkFormConverter)
+    );
 
-    if (queryDocs.empty) {
-        return null;
-    }
-
-    return queryDocs.docs[0].data();
+    return docSnap.data() ?? null;
 }

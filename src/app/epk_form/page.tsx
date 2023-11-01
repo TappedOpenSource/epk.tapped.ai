@@ -26,11 +26,9 @@ const EpkForm: NextPage = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({});
 
-
-
   const pages = [
     NameField,
-    // ImageUploadField,
+    ImageUploadField,
     BioField,
     LocationField,
     CareerField,
