@@ -19,7 +19,7 @@ import { getLatestEpkFormByUserId } from '@/utils/database';
 
 const themes: EPKTheme[] = [
     'tapped',
-    'tapped',
+    'funky',
     'tapped',
 ];
 
@@ -115,6 +115,7 @@ export default function Results() {
             theme,
         }).toString();
         generateEpkSvg({
+            theme: theme,
             ...user,
             phoneNumber: '',
             width,

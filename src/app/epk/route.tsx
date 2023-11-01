@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import TappedTheme from "./tapped_theme";
+import FunkyTheme from "./funky_theme";
 
 // // @ts-ignore
 // import QRCodeImpl from "qr.js/lib/QRCode";
@@ -10,6 +11,11 @@ const width = 900;
 const height = 1200;
 
 export const runtime = 'edge';
+
+const themeComponents = {
+  tapped: TappedTheme,
+  funky: FunkyTheme,
+};
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -47,8 +53,10 @@ export async function GET(request: Request) {
   // const cells = qrcode.modules;
   console.log({ theme });
 
+  const ThemeComponent = themeComponents[theme || 'tapped'];
+
   return new ImageResponse(
-    <TappedTheme
+    <ThemeComponent
       artistName={artistName}
       username={username}
       bio={bio}
