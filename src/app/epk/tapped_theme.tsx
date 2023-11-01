@@ -25,7 +25,6 @@ export default function TappedTheme({
     }&bgcolor=010F16&color=cbd5e1&data=https://instagram.com/${
         instagramHandle
     }`
-    const baseUrl = process.env.NODE_ENV === 'production' ? 'https://getmusicepk.com' : 'http://localhost:3000';
 
     return (
         <div
@@ -55,7 +54,7 @@ export default function TappedTheme({
                 }}
             >
                 <img 
-                    src={`${baseUrl}/blue_circle_1.png`}
+                    src={getURL('/blue_circle_1.png')}
                     alt="Blurred Circle 1" 
                     width='700px'
                     height='700px'
@@ -77,7 +76,7 @@ export default function TappedTheme({
                 }}
             >
                 <img 
-                    src={`${baseUrl}/blue_circle_1.png`}
+                    src={getURL('/blue_circle_1.png')}
                     alt="Blurred Circle 2" 
                     width='800px'
                     height='800px'
@@ -100,7 +99,7 @@ export default function TappedTheme({
                 }}
             >
                 <img 
-                    src={`${baseUrl}/blue_circle_3.png`}
+                    src={getURL('/blue_circle_3.png')}
                     alt="Blurred Circle 3" 
                     width='700px'
                     height='700px'
