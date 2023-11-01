@@ -53,7 +53,10 @@ export default function Results() {
             return;
         }
 
+        const theme = themes[themeIndex];
+
         const result = await generateEpkSvg({
+            theme: theme,
             ...user,
             phoneNumber: '',
             height,
