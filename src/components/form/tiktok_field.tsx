@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
-const TiktokField = ({ formData, updateFormData, onValidation }) => {
+const TiktokField = ({ formData, updateFormData, onValidation, user }) => {
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (user && user.tiktokHandle) {
+      updateFormData({
+        ...formData,
+        tiktokHandle: user.tiktokHandle,
+      });
+    }
+  }, [user]);  
 
   const validateForUI = (value) => {
     if (value.trim() === '') {

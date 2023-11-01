@@ -26,8 +26,6 @@ const EpkForm: NextPage = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({});
 
-
-
   const pages = [
     NameField,
     // ImageUploadField,
@@ -92,6 +90,7 @@ const EpkForm: NextPage = () => {
                   formData={formDataFromManager}
                   updateFormData={updateFormData}
                   onValidation={setIsValid}
+                  user={user}
                 />
                 <div className="flex justify-between mt-4 md:mt-8 lg:mt-16">
                   <button

@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { storage, auth } from '@/utils/firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import Image from 'next/image';
 
-const ImageUploadField = ({ formData, updateFormData, onValidation }) => {
+const ImageUploadField = ({ formData, updateFormData, onValidation, user }) => {
   const [error, setError] = useState(null);
-  const [imagePreviewUrl, setImagePreviewUrl] = useState('');
+  const [imagePreviewUrl, setImagePreviewUrl] = useState(user.profilePicture || '');
   const [isUploading, setIsUploading] = useState(false);
+
+  useEffect(() => {
+    validateForUI(imagePreviewUrl);
+  }, [imagePreviewUrl]);  
 
   const validateForUI = (url) => {
     if (!url) {

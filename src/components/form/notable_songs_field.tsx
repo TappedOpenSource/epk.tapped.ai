@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const NotableSongsField = ({ formData, updateFormData, onValidation }) => {
+const NotableSongsField = ({ formData, updateFormData, onValidation, user }) => {
   const [error, setError] = useState(null);
 
   const validateForUI = (value) => {

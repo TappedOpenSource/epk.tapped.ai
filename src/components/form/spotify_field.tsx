@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const SpotifyField = ({ formData, updateFormData, onValidation }) => {
+const SpotifyField = ({ formData, updateFormData, onValidation, user }) => {
   const [error, setError] = useState(null);
 
   const validateForUI = (value) => {

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import { UserModel } from "@/types/user_model";
+import { EpkForm } from "@/types/epk_form";
 import { getURL } from "@/utils/url";
 
 const qrCodeDimensions = 256;
@@ -8,24 +8,20 @@ const qrCodeDimensions = 256;
 export default function TappedTheme({
     artistName,
     bio,
-    profilePicture,
-    overallRating,
+    imageUrl,
+    tappedRating,
     tiktokHandle,
     instagramHandle,
     twitterHandle,
     spotifyId,
     phoneNumber,
-}: Omit<UserModel, "id"> & {
-    phoneNumber: string;
+}: Omit<EpkForm, "id" | "userId" | "timestamp"> & {
+    tappedRating: string;
 }) {
-    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${
-        qrCodeDimensions
-    }x${
-        qrCodeDimensions
-    }&bgcolor=010F16&color=cbd5e1&data=https://instagram.com/${
-        instagramHandle
-    }`
-
+    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${qrCodeDimensions
+        }x${qrCodeDimensions
+        }&bgcolor=010F16&color=cbd5e1&data=https://instagram.com/${instagramHandle
+        }`
     return (
         <div
             style={{
@@ -126,7 +122,7 @@ export default function TappedTheme({
                     }}
                 >
                     <img
-                        src={profilePicture}
+                        src={imageUrl}
                         alt="headshot of author"
                         width={512}
                         height={512}
@@ -163,7 +159,7 @@ export default function TappedTheme({
             </div>
 
             <p>Northern Virginia</p>
-            <p>{overallRating} / 5 stars on Tapped</p>
+            <p>{tappedRating} / 5 stars on Tapped</p>
             <p>Musician, Model, Actor, Audio Engineer</p>
 
             <div
@@ -176,19 +172,19 @@ export default function TappedTheme({
                     padding: '0 20px'
                 }}
             >
-                <div style={{ 
-                    display: 'flex', 
-                    flexDirection: 'column', 
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
                     marginRight: '20px',
                 }}>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         {(spotifyId !== undefined && spotifyId !== null && spotifyId !== '')
                             ? < div style={{
-                                display: 'flex', 
-                                marginBottom: '10px', 
-                                alignItems: 'center', 
-                                justifyContent: 'center', 
-                                padding: 5, 
+                                display: 'flex',
+                                marginBottom: '10px',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                padding: 5,
                                 borderRadius: 10,
                             }}>
                                 <div
@@ -209,8 +205,8 @@ export default function TappedTheme({
                                         }}
                                     />
                                 </div>
-                                <p style={{ 
-                                    marginLeft: '20px', 
+                                <p style={{
+                                    marginLeft: '20px',
                                     fontSize: '20px',
                                 }}>
                                     open.spotify.com/artist/{spotifyId} | 6503 Monthly Listeners
@@ -218,12 +214,12 @@ export default function TappedTheme({
                             </div>
                             : null}
                         {(instagramHandle !== undefined && instagramHandle !== null && instagramHandle !== '')
-                            ? <div style={{ 
-                                display: 'flex', 
-                                alignItems: 'center', 
-                                marginBottom: '10px', 
-                                paddingLeft: 5, 
-                                paddingRight: 5, 
+                            ? <div style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                marginBottom: '10px',
+                                paddingLeft: 5,
+                                paddingRight: 5,
                                 borderRadius: 10,
                             }}>
                                 <img
@@ -240,12 +236,12 @@ export default function TappedTheme({
                             : null}
 
                         {(tiktokHandle !== undefined && tiktokHandle !== null && tiktokHandle !== '')
-                            ? <div style={{ 
-                                display: 'flex', 
-                                alignItems: 'center', 
-                                marginBottom: '10px', 
-                                paddingLeft: 5, 
-                                paddingRight: 5, 
+                            ? <div style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                marginBottom: '10px',
+                                paddingLeft: 5,
+                                paddingRight: 5,
                                 borderRadius: 10,
                             }}>
                                 <img
@@ -262,12 +258,12 @@ export default function TappedTheme({
                             : null}
 
                         {(twitterHandle !== undefined && twitterHandle !== null && twitterHandle !== '')
-                            ? <div style={{ 
-                                display: 'flex', 
-                                alignItems: 'center', 
-                                marginBottom: '10px', 
-                                paddingLeft: 5, 
-                                paddingRight: 5, 
+                            ? <div style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                marginBottom: '10px',
+                                paddingLeft: 5,
+                                paddingRight: 5,
                                 borderRadius: 10,
                             }}>
                                 <img
@@ -291,18 +287,18 @@ export default function TappedTheme({
                                 height={qrCodeDimensions}
                             />
                         </div>
-                        <div style={{ 
-                            display: 'flex', 
-                            flexDirection: 'column', 
-                            justifyContent: 'center', 
-                            alignItems: 'center', 
-                            backgroundColor: '#202020', 
-                            borderRadius: 10, color: '#63b2fd', 
-                            paddingLeft: 4, 
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            backgroundColor: '#202020',
+                            borderRadius: 10, color: '#63b2fd',
+                            paddingLeft: 4,
                             paddingRight: 4,
-                         }}>
+                        }}>
                             <h2>Top Songs</h2>
-                            <p style={{ 
+                            <p style={{
                                 fontSize: '20px',
                             }}>Trust Issues: 46,621 | Winning: 30,612</p>
                         </div>
