@@ -68,13 +68,13 @@ export default function Results() {
     }
 
     const pdfHandler = async (themeIndex: number) => {
-        if (user === null) {
+        if (form === null) {
             return;
         }
 
         const result = await generateEpkSvg({
-            ...user,
-            phoneNumber: '',
+            ...form,
+            tappedRating: `${user?.overallRating}` ?? '0',
             height,
             width,
         });
@@ -133,10 +133,10 @@ export default function Results() {
             theme,
         }).toString();
         generateEpkSvg({
-            ...user,
-            phoneNumber: '',
-            width,
+            ...form,
+            tappedRating: `${user?.overallRating}` ?? '0',
             height,
+            width,
         }).then((result) => {
             console.log({ result });
         });
