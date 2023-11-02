@@ -39,44 +39,71 @@ export default function TappedTheme({
         >
             <div
                 style={{
+                    display: 'flex',
                     position: 'absolute',
-                    backgroundColor: '#63b2fd',
-                    borderRadius: '50%',
-                    filter: 'blur(100px)',
+                    overflow: 'hidden',
                     // zIndex: -1,
-                    top: '20%',
+                    top: '10%',
                     left: '-10%',
-                    width: '420px',
-                    height: '420px',
+                    width: '700px',
+                    height: '700px',
                 }}
-            ></div>
+            >
+                <img 
+                    src={getURL('/blue_circle_1.png')}
+                    alt="Blurred Circle 1" 
+                    width='700px'
+                    height='700px'
+                    style={{
+                        objectFit: 'cover',
+                    }}
+                />
+            </div>
             <div
                 style={{
+                    display: 'flex',
                     position: 'absolute',
-                    backgroundColor: '#63b2fd',
-                    borderRadius: '50%',
-                    filter: 'blur(100px)',
+                    overflow: 'hidden',
                     // zIndex: -1,
-                    top: '80%',
-                    right: '0%',
-                    width: '400px',
-                    height: '400px',
+                    top: '75%',
+                    right: '-20%',
+                    width: '800px',
+                    height: '800px',
                 }}
-            ></div>
+            >
+                <img 
+                    src={getURL('/blue_circle_1.png')}
+                    alt="Blurred Circle 2" 
+                    width='800px'
+                    height='800px'
+                    style={{
+                        objectFit: 'cover',
+                    }}
+                />
+            </div>
             <div
                 style={{
+                    display: 'flex',
                     position: 'absolute',
-                    backgroundColor: '#63b2fd',
-                    borderRadius: '50%',
-                    filter: 'blur(100px)',
+                    overflow: 'hidden',
                     // zIndex: -1,
-                    bottom: '90%',
-                    left: '90%',
-                    width: '600px',
-                    height: '600px',
+                    bottom: '70%',
+                    left: '95%',
+                    width: '700px',
+                    height: '700px',
                     transform: 'translateX(-50%)',
                 }}
-            ></div>
+            >
+                <img 
+                    src={getURL('/blue_circle_3.png')}
+                    alt="Blurred Circle 3" 
+                    width='700px'
+                    height='700px'
+                    style={{
+                        objectFit: 'cover',
+                    }}
+                />
+            </div>
             <div
                 style={{
                     display: 'flex',
