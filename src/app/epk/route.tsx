@@ -1,7 +1,9 @@
 import { ImageResponse } from "next/og";
 import TappedTheme from "./tapped_theme";
 import FunkyTheme from "./funky_theme";
+import MinimalistTheme from "./minimalist_theme";
 import { EpkForm } from "@/types/epk_form";
+import { EPKComponent } from "@/types/epk_component";
 
 // // @ts-ignore
 // import QRCodeImpl from "qr.js/lib/QRCode";
@@ -13,9 +15,10 @@ const height = 1200;
 
 export const runtime = 'edge';
 
-const themeComponents = {
+const themeComponents: Record<string, EPKComponent> = {
   tapped: TappedTheme,
   funky: FunkyTheme,
+  minimalist: MinimalistTheme,
 };
 
 export async function GET(request: Request) {
@@ -55,7 +58,7 @@ export async function GET(request: Request) {
   // const cells = qrcode.modules;
   console.log({ theme });
 
-  const ThemeComponent = themeComponents[theme || 'tapped'];
+  const ThemeComponent: EPKComponent = themeComponents[theme || 'tapped'];
 
   return new ImageResponse(
     <ThemeComponent

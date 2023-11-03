@@ -309,7 +309,7 @@ export default function TappedTheme({
                             <h2>Top Songs</h2>
                             <p style={{
                                 fontSize: '20px',
-                            }}>Trust Issues: 46,621 | Winning: 30,612</p>
+                            }}>Trust Issues: 46,621</p>
                         </div>
                     </div>
                 </div>

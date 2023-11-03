@@ -20,7 +20,7 @@ import { getEpkFormById } from '@/utils/database';
 const themes: EPKTheme[] = [
     'funky',
     'tapped',
-    'tapped',
+    'minimalist',
 ];
 
 const width = 900;
