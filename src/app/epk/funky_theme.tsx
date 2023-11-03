@@ -118,9 +118,7 @@ export default function FunkyTheme({
                   }}
               >
                   <p style={{ fontSize: 18, }}>
-                      {bio} ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem impsum sorem ipsum ipsum lorem 
-                      impsum sorem ipsum ipsum lorem impsum sorem ipsum lorem impsum sorem ipsumlorem impsum sorem ipsumlorem impsum 
-                      sorem ipsumlorem impsum sorem ipsumlorem impsum sorem ipsumlorem impsum sorem ipsumlorem impsum sorem ipsum
+                      {bio}
                   </p>
               </div>
             </div>
@@ -187,6 +185,7 @@ export default function FunkyTheme({
                 }}>
                     <div style={{ 
                       display: 'flex', 
+                      color: 'black',
                       flexDirection: 'column',
                       alignItems: 'center',
                       flex: 1 }}
@@ -194,11 +193,12 @@ export default function FunkyTheme({
                         {(spotifyId !== undefined && spotifyId !== null && spotifyId !== '')
                             ? < div style={{
                                 display: 'flex', 
-                                marginBottom: '10px', 
                                 alignItems: 'center', 
-                                justifyContent: 'center', 
-                                padding: 5, 
+                                justifyContent: 'flex-start', 
+                                paddingLeft: 5,
+                                paddingRight: 5,
                                 borderRadius: 10,
+                                width: '100%'
                             }}>
                                 <div
                                     style={{
@@ -222,7 +222,7 @@ export default function FunkyTheme({
                                     marginLeft: '20px', 
                                     fontSize: '20px',
                                 }}>
-                                    open.spotify.com/artist/{spotifyId} | 6503 Monthly Listeners
+                                    open.spotify.com/artist/{spotifyId}
                                 </p>
                             </div>
                             : null}
@@ -230,10 +230,11 @@ export default function FunkyTheme({
                             ? <div style={{ 
                                 display: 'flex', 
                                 alignItems: 'center', 
-                                marginBottom: '10px', 
+                                justifyContent: 'flex-start', 
                                 paddingLeft: 5, 
                                 paddingRight: 5, 
                                 borderRadius: 10,
+                                width: '100%'
                             }}>
                                 <img
                                     src={getURL("/instagram_icon.png")}
@@ -243,7 +244,7 @@ export default function FunkyTheme({
                                     style={{ objectFit: 'cover', }}
                                 />
                                 <p style={{ marginLeft: '20px', fontSize: '20px' }}>
-                                    @{instagramHandle} | 1638 followers
+                                    @{instagramHandle}
                                 </p>
                             </div>
                             : null}
@@ -252,10 +253,11 @@ export default function FunkyTheme({
                             ? <div style={{ 
                                 display: 'flex', 
                                 alignItems: 'center', 
-                                marginBottom: '10px', 
+                                justifyContent: 'flex-start', 
                                 paddingLeft: 5, 
                                 paddingRight: 5, 
                                 borderRadius: 10,
+                                width: '100%'
                             }}>
                                 <img
                                     src={getURL("/tiktok_icon.png")}
@@ -265,7 +267,7 @@ export default function FunkyTheme({
                                     style={{ objectFit: 'cover', }}
                                 />
                                 <p style={{ marginLeft: '20px', fontSize: '20px' }}>
-                                    @{tiktokHandle} | 948 followers
+                                    @{tiktokHandle}
                                 </p>
                             </div>
                             : null}
@@ -274,10 +276,11 @@ export default function FunkyTheme({
                             ? <div style={{ 
                                 display: 'flex', 
                                 alignItems: 'center', 
-                                marginBottom: '10px', 
+                                justifyContent: 'flex-start', 
                                 paddingLeft: 5, 
                                 paddingRight: 5, 
                                 borderRadius: 10,
+                                width: '100%'
                             }}>
                                 <img
                                     src={getURL("/twitter_icon.png")}
