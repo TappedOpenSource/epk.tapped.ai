@@ -28,7 +28,7 @@ const EpkForm: NextPage = () => {
 
   const pages = [
     NameField,
-    // ImageUploadField,
+    ImageUploadField,
     BioField,
     LocationField,
     CareerField,

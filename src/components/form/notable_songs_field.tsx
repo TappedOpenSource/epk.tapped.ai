@@ -5,7 +5,7 @@ const NotableSongsField = ({ formData, updateFormData, onValidation, user }) => 
 
   const validateForUI = (value) => {
     if (value.trim() === '') {
-      setError('notable_songs cannot be empty');
+      setError('notable songs cannot be empty');
       onValidation(false);
     } else {
       setError(null);
@@ -22,8 +22,8 @@ const NotableSongsField = ({ formData, updateFormData, onValidation, user }) => 
   };
 
   useEffect(() => {
-    justValidate(formData['notable_songs'] || '');
-  }, [formData['notable_songs']]);
+    justValidate(formData['notableSongs'] || '');
+  }, [formData['notableSongs']]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -43,9 +43,9 @@ const NotableSongsField = ({ formData, updateFormData, onValidation, user }) => 
         <div className="flex h-full w-full items-center justify-center">
           <input
             type="text"
-            name="notable_songs"
+            name="notableSongs"
             placeholder="type here..."
-            value={formData['notable_songs'] || ''}
+            value={formData['notableSongs'] || ''}
             onChange={handleInputChange}
             className={`white_placeholder w-full appearance-none rounded ${
               error ? 'border-2 border-red-500' : ''
