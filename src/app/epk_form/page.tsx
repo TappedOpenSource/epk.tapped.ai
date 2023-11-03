@@ -27,18 +27,18 @@ const EpkForm: NextPage = () => {
   const [formData, setFormData] = useState({});
 
   const pages = [
-    NameField,
-    ImageUploadField,
+    // NameField,
+    // ImageUploadField,
     BioField,
-    LocationField,
-    CareerField,
-    SpotifyField,
-    IgField,
-    TiktokField,
-    TwitterField,
-    NotableSongsField,
-    PhoneNumberField,
-    SubmitField,
+    // LocationField,
+    // CareerField,
+    // SpotifyField,
+    // IgField,
+    // TiktokField,
+    // TwitterField,
+    // NotableSongsField,
+    // PhoneNumberField,
+    // SubmitField,
   ];
 
   useEffect(() => {
