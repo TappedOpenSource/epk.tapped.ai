@@ -19,9 +19,12 @@ export default function TappedTheme({
     tappedRating: string;
 }) {
     console.log(imageUrl)
-    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${qrCodeDimensions
-        }x${qrCodeDimensions
-        }&bgcolor=010F16&color=cbd5e1&data=https://instagram.com/${instagramHandle
+    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${
+        qrCodeDimensions
+        }x${
+            qrCodeDimensions
+        }&bgcolor=010F16&color=cbd5e1&data=https://instagram.com/${
+            instagramHandle
         }`
     return (
         <div

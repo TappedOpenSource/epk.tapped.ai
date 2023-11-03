@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import { UserModel } from "@/types/user_model";
+import { EpkForm } from "@/types/epk_form";
 import { getURL } from "@/utils/url";
 import { Arimo } from "next/font/google";
 
@@ -14,15 +14,15 @@ const qrCodeDimensions = 150;
 export default function FunkyTheme({
     artistName,
     bio,
-    profilePicture,
-    overallRating,
+    imageUrl,
+    tappedRating,
     tiktokHandle,
     instagramHandle,
     twitterHandle,
     spotifyId,
     phoneNumber,
-}: Omit<UserModel, "id"> & {
-    phoneNumber: string;
+}: Omit<EpkForm, "id" | "userId" | "timestamp"> & {
+    tappedRating: string;
 }) {
     const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${
         qrCodeDimensions
@@ -100,7 +100,7 @@ export default function FunkyTheme({
                       {artistName}
                   </h1>
                   <p>Northern Virginia</p>
-                  <p>{overallRating} / 5 stars on Tapped</p>
+                  <p>{tappedRating} / 5 stars on Tapped</p>
                   <p>Musician, Model, Actor, Audio Engineer</p>
               </div>
               <div
@@ -146,7 +146,7 @@ export default function FunkyTheme({
                     }}
                 >
                     <img
-                        src={profilePicture}
+                        src={imageUrl}
                         alt="headshot of author"
                         width={512}
                         height={512}

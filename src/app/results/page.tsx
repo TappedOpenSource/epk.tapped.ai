@@ -18,7 +18,7 @@ import { EpkForm } from '@/types/epk_form';
 import { getEpkFormById } from '@/utils/database';
 
 const themes: EPKTheme[] = [
-    'tapped',
+    'funky',
     'tapped',
     'tapped',
 ];
@@ -122,9 +122,9 @@ export default function Results() {
     }
 
     console.debug({ user, claim });
-    const userString = JSON.stringify({
-        ...user,
-        phoneNumber: '',
+    const formString = JSON.stringify({
+        ...form,
+        tappedRating: user?.overallRating ? `${user?.overallRating}` : '0',
     });
     // const urlParams = Object.entries(user).map(([key, val]) => {
     //     const value = encodeURIComponent(val);
@@ -132,7 +132,7 @@ export default function Results() {
     // }).join('&');
     const imageUrls = themes.map((theme) => {
         const urlParams = new URLSearchParams({
-            user: userString,
+            epkData: formString,
             theme,
         }).toString();
         generateEpkSvg({
