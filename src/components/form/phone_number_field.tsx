@@ -37,7 +37,7 @@ const PhoneNumberField = ({ formData, updateFormData, onValidation, user }) => {
 
   return (
     <div className="page flex h-full flex-col items-center justify-center">
-      <div className="flex w-full flex-col items-start px-6">
+      <div className="flex w-full flex-col items-start">
         <h1 className="mb-2 text-2xl font-bold text-white">
           what&apos;s your (or your agent&apos;s) phone number?
         </h1>
