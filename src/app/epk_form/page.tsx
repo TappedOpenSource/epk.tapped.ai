@@ -29,7 +29,6 @@ const EpkForm: NextPage = () => {
   const pages = [
     // NameField,
     // ImageUploadField,
-    BioField,
     // LocationField,
     // CareerField,
     // SpotifyField,
@@ -38,7 +37,8 @@ const EpkForm: NextPage = () => {
     // TwitterField,
     // NotableSongsField,
     // PhoneNumberField,
-    // SubmitField,
+    BioField,
+    SubmitField,
   ];
 
   useEffect(() => {
