@@ -19,7 +19,7 @@ import { getEpkFormById } from '@/utils/database';
 
 const themes: EPKTheme[] = [
     'tapped',
-    'funky',
+    'tapped',
     'tapped',
 ];
 
@@ -138,7 +138,7 @@ export default function Results() {
         generateEpkSvg({
             theme: theme,
             ...form,
-            tappedRating: `${user?.overallRating}` ?? '0',
+            tappedRating: user?.overallRating ? `${user?.overallRating}` : '0',
             height,
             width,
         }).then((result) => {

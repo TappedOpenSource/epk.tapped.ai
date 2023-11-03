@@ -12,6 +12,15 @@ const ImageUploadField = ({ formData, updateFormData, onValidation, user }) => {
     validateForUI(imagePreviewUrl);
   }, [imagePreviewUrl]);  
 
+  useEffect(() => {
+    if (user && user.profilePicture) {
+        updateFormData({
+            ...formData,
+            imageUrl: user.profilePicture,
+        });
+    }
+}, [user]);
+
   const validateForUI = (url) => {
     if (!url) {
       setError('Image is required');
@@ -40,7 +49,7 @@ const ImageUploadField = ({ formData, updateFormData, onValidation, user }) => {
             setImagePreviewUrl(downloadURL);
             updateFormData({
                 ...formData,
-                image: downloadURL,
+                imageUrl: downloadURL,
             });
             validateForUI(downloadURL);
         } catch (error) {

@@ -7,7 +7,7 @@ const CareerField = ({ formData, updateFormData, onValidation, user }) => {
     if (user && user.occupations) {
       updateFormData({
         ...formData,
-        career: user.occupations,
+        job: user.occupations,
       });
     }
   }, [user]);
@@ -31,8 +31,8 @@ const justValidate = (value) => {
 };
 
   useEffect(() => {
-    justValidate(formData['career'] || '');
-  }, [formData['career']]);
+    justValidate(formData['job'] || '');
+  }, [formData['job']]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -54,9 +54,9 @@ const justValidate = (value) => {
         <div className="flex h-full w-full items-center justify-center">
           <input
             type="text"
-            name="career"
+            name="job"
             placeholder="type here..."
-            value={formData['career'] ? formData['career'].join(', ') : ''}
+            value={formData['job'] ? formData['job'].join(', ') : ''}
             onChange={handleInputChange}
             className={`white_placeholder w-full appearance-none rounded ${
               error ? 'border-2 border-red-500' : ''
