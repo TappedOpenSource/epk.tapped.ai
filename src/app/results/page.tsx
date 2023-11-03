@@ -175,7 +175,7 @@ export default function Results() {
                                 <div
                                     key={index}
                                     onClick={() => { setSelectedTheme(index) }}
-                                    className={`w-[256px] md:w-[400px] m-6 inline-block rounded-xl ${(selectedTheme === index) && 'border-4 border-white'
+                                    className={`w-[256px] md:w-[400px] mr-6 my-6 inline-block rounded-xl ${(selectedTheme === index) && 'border-4 border-white'
                                         }`}
                                 >
                                     <Image
