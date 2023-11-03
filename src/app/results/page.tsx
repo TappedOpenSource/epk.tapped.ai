@@ -48,7 +48,7 @@ export default function Results() {
             }
 
             const epkForm = await getEpkFormById({
-                userId: user.id, 
+                userId: user.id,
                 formId: formId,
             });
             setForm(epkForm);
@@ -161,49 +161,56 @@ export default function Results() {
     return (
         <>
             <div
-                className="min-h-screen flex flex-col md:flex-row justify-center"
+                className="min-h-screen flex flex-col justify-center px-6"
             >
-                <div className='flex flex-col items-center'>
+                <div className='flex flex-col'>
                     <div className="h-12" />
-                    <h1 className='text-4xl font-extrabold'>pick your style</h1>
-                    <div className='flex flex-row'>
-                        {imageUrls.map(({ url }, index) => (
-                            <div
-                                key={index}
-                                onClick={() => { setSelectedTheme(index) }}
-                                className={`m-6 rounded-xl ${(selectedTheme === index) && 'border-4 border-white'}`}
-                            >
-                                <Image
-                                    src={url}
-                                    alt="EPK"
-                                    width={512}
-                                    height={512}
-                                    priority
-                                    onError={(e) => { setError(true) }}
-                                    className='rounded-lg'
-                                />
-                            </div>
-                        ),
-                        )}
+                    <div className='md:text-center'>
+                        <h1 className='text-4xl font-extrabold'>pick your style</h1>
+                    </div>
+                    <div className='flex flex-row hide-scroll-bar overflow-x-scroll'>
+                        <div className='flex flex-nowrap'>
+
+                            {imageUrls.map(({ url }, index) => (
+                                <div
+                                    key={index}
+                                    onClick={() => { setSelectedTheme(index) }}
+                                    className={`w-[256px] md:w-[400px] m-6 inline-block rounded-xl ${(selectedTheme === index) && 'border-4 border-white'
+                                        }`}
+                                >
+                                    <Image
+                                        src={url}
+                                        alt="EPK"
+                                        width={512}
+                                        height={512}
+                                        priority
+                                        onError={(e) => { setError(true) }}
+                                        className='rounded-lg overflow-hidden'
+                                    />
+                                </div>
+                            ),
+                            )}
+                        </div>
                     </div>
                     {selectedTheme !== null && (
                         <>
-                            <div className='flex flex-col md:flex-row gap-4'>
+                            <div className='flex flex-col md:flex-row md:justify-center gap-4'>
+
+                                <button
+                                    onClick={() => pdfHandler(selectedTheme)}
+                                    className='text-2xl font-bold px-12 py-2 rounded-xl bg-blue-600 text-white hover:scale-105 transform transition-all duration-200 ease-in-out'
+                                >
+                                    get as pdf
+                                </button>
                                 <Link
                                     href={imageUrls[selectedTheme].url}
                                     download="epk.png"
                                     target="_blank"
                                     rel="noreferrer"
-                                    className='text-2xl font-bold px-12 py-2 rounded-xl bg-blue-300 text-black hover:scale-105 transform transition-all duration-200 ease-in-out'
+                                    className='text-center text-2xl font-bold px-12 py-2 rounded-xl bg-white/10 text-white/75 hover:scale-105 transform transition-all duration-200 ease-in-out'
                                 >
                                     get as png
                                 </Link>
-                                <button
-                                    onClick={() => pdfHandler(selectedTheme)}
-                                    className='text-2xl font-bold px-12 py-2 rounded-xl bg-blue-300 text-black hover:scale-105 transform transition-all duration-200 ease-in-out'
-                                >
-                                    get as pdf
-                                </button>
                             </div>
                         </>
                     )}
