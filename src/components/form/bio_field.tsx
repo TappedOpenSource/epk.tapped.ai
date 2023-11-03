@@ -1,9 +1,34 @@
+import { useAuth } from '@/context/AuthProvider';
 import { aiEnhanceBio } from '@/utils/api';
 import React, { useEffect, useState } from 'react';
+
+  const EnhancedButton = ({ loading, enhanced, onClick }: {
+    loading: boolean;
+    enhanced: boolean;
+    onClick: () => void;
+  }) => {
+    if (loading) {
+      return <p className='text-white'>loading...</p>
+    }
+
+    if (enhanced) {
+      return <p className='text-white'>enhanced!</p>
+    }
+
+    return (
+      <button
+        onClick={onClick}
+        className='bg-purple-300 text-gray-600 font-extrabold px-4 py-2 rounded-lg'
+      >
+        Ai-enhance
+      </button>
+    );
+  }
 
 const BioField = ({ formData, updateFormData, onValidation, user }) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [enhancded, setEnhanced] = useState(false);
 
   useEffect(() => {
     if (user && user.bio) {
@@ -48,17 +73,22 @@ const BioField = ({ formData, updateFormData, onValidation, user }) => {
   const handleAiEnhance = async () => {
     setLoading(true);
     try {
-      const betterBio = await aiEnhanceBio();
+      const betterBio = await aiEnhanceBio({
+        userId: user.id,
+      });
       updateFormData({
         ...formData,
         bio: betterBio,
       });
       validateForUI(betterBio);
+      setEnhanced(true);
     } catch (e) {
       console.error(e);
     }
     setLoading(false);
   }
+
+
 
   return (
     <div className="page flex h-full flex-col items-center justify-center">
@@ -77,16 +107,11 @@ const BioField = ({ formData, updateFormData, onValidation, user }) => {
               className={`min-h-[200px] w-full h-full bg-transparent text-white font-semibold focus:outline-none`}
             />
             <div className='flex justify-end'>
-              {loading ? (
-                <p className='text-white'>loading...</p>
-              ) : (
-                <button
-                  onClick={handleAiEnhance}
-                  className='bg-purple-300 text-gray-600 font-extrabold px-4 py-2 rounded-lg'
-                >
-                  Ai-enhance
-                </button>
-              )}
+              <EnhancedButton 
+                loading={loading} 
+                enhanced={enhancded}
+                onClick={handleAiEnhance}
+              />
             </div>
           </div>
           {error && <p className="mt-2 text-red-500">{error}</p>}

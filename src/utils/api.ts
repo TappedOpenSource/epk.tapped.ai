@@ -1,12 +1,14 @@
 import { httpsCallable } from "firebase/functions";
 import { functions } from "@/utils/firebase";
 
-export async function aiEnhanceBio() {
+export async function aiEnhanceBio({ userId }: {
+    userId: string;
+}) {
     const res = await httpsCallable<
-        { text: string; },
+        { userId: string; },
         { enhancedBio: string; }
     >(functions, 'generateEnhancedBio')({
-        text: 'bio'
+        userId,
     });
 
     const enhancedBio = res.data.enhancedBio;
