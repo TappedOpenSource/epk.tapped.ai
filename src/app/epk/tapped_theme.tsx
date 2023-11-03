@@ -3,7 +3,7 @@
 import { EpkForm } from "@/types/epk_form";
 import { getURL } from "@/utils/url";
 
-const qrCodeDimensions = 256;
+const qrCodeDimensions = 150;
 
 export default function TappedTheme({
     artistName,
@@ -18,7 +18,6 @@ export default function TappedTheme({
 }: Omit<EpkForm, "id" | "userId" | "timestamp"> & {
     tappedRating: string;
 }) {
-    console.log(imageUrl)
     const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${
         qrCodeDimensions
         }x${
@@ -47,17 +46,17 @@ export default function TappedTheme({
                     position: 'absolute',
                     overflow: 'hidden',
                     // zIndex: -1,
-                    top: '10%',
-                    left: '-10%',
-                    width: '700px',
-                    height: '700px',
+                    top: '-5%',
+                    left: '-40%',
+                    width: '900px',
+                    height: '900px',
                 }}
             >
                 <img 
                     src={getURL('/blue_circle_1.png')}
                     alt="Blurred Circle 1" 
-                    width='700px'
-                    height='700px'
+                    width='900px'
+                    height='900px'
                     style={{
                         objectFit: 'cover',
                     }}
@@ -70,7 +69,7 @@ export default function TappedTheme({
                     overflow: 'hidden',
                     // zIndex: -1,
                     top: '75%',
-                    right: '-20%',
+                    right: '-30%',
                     width: '800px',
                     height: '800px',
                 }}
@@ -106,6 +105,19 @@ export default function TappedTheme({
                     style={{
                         objectFit: 'cover',
                     }}
+                />
+            </div>
+            <div style={{
+                display: 'flex',
+                position: 'absolute',
+                overflow: 'hidden',
+                top: '2%',
+                left: '2%',
+            }}>
+                <img
+                    src={qrCodeUrl}
+                    width={qrCodeDimensions}
+                    height={qrCodeDimensions}
                 />
             </div>
             <div
@@ -173,13 +185,15 @@ export default function TappedTheme({
                     marginTop: 20,
                     justifyContent: 'space-between',
                     width: '100%',
-                    padding: '0 20px'
+                    padding: '0 20px',
                 }}
             >
                 <div style={{
                     display: 'flex',
                     flexDirection: 'column',
                     marginRight: '20px',
+                    flex: 1,
+                    minWidth: 0,
                 }}>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         {(spotifyId !== undefined && spotifyId !== null && spotifyId !== '')
@@ -213,7 +227,7 @@ export default function TappedTheme({
                                     marginLeft: '20px',
                                     fontSize: '20px',
                                 }}>
-                                    open.spotify.com/artist/{spotifyId} | 6503 Monthly Listeners
+                                    open.spotify.com/artist/{spotifyId}
                                 </p>
                             </div>
                             : null}
@@ -234,7 +248,7 @@ export default function TappedTheme({
                                     style={{ objectFit: 'cover', }}
                                 />
                                 <p style={{ marginLeft: '20px', fontSize: '20px' }}>
-                                    @{instagramHandle} | 1638 followers
+                                    @{instagramHandle}
                                 </p>
                             </div>
                             : null}
@@ -256,7 +270,7 @@ export default function TappedTheme({
                                     style={{ objectFit: 'cover', }}
                                 />
                                 <p style={{ marginLeft: '20px', fontSize: '20px' }}>
-                                    @{tiktokHandle} | 948 followers
+                                    @{tiktokHandle}
                                 </p>
                             </div>
                             : null}
@@ -284,15 +298,6 @@ export default function TappedTheme({
                             : null}
                         <div style={{
                             display: 'flex',
-                        }}>
-                            <img
-                                src={qrCodeUrl}
-                                width={qrCodeDimensions}
-                                height={qrCodeDimensions}
-                            />
-                        </div>
-                        <div style={{
-                            display: 'flex',
                             flexDirection: 'column',
                             justifyContent: 'center',
                             alignItems: 'center',
@@ -313,16 +318,16 @@ export default function TappedTheme({
                     style={{
                         display: 'flex',
                         flexDirection: 'column',
-                        width: '380px',
                         borderRadius: 10,
                         padding: 10,
+                        flex: 1,
+                        minWidth: 0,
                     }}
                 >
                     <p style={{ textAlign: 'center', fontSize: 19, color: 'white' }}>
                         {bio}
                     </p>
                 </div>
-                {/*<p>sync + collabs</p>*/}
             </div>
             {(phoneNumber !== undefined && phoneNumber !== null && phoneNumber !== '')
                 ? <p>agent contact: {phoneNumber}</p>
