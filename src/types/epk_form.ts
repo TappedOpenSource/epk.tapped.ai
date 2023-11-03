@@ -15,9 +15,9 @@ export type EpkForm = {
   location: string;
   job: string;
   spotifyId: string;
-  instagramHandle: string;
-  tiktokHandle: string;
-  twitterHandle: string;
+  // instagramHandle: string;
+  // tiktokHandle: string;
+  // twitterHandle: string;
   notableSongs: string;
   phoneNumber: string;
   timestamp: Timestamp;
@@ -38,9 +38,9 @@ export const epkFormConverter = {
       location: data.location,
       job: data.job,
       spotifyId: data.spotifyId,
-      instagramHandle: data.instagramHandle,
-      tiktokHandle: data.tiktokHandle,
-      twitterHandle: data.twitterHandle,
+      // instagramHandle: data.instagramHandle,
+      // tiktokHandle: data.tiktokHandle,
+      // twitterHandle: data.twitterHandle,
       notableSongs: data.notableSongs,
       phoneNumber: data.phoneNumber,
       timestamp: data.timestamp,

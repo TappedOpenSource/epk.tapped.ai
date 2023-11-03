@@ -1,10 +1,12 @@
 import Link from 'next/link'  
 import Image from 'next/image';
+import Nav from '@/components/Nav';
 
 export default function Home() {
   return (
     <>
-      <main className="flex min-h-screen flex-col items-center md:items-start justify-center px-4 md:p-24">
+      <Nav />
+      <main className="flex flex-col md:items-start justify-center px-4 md:p-24">
         {/* Nav Bar */}
         <h1
           className='uppercase text-center md:text-start text-4xl md:text-9xl font-black w-3/4'

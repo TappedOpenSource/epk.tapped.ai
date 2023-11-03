@@ -122,10 +122,19 @@ export default function Results() {
     }
 
     console.debug({ user, claim });
-    const formString = JSON.stringify({
+    const payload: Omit<EpkForm, "id" | "userId" | "timestamp"> & {
+        twitterHandle: string | null;
+        tiktokHandle: string | null;
+        instagramHandle: string | null;
+        tappedRating: string;
+    } = {
         ...form,
+        twitterHandle: user?.twitterHandle ?? null,
+        tiktokHandle: user?.twitterHandle ?? null,
+        instagramHandle: user?.instagramHandle ?? null,
         tappedRating: user?.overallRating ? `${user?.overallRating}` : '0',
-    });
+    }
+    const formString = JSON.stringify(payload);
     // const urlParams = Object.entries(user).map(([key, val]) => {
     //     const value = encodeURIComponent(val);
     //     return `${key}=${value}`;
@@ -136,9 +145,8 @@ export default function Results() {
             theme,
         }).toString();
         generateEpkSvg({
+            ...payload,
             theme: theme,
-            ...form,
-            tappedRating: user?.overallRating ? `${user?.overallRating}` : '0',
             height,
             width,
         }).then((result) => {
