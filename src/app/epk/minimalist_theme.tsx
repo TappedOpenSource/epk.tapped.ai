@@ -64,6 +64,17 @@ export default function MinimalistTheme({
                 height: '100px',
             }}>
             </div> */}
+            <div style={{
+                display: 'flex',
+                position: 'absolute',
+                top: '38.8%',
+                left: '-10%',
+                backgroundColor: '#c3b1e1',
+                borderRadius: 10, 
+                marginBottom: '5px',
+                width: '100%',
+                height: '132px',
+            }}></div>
             <div style={{display: 'flex', flexDirection: 'row', marginBottom: '25px', alignItems: 'flex-start', width: '100%',}}>
               <div
                   style={{
