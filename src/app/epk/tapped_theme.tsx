@@ -253,7 +253,7 @@ export default function TappedTheme({
                             }}
                         >
                             <img
-                                src={getURL('/spotify_icon.png')}
+                                src={getURL('/spotify_icon_white.png')}
                                 alt="spotify icon"
                                 width={50}
                                 height={50}
@@ -272,7 +272,7 @@ export default function TappedTheme({
                             }}
                         >
                             <img
-                                src={getURL('/instagram_icon.png')}
+                                src={getURL('/instagram_icon_white.png')}
                                 alt="instagram icon"
                                 width={50}
                                 height={50}
@@ -292,7 +292,7 @@ export default function TappedTheme({
                             }}
                         >
                             <img
-                                src={getURL('/tiktok_icon.png')}
+                                src={getURL('/tiktok_icon_white.png')}
                                 alt="tiktok icon"
                                 width={50}
                                 height={50}
@@ -313,15 +313,13 @@ export default function TappedTheme({
                             }}
                         >
                             <img
-                                src={getURL('/twitter_logo.png')}
+                                src={getURL("/twitter_icon_white.png")}
                                 alt="twitter icon"
-                                width={60}
-                                height={60}
+                                width={50}
+                                height={50}
                                 style={{
                                     objectFit: 'cover',
                                     marginBottom: '5px',
-                                    width: 60,
-                                    height: 60,
                                 }}
                             />
                         </div>
