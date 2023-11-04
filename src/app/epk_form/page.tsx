@@ -41,6 +41,24 @@ const EpkForm: NextPage = () => {
     SubmitField,
   ];
 
+  if (user?.instagramHandle === undefined || 
+    user?.instagramHandle === null || 
+    user?.instagramHandle === '') {
+    pages.splice(5, 0, IgField);
+  }
+
+  if (user?.tiktokHandle === undefined ||
+      user?.tiktokHandle === null ||
+      user?.tiktokHandle === '') {
+    pages.splice(6, 0, TiktokField);
+  }
+
+  if (user?.twitterHandle === undefined || 
+    user?.twitterHandle === null ||
+    user?.twitterHandle === '') {
+    pages.splice(7, 0, TwitterField);
+  }
+
   useEffect(() => {
     setIsValid(false);
   }, [currentIndex]);
@@ -59,15 +77,15 @@ const EpkForm: NextPage = () => {
     }
   };
 
-    if (user === null) {
-        return (
-            <>
-                <div className='min-h-screen flex justify-center items-center'>
-                    <p>fetching user...</p>
-                </div>
-            </>
-        );
-    }
+  if (user === null) {
+    return (
+      <>
+        <div className='min-h-screen flex justify-center items-center'>
+          <p>fetching user...</p>
+        </div>
+      </>
+    );
+  }
 
   if (pages.length <= 0) {
     return <h1>Form is empty</h1>;

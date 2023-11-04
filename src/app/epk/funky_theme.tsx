@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import { EpkForm } from "@/types/epk_form";
+import { EpkProps } from "@/types/epk_component";
 import { getURL } from "@/utils/url";
 
 const qrCodeDimensions = 150;
@@ -15,9 +15,7 @@ export default function FunkyTheme({
     twitterHandle,
     spotifyId,
     phoneNumber,
-}: Omit<EpkForm, "id" | "userId" | "timestamp"> & {
-    tappedRating: string;
-}) {
+}: EpkProps) {
     const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${
         qrCodeDimensions
     }x${

@@ -78,6 +78,9 @@ export default function Results() {
             theme: theme,
             ...form,
             tappedRating: `${user?.overallRating}` ?? '0',
+            twitterHandle: user?.twitterHandle ?? null,
+            tiktokHandle: user?.tiktokHandle ?? null,
+            instagramHandle: user?.instagramHandle ?? null,
             height,
             width,
         });
