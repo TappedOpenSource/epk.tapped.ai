@@ -2,10 +2,9 @@
 import TappedTheme from '@/app/epk/tapped_theme';
 import FunkyTheme from '@/app/epk/funky_theme';
 import MinimalistTheme from '@/app/epk/minimalist_theme';
-import { UserModel } from '@/types/user_model';
 import { EpkForm } from '@/types/epk_form';
 import satori from 'satori'
-import { EPKComponent } from '@/types/epk_component';
+import { EPKComponent, EpkProps } from '@/types/epk_component';
 
 const themeComponents: Record<string, EPKComponent> = {
     tapped: TappedTheme,
@@ -26,7 +25,10 @@ export async function generateEpkSvg({
     location,
     notableSongs,
     job,
-}: Omit<EpkForm, "id" | "userId" | "timestamp"> & {
+    twitterHandle,
+    tiktokHandle,
+    instagramHandle,
+}: EpkProps & {
     theme: string,
     height: number;
     width: number;

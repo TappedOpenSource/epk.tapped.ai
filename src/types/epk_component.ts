@@ -1,5 +1,10 @@
-import TappedTheme from "@/app/epk/tapped_theme"
-import FunkyTheme from "@/app/epk/funky_theme"
-import MinimalistTheme from "@/app/epk/minimalist_theme"
+import { EpkForm } from "./epk_form";
 
-export type EPKComponent = typeof TappedTheme | typeof FunkyTheme | typeof MinimalistTheme
+export type EpkProps = Omit<EpkForm, "id" | "userId" | "timestamp"> & {
+    tiktokHandle: string | null;
+    instagramHandle: string | null;
+    twitterHandle: string | null;
+    tappedRating: string | null;
+}
+
+export type EPKComponent = (props: EpkProps) => JSX.Element;
