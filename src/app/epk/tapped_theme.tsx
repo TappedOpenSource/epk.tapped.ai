@@ -188,27 +188,27 @@ export default function TappedTheme({
                 <div style={{display: 'flex', flexDirection: 'column'}}>
                     <div style={{display: 'flex', flexDirection: 'row'}}>
                         <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '20px', fontFamily: 'Inter', margin: '4px'}}>Location |</p>
+                            <p style={{fontSize: '20px', margin: '4px'}}>Location |</p>
                         </div>
                         <div style={{display: 'flex'}}>
                             <img src={getURL('/location_icon.png')} alt="Location icon" style={{ width: '20px', height: '20px', marginTop: '4px' }} />
-                            <p style={{fontSize: '20px', fontFamily: 'InterItalic', margin: '4px'}}>Northern Virginia</p>
+                            <p style={{fontSize: '20px', margin: '4px'}}>Northern Virginia</p>
                         </div>
                     </div>
                     <div style={{display: 'flex', flexDirection: 'row'}}>
                         <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '20px', fontFamily: 'Inter', margin: '4px'}}>Rating |</p>
+                            <p style={{fontSize: '20px', margin: '4px'}}>Rating |</p>
                         </div>
                         <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '20px', fontFamily: 'InterItalic', margin: '4px'}}>{tappedRating} / 5 stars on Tapped</p>
+                            <p style={{fontSize: '20px', margin: '4px'}}>{tappedRating} / 5 stars on Tapped</p>
                         </div>
                     </div>
                     <div style={{display: 'flex', flexDirection: 'row'}}>
                         <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '20px', fontFamily: 'Inter', margin: '4px'}}>Profession |</p>
+                            <p style={{fontSize: '20px', margin: '4px'}}>Profession |</p>
                         </div>
                         <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '20px', fontFamily: 'InterItalic', margin: '4px'}}>Musician, Model, Actor, Audio Engineer</p>
+                            <p style={{fontSize: '20px', margin: '4px'}}>Musician, Model, Actor, Audio Engineer</p>
                         </div>
                     </div>
                 </div>
@@ -255,8 +255,8 @@ export default function TappedTheme({
                             <img
                                 src={getURL('/spotify_icon_white.png')}
                                 alt="spotify icon"
-                                width={50}
-                                height={50}
+                                width={80}
+                                height={80}
                                 style={{
                                     objectFit: 'cover',
                                     marginBottom: '5px',
@@ -393,14 +393,14 @@ export default function TappedTheme({
                             paddingLeft: 4,
                             paddingRight: 4,
                         }}>
-                            <h1 style={{fontFamily: 'InterBold', fontSize: '30px'}}>Top Songs</h1>
-                            <div style={{display: 'flex', flexDirection: 'column'}}>
+                            <h1 style={{fontFamily: 'InterBold', fontSize: '48px', margin: '4px'}}>Top Songs</h1>
+                            <div style={{display: 'flex', flexDirection: 'column', margin: '4px'}}>
                                 <div style={{display: 'flex', flexDirection: 'row'}}>
                                     <div style={{display: 'flex'}}>
                                         <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px'}}>Trust Issues |</p>
                                     </div>
                                     <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '20px', fontFamily: 'InterItalic', margin: '4px'}}>46,621 plays</p>
+                                        <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>46,621 plays</p>
                                     </div>
                                 </div>
                                 <div style={{display: 'flex', flexDirection: 'row'}}>
@@ -408,7 +408,7 @@ export default function TappedTheme({
                                         <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px'}}>Silhouette |</p>
                                     </div>
                                     <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '20px', fontFamily: 'InterItalic', margin: '4px'}}>32,695 plays</p>
+                                        <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>32,695 plays</p>
                                     </div>
                                 </div>
                                 <div style={{display: 'flex', flexDirection: 'row'}}>
@@ -416,7 +416,7 @@ export default function TappedTheme({
                                         <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px'}}>DNA |</p>
                                     </div>
                                     <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '20px', fontFamily: 'InterItalic', margin: '4px'}}>23,865 plays</p>
+                                        <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>23,865 plays</p>
                                     </div>
                                 </div>
                             </div>

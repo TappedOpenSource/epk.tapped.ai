@@ -3,7 +3,7 @@
 import { EpkProps } from "@/types/epk_component";
 import { getURL } from "@/utils/url";
 
-const qrCodeDimensions = 150;
+const qrCodeDimensions = 75;
 
 export default function FunkyTheme({
     artistName,
@@ -288,18 +288,6 @@ export default function FunkyTheme({
                             </div>
                             : null}
                     </div>
-                    <div style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        flex: 1,
-                    }}>
-                        <img
-                            src={qrCodeUrl}
-                            width={qrCodeDimensions}
-                            height={qrCodeDimensions}
-                        />
-                    </div>
                     <div style={{ 
                         display: 'flex', 
                         flexDirection: 'column', 
@@ -329,6 +317,19 @@ export default function FunkyTheme({
                 {(phoneNumber !== undefined && phoneNumber !== null && phoneNumber !== '')
                     ? <p>agent contact: {phoneNumber}</p>
                     : null}
+            </div>
+            <div style={{
+                display: 'flex',
+                position: 'absolute',
+                overflow: 'hidden',
+                bottom: '2%',
+                left: '2%',
+            }}>
+                <img
+                    src={qrCodeUrl}
+                    width={qrCodeDimensions}
+                    height={qrCodeDimensions}
+                />
             </div>
         </div >
     );

@@ -80,7 +80,7 @@ export default function MinimalistTheme({
                 }}
               >
                 <div style={{display: 'flex', flexDirection: 'column', padding: '0 20px', color: 'white'}}>
-                  <h1 style={{ fontSize: '48px', fontFamily: 'ArimoBold', color: '#d8bfd8' }}>{artistName}</h1>
+                  <h1 style={{ fontSize: '48px', fontFamily: 'ArimoBold', color: '#702963' }}>{artistName}</h1>
                   <div style={{display: 'flex', flexDirection: 'column'}}>
                     <div style={{display: 'flex', flexDirection: 'row'}}>
                         <div style={{display: 'flex'}}>
@@ -127,7 +127,7 @@ export default function MinimalistTheme({
                 paddingRight: 4,
                 width: '100%',
             }}>
-                <h1 style={{fontFamily: 'ArimoBold', fontSize: '60px', marginRight: '50px', color: '#d8bfd8'}}>Top Songs</h1>
+                <h1 style={{fontFamily: 'ArimoBold', fontSize: '60px', marginRight: '50px', color: '#702963'}}>Top Songs</h1>
                 <div style={{display: 'flex', flexDirection: 'column'}}>
                     <div style={{display: 'flex', flexDirection: 'row'}}>
                         <div style={{display: 'flex'}}>
@@ -161,8 +161,8 @@ export default function MinimalistTheme({
                 flexDirection: 'row',
                 position: 'absolute',
                 top: '53%',
-                right: '-1%',
-                width: '100%',
+                right: '0%',
+                width: '106%',
                 backgroundColor: '#c3b1e1',
                 color: 'white',
                 borderTopLeftRadius: 10,
@@ -185,24 +185,13 @@ export default function MinimalistTheme({
                         borderRadius: 10,
                         height: '85px',
                     }}>
-                        <div
-                            style={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                justifyContent: 'center',
-                            }}
-                        >
-                            <img
-                                src={getURL('/spotify_icon_white.png')}
-                                alt="spotify icon"
-                                width={35}
-                                height={35}
-                                style={{
-                                    objectFit: 'cover',
-                                    marginBottom: '5px',
-                                }}
-                            />
-                        </div>
+                        <img
+                            src={getURL('/spotify_icon_white.png')}
+                            alt="spotify icon"
+                            width={80}
+                            height={80}
+                            style={{ objectFit: 'cover' }}
+                        />
                         <p style={{
                             marginLeft: '20px',
                             fontSize: '20px',
@@ -218,14 +207,15 @@ export default function MinimalistTheme({
                         alignItems: 'center',
                         paddingLeft: 5,
                         paddingRight: 5,
+                        marginLeft: 20,
                         borderRadius: 10,
                         height: '85px',
                     }}>
                         <img
                             src={getURL("/instagram_icon_white.png")}
                             alt="Instagram icon"
-                            width={35}
-                            height={35}
+                            width={50}
+                            height={50}
                             style={{ objectFit: 'cover', }}
                         />
                         <p style={{ marginLeft: '20px', fontSize: '20px', fontFamily: 'ArimoBold' }}>
@@ -252,8 +242,8 @@ export default function MinimalistTheme({
                             <img
                                 src={getURL("/tiktok_icon_white.png")}
                                 alt="TikTok icon"
-                                width={35}
-                                height={35}
+                                width={50}
+                                height={50}
                                 style={{ objectFit: 'cover', }}
                             />
                             <p style={{ marginLeft: '20px', fontSize: '20px', fontFamily: 'ArimoBold' }}>
@@ -274,8 +264,8 @@ export default function MinimalistTheme({
                             <img
                                 src={getURL("/twitter_icon_white.png")}
                                 alt="Twitter icon"
-                                width={35}
-                                height={35}
+                                width={50}
+                                height={50}
                                 style={{ objectFit: 'cover' }}
                             />
                             <p style={{ marginLeft: '20px', fontSize: '20px', fontFamily: 'ArimoBold' }}>
@@ -285,7 +275,7 @@ export default function MinimalistTheme({
                     : null}
                 </div>
                 <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                    <h1 style={{ fontSize: '48px', fontFamily: 'ArimoBold', color: '#d8bfd8', paddingLeft: '20px' }}>Socials</h1>
+                    <h1 style={{ fontSize: '48px', fontFamily: 'ArimoBold', color: '#702963', paddingLeft: '20px', paddingRight: '20px' }}>Socials</h1>
                 </div>
             </div>
 
@@ -319,8 +309,8 @@ export default function MinimalistTheme({
                         paddingRight: '30px',
                     }}
                 >
-                    <h1 style={{ fontSize: '48px', fontFamily: 'ArimoBold', color: '#d8bfd8', paddingRight: '40px' }}>Bio</h1>
-                    <p style={{ textAlign: 'left', fontSize: 19, height: '250px' }}>
+                    <h1 style={{ fontSize: '48px', fontFamily: 'ArimoBold', color: '#702963', paddingRight: '40px' }}>Bio</h1>
+                    <p style={{ textAlign: 'left', fontSize: 19}}>
                         {bio}
                     </p>
                 </div>
