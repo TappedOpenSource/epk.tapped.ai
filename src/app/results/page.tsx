@@ -73,7 +73,6 @@ export default function Results() {
         }
 
         const theme = themes[themeIndex];
-
         const result = await generateEpkSvg({
             theme: theme,
             ...form,
