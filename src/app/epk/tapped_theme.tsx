@@ -250,7 +250,6 @@ export default function TappedTheme({
                                 display: 'flex',
                                 flexDirection: 'column',
                                 justifyContent: 'center',
-                                marginLeft: '20px',
                             }}
                         >
                             <img
@@ -261,6 +260,7 @@ export default function TappedTheme({
                                 style={{
                                     objectFit: 'cover',
                                     marginBottom: '5px',
+
                                 }}
                             />
                         </div>
@@ -279,6 +279,8 @@ export default function TappedTheme({
                                 style={{
                                     objectFit: 'cover',
                                     marginBottom: '5px',
+                                    width: 50,
+                                    height: 50,
                                 }}
                             />
                         </div>
@@ -297,6 +299,8 @@ export default function TappedTheme({
                                 style={{
                                     objectFit: 'cover',
                                     marginBottom: '5px',
+                                    width: 50,
+                                    height: 50,
                                 }}
                             />
                         </div>
@@ -305,7 +309,7 @@ export default function TappedTheme({
                                 display: 'flex',
                                 flexDirection: 'column',
                                 justifyContent: 'center',
-                                marginRight: '20px',
+                                marginRight: '50px',
                             }}
                         >
                             <img
@@ -316,6 +320,8 @@ export default function TappedTheme({
                                 style={{
                                     objectFit: 'cover',
                                     marginBottom: '5px',
+                                    width: 60,
+                                    height: 60,
                                 }}
                             />
                         </div>
