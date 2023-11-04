@@ -13,6 +13,21 @@ const themeComponents: Record<string, EPKComponent> = {
     minimalist: MinimalistTheme,
 };
 
+const themeFonts = {
+    tapped: {
+        fontName: 'Inter',
+        fontFile: 'Inter-Medium.ttf',
+    },
+    funky: {
+        fontName: 'JosefinSans',
+        fontFile: 'JosefinSans-VariableFont_wght.ttf',
+    },
+    minimalist: {
+        fontName: 'Arimo',
+        fontFile: 'Arimo-VariableFont_wght.ttf',
+    },
+};
+
 export async function generateEpkSvg({
     theme,
     height,
@@ -32,8 +47,10 @@ export async function generateEpkSvg({
     width: number;
     tappedRating: string;
 }): Promise<string> {
+    const selectedThemeFont = themeFonts[theme || 'tapped']
+    console.log(selectedThemeFont);
     const fontData = await fetch(
-        new URL('../app/fonts/Inter-Medium.ttf', import.meta.url),
+        new URL(`../app/fonts/${selectedThemeFont.fontFile}`, import.meta.url),
     ).then((res) => res.arrayBuffer());
 
     const ThemeComponent: EPKComponent = themeComponents[theme || 'tapped'];
@@ -58,7 +75,7 @@ export async function generateEpkSvg({
             width,
             fonts: [
                 {
-                    name: "Inter",
+                    name: selectedThemeFont.fontName,
                     data: fontData,
                 },
             ],

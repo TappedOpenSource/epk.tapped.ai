@@ -3,7 +3,7 @@
 import { EpkForm } from "@/types/epk_form";
 import { getURL } from "@/utils/url";
 
-const qrCodeDimensions = 150;
+const qrCodeDimensions = 50;
 
 export default function TappedTheme({
     artistName,
@@ -111,7 +111,7 @@ export default function TappedTheme({
                 display: 'flex',
                 position: 'absolute',
                 overflow: 'hidden',
-                top: '2%',
+                bottom: '2%',
                 left: '2%',
             }}>
                 <img
@@ -167,16 +167,31 @@ export default function TappedTheme({
                         left: '50%',
                         transform: 'translateX(-50%)',
                         padding: '5px 10px',
-                        fontSize: '48px'
+                        fontSize: '48px',
+                        fontWeight: 'bolder',
                     }}
                 >
                     {artistName}
                 </h1>
             </div>
 
-            <p>Northern Virginia</p>
-            <p>{tappedRating} / 5 stars on Tapped</p>
-            <p>Musician, Model, Actor, Audio Engineer</p>
+            <div style={{
+                    display: 'flex',
+                    position: 'absolute',
+                    right: '0%',
+                    top: '10%',
+                    flexDirection: 'column',
+                    backgroundColor: '#5f9ea0',
+                    borderTopLeftRadius: 10,
+                    borderBottomLeftRadius: 10,
+                    paddingLeft: '10px',
+                    paddingRight: '10px',
+                }}
+            >
+                <p>Northern Virginia</p>
+                <p>{tappedRating} / 5 stars on Tapped</p>
+                <p>Musician, Model, Actor, Audio Engineer</p>
+            </div>
 
             <div
                 style={{
@@ -302,7 +317,8 @@ export default function TappedTheme({
                             justifyContent: 'center',
                             alignItems: 'center',
                             backgroundColor: '#202020',
-                            borderRadius: 10, color: '#63b2fd',
+                            borderRadius: 10,
+                            color: '#63b2fd',
                             paddingLeft: 4,
                             paddingRight: 4,
                         }}>
@@ -319,19 +335,28 @@ export default function TappedTheme({
                         display: 'flex',
                         flexDirection: 'column',
                         borderRadius: 10,
-                        padding: 10,
                         flex: 1,
                         minWidth: 0,
                     }}
-                >
-                    <p style={{ textAlign: 'center', fontSize: 19, color: 'white' }}>
+                >   
+                    <h1 style={{color: '#63b2fd',}}>
+                        Who is {artistName}?
+                    </h1>
+                    <p style={{ textAlign: 'left', fontSize: 19, color: 'white' }}>
                         {bio}
                     </p>
                 </div>
             </div>
-            {(phoneNumber !== undefined && phoneNumber !== null && phoneNumber !== '')
-                ? <p>agent contact: {phoneNumber}</p>
-                : null}
+            <div style={{
+                    display: 'flex',
+                    position: 'absolute',
+                    top: '1%',
+                }}
+            >
+                {(phoneNumber !== undefined && phoneNumber !== null && phoneNumber !== '')
+                    ? <p>agent contact: {phoneNumber}</p>
+                    : null}
+            </div>
         </div >
     );
 }

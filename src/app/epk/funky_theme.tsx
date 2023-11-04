@@ -2,12 +2,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { EpkForm } from "@/types/epk_form";
 import { getURL } from "@/utils/url";
-import { Arimo } from "next/font/google";
-
-const arimo = Arimo({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-});
 
 const qrCodeDimensions = 150;
 
@@ -33,7 +27,6 @@ export default function FunkyTheme({
     }`
     return (
         <div
-            className={arimo.className}
             style={{
                 height: '100%',
                 width: '100%',
@@ -86,49 +79,31 @@ export default function FunkyTheme({
                 display: 'flex', 
                 flexDirection: 'column', 
                 backgroundColor: '#fbf5df',
-                borderRadius: 10,
+                borderRadius: '5%',
                 paddingLeft: 20,
                 paddingRight: 20,
+                marginRight: 20,
                 color: '#ff4433',
-              }}>
-                  <h1
-                      style={{
-                          display: 'flex',
-                          fontSize: '48px'
-                      }}
-                  >
-                      {artistName}
-                  </h1>
-                  <p>Northern Virginia</p>
-                  <p>{tappedRating} / 5 stars on Tapped</p>
-                  <p>Musician, Model, Actor, Audio Engineer</p>
-              </div>
-              <div
-                  style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      width: '380px',
-                      borderRadius: 10,
-                      paddingLeft: 20,
-                      paddingTop: 20,
-                      paddingBottom: 20,
-                      marginLeft: 30,
-                      backgroundColor: '#ffc000',
-                      color: 'white',
-                  }}
-              >
-                  <p style={{ fontSize: 18, }}>
-                      {bio}
-                  </p>
-              </div>
+              }}
+            >
+                <h1
+                    style={{
+                        display: 'flex',
+                        fontSize: '48px'
+                    }}
+                >
+                    {artistName}
+                </h1>
+                <p>Northern Virginia</p>
+                <p>{tappedRating} / 5 stars on Tapped</p>
+                <p>Musician, Model, Actor, Audio Engineer</p>
             </div>
             <div
                 style={{
                     display: 'flex',
                     position: 'relative',
-                    width: 512,
-                    height: 512,
-                    paddingTop: 10,
+                    width: 400,
+                    height: 400,
                 }}
             >
                 <div
@@ -137,7 +112,6 @@ export default function FunkyTheme({
                         justifyContent: 'center',
                         alignItems: 'center',
                         width: '100%',
-                        height: '40vh',
                         position: 'relative',
                         overflow: 'hidden',
                         borderRadius: '5%',
@@ -146,24 +120,44 @@ export default function FunkyTheme({
                     <img
                         src={imageUrl}
                         alt="headshot of author"
-                        width={512}
-                        height={512}
+                        width={400}
+                        height={400}
                         style={{
                             objectFit: 'cover',
                         }}
                     />
-                    <div
-                        style={{
-                            display: 'flex',
-                            position: 'absolute',
-                            bottom: 0,
-                            left: 0,
-                            right: 0,
-                            height: '50%',
-                            backgroundImage: 'linear-gradient(transparent, #15242d)',
-                        }}
-                    ></div>
                 </div>
+            </div>
+            </div>
+            <div style={{
+                    display: 'flex',
+                    position: 'absolute',
+                    top: '44%',
+
+                    backgroundColor: '#e3963e',
+                    borderRadius: 10,
+                    width: '90%',
+                    height: '300px',
+                }}
+            ></div>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    width: '100%',
+                    marginTop: 50,
+                    borderRadius: 10,
+                    paddingLeft: 20,
+                    paddingTop: 20,
+                    paddingBottom: 20,
+                    backgroundColor: '#ffc000',
+                    color: 'white',
+                    height: '265px',
+                }}
+            >
+                <p style={{ fontSize: 18, }}>
+                    {bio}
+                </p>
             </div>
             <div
                 style={{
@@ -182,6 +176,7 @@ export default function FunkyTheme({
                     alignItems: 'center',
                     width: '100%',
                     marginRight: '20px',
+                    marginBottom: 40,
                 }}>
                     <div style={{ 
                       display: 'flex', 
@@ -312,9 +307,8 @@ export default function FunkyTheme({
                         flexDirection: 'column', 
                         justifyContent: 'center', 
                         alignItems: 'center', 
-                        backgroundColor: '#fa8072', 
                         borderRadius: 10, 
-                        color: 'white', 
+                        color: 'black', 
                         paddingLeft: 5, 
                         paddingRight: 5,
                         marginTop: 50, 
@@ -328,9 +322,16 @@ export default function FunkyTheme({
                     </div>
                 </div>
             </div>
-            {(phoneNumber !== undefined && phoneNumber !== null && phoneNumber !== '')
-                ? <p>agent contact: {phoneNumber}</p>
-                : null}
+            <div style={{
+                    display: 'flex',
+                    position: 'absolute',
+                    bottom: '2%',
+                }}
+            >
+                {(phoneNumber !== undefined && phoneNumber !== null && phoneNumber !== '')
+                    ? <p>agent contact: {phoneNumber}</p>
+                    : null}
+            </div>
         </div >
     );
 }

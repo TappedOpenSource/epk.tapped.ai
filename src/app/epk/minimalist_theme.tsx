@@ -303,9 +303,11 @@ export default function MinimalistTheme({
                         borderColor: '#c3b1e1',
                         justifyContent: 'center',
                         alignItems: 'center',
+                        paddingLeft: '5px',
+                        paddingRight: '5px',
                     }}
                 >
-                    <p style={{ textAlign: 'center', fontSize: 19, color: 'black', height: '130px' }}>
+                    <p style={{ textAlign: 'left', fontSize: 19, color: 'black', height: '230px' }}>
                         {bio}
                     </p>
                 </div>
