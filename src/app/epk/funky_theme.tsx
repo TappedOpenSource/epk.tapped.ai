@@ -15,6 +15,8 @@ export default function FunkyTheme({
     instagramHandle,
     twitterHandle,
     phoneNumber,
+    location,
+    notableSongs,
 }: EpkPayload) {
     const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${
         qrCodeDimensions
@@ -102,7 +104,7 @@ export default function FunkyTheme({
                         </div>
                         <div style={{display: 'flex'}}>
                             <img src={getURL('/location_pin_icon.png')} alt="Location icon" style={{ width: '20px', height: '20px', marginTop: '4px' }} />
-                            <p style={{fontSize: '26px', fontFamily: 'JosefinSansItalic', margin: '4px'}}>Northern Virginia</p>
+                            <p style={{fontSize: '26px', fontFamily: 'JosefinSansItalic', margin: '4px'}}>{location}</p>
                         </div>
                     </div>
                     <div style={{display: 'flex', flexDirection: 'column'}}>
@@ -382,26 +384,26 @@ export default function FunkyTheme({
                             <div style={{display: 'flex', flexDirection: 'column', margin: '4px'}}>
                                 <div style={{display: 'flex', flexDirection: 'row'}}>
                                     <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '26px', fontFamily: 'JosefinSans', margin: '4px'}}>Trust Issues |</p>
+                                        <p style={{fontSize: '26px', fontFamily: 'JosefinSans', margin: '4px'}}>{notableSongs[0].title} |</p>
                                     </div>
                                     <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '24px', fontFamily: 'JosefinSansItalic', margin: '4px'}}>46,621 plays</p>
-                                    </div>
-                                </div>
-                                <div style={{display: 'flex', flexDirection: 'row'}}>
-                                    <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '26px', fontFamily: 'JosefinSans', margin: '4px'}}>Silhouette |</p>
-                                    </div>
-                                    <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '24px', fontFamily: 'JosefinSansItalic', margin: '4px'}}>32,695 plays</p>
+                                        <p style={{fontSize: '24px', fontFamily: 'JosefinSansItalic', margin: '4px'}}>{notableSongs[0].plays} plays</p>
                                     </div>
                                 </div>
                                 <div style={{display: 'flex', flexDirection: 'row'}}>
                                     <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '26px', fontFamily: 'JosefinSans', margin: '4px'}}>DNA |</p>
+                                        <p style={{fontSize: '26px', fontFamily: 'JosefinSans', margin: '4px'}}>{notableSongs[1].title} |</p>
                                     </div>
                                     <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '24px', fontFamily: 'JosefinSansItalic', margin: '4px'}}>23,865 plays</p>
+                                        <p style={{fontSize: '24px', fontFamily: 'JosefinSansItalic', margin: '4px'}}>{notableSongs[1].plays} plays</p>
+                                    </div>
+                                </div>
+                                <div style={{display: 'flex', flexDirection: 'row'}}>
+                                    <div style={{display: 'flex'}}>
+                                        <p style={{fontSize: '26px', fontFamily: 'JosefinSans', margin: '4px'}}>{notableSongs[2].title} |</p>
+                                    </div>
+                                    <div style={{display: 'flex'}}>
+                                        <p style={{fontSize: '24px', fontFamily: 'JosefinSansItalic', margin: '4px'}}>{notableSongs[2].plays} plays</p>
                                     </div>
                                 </div>
                             </div>

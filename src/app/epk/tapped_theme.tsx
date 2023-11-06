@@ -15,6 +15,8 @@ export default function TappedTheme({
     instagramHandle,
     twitterHandle,
     phoneNumber,
+    location,
+    notableSongs,
 }: EpkPayload) {
     const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${
         qrCodeDimensions
@@ -193,7 +195,7 @@ export default function TappedTheme({
                         </div>
                         <div style={{display: 'flex'}}>
                             <img src={getURL('/location_pin_icon.png')} alt="Location icon" style={{ width: '20px', height: '20px', marginTop: '4px' }} />
-                            <p style={{fontSize: '20px', margin: '4px', fontFamily: 'InterItalic'}}>Northern Virginia</p>
+                            <p style={{fontSize: '20px', margin: '4px', fontFamily: 'InterItalic'}}>{location}</p>
                         </div>
                     </div>
                     <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
@@ -379,7 +381,7 @@ export default function TappedTheme({
                                 paddingRight: 5,
                                 borderRadius: 10,
                             }}>
-                                <p style={{ marginLeft: '20px', fontSize: '20px', marginTop: '0px', marginBottom: '30px', fontFamily: 'InterBold' }}>
+                                <p style={{ marginLeft: '20px', fontSize: '20px', marginTop: '0px', marginBottom: '80px', fontFamily: 'InterBold' }}>
                                     @{twitterHandle}
                                 </p>
                             </div>
@@ -398,26 +400,26 @@ export default function TappedTheme({
                             <div style={{display: 'flex', flexDirection: 'column', margin: '4px'}}>
                                 <div style={{display: 'flex', flexDirection: 'row'}}>
                                     <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px'}}>Trust Issues |</p>
+                                        <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px'}}>{notableSongs[0].title} |</p>
                                     </div>
                                     <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>46,621 plays</p>
-                                    </div>
-                                </div>
-                                <div style={{display: 'flex', flexDirection: 'row'}}>
-                                    <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px'}}>Silhouette |</p>
-                                    </div>
-                                    <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>32,695 plays</p>
+                                        <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>{notableSongs[0].plays} plays</p>
                                     </div>
                                 </div>
                                 <div style={{display: 'flex', flexDirection: 'row'}}>
                                     <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px'}}>DNA |</p>
+                                        <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px'}}>{notableSongs[1].title} |</p>
                                     </div>
                                     <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>23,865 plays</p>
+                                        <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>{notableSongs[1].plays} plays</p>
+                                    </div>
+                                </div>
+                                <div style={{display: 'flex', flexDirection: 'row'}}>
+                                    <div style={{display: 'flex'}}>
+                                        <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px'}}>{notableSongs[2].title} |</p>
+                                    </div>
+                                    <div style={{display: 'flex'}}>
+                                        <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>{notableSongs[2].plays} plays</p>
                                     </div>
                                 </div>
                             </div>

@@ -7,8 +7,6 @@ const FormDataManager = ({ children }) => {
     id,
   });
 
-  // console.log({ formData });
-
   const updateFormData = (data: { id: any; }) => {
     setFormData((prevData) => ({
       ...prevData,
