@@ -50,10 +50,10 @@ export default function Home() {
       <section>
         <div className='flex flex-col md:flex-row justify-around p-24'>
           <div>
-            instagram testimonial from ffeel
+            image of ffeel&apos;s EPK
           </div>
           <div>
-            image of ffeel&apos;s EPK
+            instagram testimonial from ffeel
           </div>
         </div>
       </section>
