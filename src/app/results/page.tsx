@@ -16,6 +16,7 @@ import { generateEpkSvg } from '@/utils/image_generation';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { EpkForm } from '@/types/epk_form';
 import { getEpkFormById } from '@/utils/database';
+import { EpkPayload } from '@/types/epk_payload';
 
 const themes: EPKTheme[] = [
     'funky',
@@ -124,12 +125,7 @@ export default function Results() {
     }
 
     console.debug({ user, claim });
-    const payload: Omit<EpkForm, "id" | "userId" | "timestamp"> & {
-        twitterHandle: string | null;
-        tiktokHandle: string | null;
-        instagramHandle: string | null;
-        tappedRating: string;
-    } = {
+    const payload: EpkPayload = {
         ...form,
         twitterHandle: user?.twitterHandle ?? null,
         tiktokHandle: user?.tiktokHandle ?? null,

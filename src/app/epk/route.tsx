@@ -4,6 +4,7 @@ import FunkyTheme from "./funky_theme";
 import MinimalistTheme from "./minimalist_theme";
 import { EpkForm } from "@/types/epk_form";
 import { EPKComponent } from "@/types/epk_component";
+import { EpkPayload } from "@/types/epk_payload";
 
 // // @ts-ignore
 // import QRCodeImpl from "qr.js/lib/QRCode";
@@ -26,7 +27,7 @@ export async function GET(request: Request) {
   const theme = searchParams.get('theme');
   const tappedRating = searchParams.get('tappedRating');
   const epkString = searchParams.get('epkData') ?? '';
-  const epkForm = JSON.parse(epkString) as EpkForm;
+  const epkForm = JSON.parse(epkString) as EpkPayload;
 
   const {
     artistName,

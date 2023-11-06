@@ -1,10 +1,3 @@
-import { EpkForm } from "./epk_form";
+import { EpkPayload } from "./epk_payload";
 
-export type EpkProps = Omit<EpkForm, "id" | "userId" | "timestamp"> & {
-    tiktokHandle: string | null;
-    instagramHandle: string | null;
-    twitterHandle: string | null;
-    tappedRating: string | null;
-}
-
-export type EPKComponent = (props: EpkProps) => JSX.Element;
+export type EPKComponent = (props: EpkPayload) => JSX.Element;
