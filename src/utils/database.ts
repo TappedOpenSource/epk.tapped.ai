@@ -24,7 +24,7 @@ export async function getUser(userId: string): Promise<UserModel | null> {
 
 export async function addEpkForm({ userId, epkForm }: {
     userId: string;
-    epkForm: EpkForm;
+    epkForm: { [key: string]: any };
 }): Promise<void> {
     const collectionRef = collection(
         db,

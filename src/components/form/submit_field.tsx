@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 
 const SubmitField = ({ formData, updateFormData, onValidation }: {
-  formData: EpkForm;
+  formData: { [key: string]: string };
   updateFormData: (key: string, value: any) => void;
   onValidation: (isValid: boolean) => void;
 }) => {
