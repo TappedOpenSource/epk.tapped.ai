@@ -3,7 +3,7 @@
 import { EpkPayload } from "@/types/epk_payload";
 import { getURL } from "@/utils/url";
 
-const qrCodeDimensions = 150;
+const qrCodeDimensions = 75;
 
 export default function MinimalistTheme({
     artistName,
@@ -23,6 +23,7 @@ export default function MinimalistTheme({
         }&bgcolor=010F16&color=cbd5e1&data=https://instagram.com/${
             instagramHandle
         }`
+    const ratingString = (tappedRating === null || tappedRating === '') ? "Unranked on Tapped" : `${tappedRating}/ 5 stars on Tapped `
     return (
         <div
             style={{
@@ -38,41 +39,6 @@ export default function MinimalistTheme({
                 position: 'relative',
             }}
         >
-            {/* <div style={{
-                display: 'flex',
-                position: 'absolute',
-                top: '57.5%',
-                left: '-10%',
-                backgroundColor: '#c3b1e1',
-                borderRadius: 10, 
-                marginBottom: '5px',
-                width: '100%',
-                height: '100px',
-            }}>
-            </div>
-            <div style={{
-                display: 'flex',
-                position: 'absolute',
-                top: '75.5%',
-                left: '-10%',
-                backgroundColor: '#c3b1e1',
-                borderRadius: 10, 
-                marginBottom: '5px',
-                width: '100%',
-                height: '100px',
-            }}>
-            </div> */}
-            <div style={{
-                display: 'flex',
-                position: 'absolute',
-                top: '38.8%',
-                left: '-10%',
-                backgroundColor: '#c3b1e1',
-                borderRadius: 10, 
-                marginBottom: '5px',
-                width: '100%',
-                height: '132px',
-            }}></div>
             <div style={{display: 'flex', flexDirection: 'row', marginBottom: '25px', alignItems: 'flex-start', width: '100%',}}>
               <div
                   style={{
@@ -115,17 +81,44 @@ export default function MinimalistTheme({
                 }}
               >
                 <div style={{display: 'flex', flexDirection: 'column', padding: '0 20px', color: 'white'}}>
-                  <h1 style={{ fontSize: '48px' }}>{artistName}</h1>
-                  <p>Northern Virginia</p>
-                  <p>{tappedRating} / 5 stars on Tapped</p>
-                  <p>Musician, Model, Actor, Audio Engineer</p>
+                  <h1 style={{ fontSize: '48px', fontFamily: 'ArimoBold', color: '#702963', margin: '4px' }}>{artistName}</h1>
+                  <div style={{display: 'flex', flexDirection: 'column'}}>
+                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '28px', fontFamily: 'ArimoBold', margin: '4px'}}>Location</p>
+                        </div>
+                        <div style={{display: 'flex'}}>
+                            <img src={getURL('/location_pin_icon.png')} alt="Location icon" style={{ width: '20px', height: '20px', marginTop: '4px' }} />
+                            <p style={{fontSize: '20px', fontFamily: 'ArimoItalic', margin: '4px'}}>Northern Virginia</p>
+                        </div>
+                    </div>
+                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '28px', fontFamily: 'ArimoBold', margin: '4px'}}>Rating</p>
+                        </div>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '20px', fontFamily: 'ArimoItalic', margin: '4px'}}>{ratingString}</p>
+                        </div>
+                    </div>
+                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '28px', fontFamily: 'ArimoBold', margin: '4px'}}>Profession</p>
+                        </div>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '20px', fontFamily: 'ArimoItalic', margin: '4px'}}>Musician, Model, Actor, Audio Engineer</p>
+                        </div>
+                    </div>
+                </div>
                 </div>
               </div>
             </div>
 
             <div style={{
                 display: 'flex',
-                flexDirection: 'column',
+                flexDirection: 'row',
+                position: 'absolute',
+                top: '38.8%',
+                left: '-11%',
                 justifyContent: 'center',
                 alignItems: 'center',
                 backgroundColor: '#c3b1e1',
@@ -133,132 +126,128 @@ export default function MinimalistTheme({
                 color: 'white',
                 paddingLeft: 4,
                 paddingRight: 4,
-                marginBottom: '5px',
                 width: '100%',
             }}>
-                <h2>Top Song</h2>
-                <p style={{
-                    fontSize: '20px',
-                    marginLeft: '20px',
-                    marginRight: '20px',
-                }}>Trust Issues: 46,621</p>
+                <h1 style={{fontFamily: 'ArimoBold', fontSize: '60px', marginRight: '50px', color: '#702963'}}>Top Songs</h1>
+                <div style={{display: 'flex', flexDirection: 'column'}}>
+                    <div style={{display: 'flex', flexDirection: 'row'}}>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '26px', fontFamily: 'Arimo', margin: '4px'}}>Trust Issues |</p>
+                        </div>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '20px', fontFamily: 'ArimoItalic', margin: '4px'}}>46,621 plays</p>
+                        </div>
+                    </div>
+                    <div style={{display: 'flex', flexDirection: 'row'}}>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '26px', fontFamily: 'Arimo', margin: '4px'}}>Silhouette |</p>
+                        </div>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '20px', fontFamily: 'ArimoItalic', margin: '4px'}}>32,695 plays</p>
+                        </div>
+                    </div>
+                    <div style={{display: 'flex', flexDirection: 'row'}}>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '26px', fontFamily: 'Arimo', margin: '4px'}}>DNA |</p>
+                        </div>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '20px', fontFamily: 'ArimoItalic', margin: '4px'}}>23,865 plays</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div 
-              style={{
+            <div style={{
                 display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                width: '100%',
-                paddingLeft: '50px',
-                paddingRight: '50px',
-              }}
+                flexDirection: 'row',
+                position: 'absolute',
+                top: '53%',
+                right: '0%',
+                width: '106%',
+                backgroundColor: '#c3b1e1',
+                color: 'white',
+                borderTopLeftRadius: 10,
+                borderBottomLeftRadius: 10,
+                paddingLeft: 10,
+                paddingRight: 10,
+                }}
             >
                 <div style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  width: '100%',
-                  marginTop: '20px',
-                  marginBottom: '20px',
-                  backgroundColor: 'white',
-                  borderStyle: 'solid',
-                  borderWidth: '4px',
-                  borderColor: '#c3b1e1',
-                  borderRadius: 10,
-                  paddingLeft: 10,
-                  paddingRight: 10,
-                  }}
+                    display: 'flex',
+                    flexDirection: 'column',
+                }}
                 >
-                  <div style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      width: '50%',
-                    }}
-                  >
-                    {(spotifyId !== undefined && spotifyId !== null && spotifyId !== '')
-                        ? < div style={{
-                            display: 'flex',
-                            marginBottom: '10px',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            padding: 5,
-                            borderRadius: 10,
-                            height: '85px',
+                {(spotifyId !== undefined && spotifyId !== null && spotifyId !== '')
+                    ? < div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        padding: 5,
+                        borderRadius: 10,
+                        height: '85px',
+                    }}>
+                        <img
+                            src={getURL('/spotify_icon_white.png')}
+                            alt="spotify icon"
+                            width={80}
+                            height={80}
+                            style={{ objectFit: 'cover' }}
+                        />
+                        <p style={{
+                            marginLeft: '20px',
+                            fontSize: '20px',
+                            fontFamily: 'ArimoBold',
                         }}>
-                            <div
-                                style={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    justifyContent: 'center',
-                                }}
-                            >
-                                <img
-                                    src={getURL('/spotify_icon.png')}
-                                    alt="spotify icon"
-                                    width={35}
-                                    height={35}
-                                    style={{
-                                        objectFit: 'cover',
-                                        marginBottom: '5px',
-                                    }}
-                                />
-                            </div>
-                            <p style={{
-                                marginLeft: '20px',
-                                fontSize: '20px',
-                            }}>
-                                open.spotify.com/artist/{spotifyId}
-                            </p>
-                        </div>
-                      : null}
-                    {(instagramHandle !== undefined && instagramHandle !== null && instagramHandle !== '')
-                        ? <div style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            marginBottom: '10px',
-                            paddingLeft: 5,
-                            paddingRight: 5,
-                            borderRadius: 10,
-                            height: '85px',
-                        }}>
-                            <img
-                                src={getURL("/instagram_icon.png")}
-                                alt="Instagram icon"
-                                width={35}
-                                height={35}
-                                style={{ objectFit: 'cover', }}
-                            />
-                            <p style={{ marginLeft: '20px', fontSize: '20px' }}>
-                                @{instagramHandle}
-                            </p>
-                        </div>
+                            open.spotify.com/artist/{spotifyId}
+                        </p>
+                    </div>
                     : null}
-                  </div>
+                {(instagramHandle !== undefined && instagramHandle !== null && instagramHandle !== '')
+                    ? <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        paddingLeft: 5,
+                        paddingRight: 5,
+                        marginLeft: 20,
+                        borderRadius: 10,
+                        height: '85px',
+                    }}>
+                        <img
+                            src={getURL("/instagram_icon_white.png")}
+                            alt="Instagram icon"
+                            width={50}
+                            height={50}
+                            style={{ objectFit: 'cover', }}
+                        />
+                        <p style={{ marginLeft: '20px', fontSize: '20px', fontFamily: 'ArimoBold' }}>
+                            @{instagramHandle}
+                        </p>
+                    </div>
+                : null}
+                </div>
 
-                  <div style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      width: '50%',
-                    }}
-                  >
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                }}
+                >
                     {(tiktokHandle !== undefined && tiktokHandle !== null && tiktokHandle !== '')
                         ? <div style={{
                             display: 'flex',
                             alignItems: 'center',
-                            marginBottom: '10px',
                             paddingLeft: 5,
                             paddingRight: 5,
                             borderRadius: 10,
                             height: '85px',
                         }}>
                             <img
-                                src={getURL("/tiktok_icon.png")}
+                                src={getURL("/tiktok_icon_white.png")}
                                 alt="TikTok icon"
-                                width={35}
-                                height={35}
+                                width={50}
+                                height={50}
                                 style={{ objectFit: 'cover', }}
                             />
-                            <p style={{ marginLeft: '20px', fontSize: '20px' }}>
+                            <p style={{ marginLeft: '20px', fontSize: '20px', fontFamily: 'ArimoBold' }}>
                                 @{tiktokHandle}
                             </p>
                         </div>
@@ -268,57 +257,87 @@ export default function MinimalistTheme({
                         ? <div style={{
                             display: 'flex',
                             alignItems: 'center',
-                            marginBottom: '10px',
                             paddingLeft: 5,
                             paddingRight: 5,
                             borderRadius: 10,
                             height: '85px',
                         }}>
                             <img
-                                src={getURL("/twitter_icon.png")}
+                                src={getURL("/twitter_icon_white.png")}
                                 alt="Twitter icon"
-                                width={35}
-                                height={35}
+                                width={50}
+                                height={50}
                                 style={{ objectFit: 'cover' }}
                             />
-                            <p style={{ marginLeft: '20px', fontSize: '20px' }}>
+                            <p style={{ marginLeft: '20px', fontSize: '20px', fontFamily: 'ArimoBold' }}>
                                 @{twitterHandle}
                             </p>
                         </div>
                     : null}
-                  </div>
                 </div>
+                <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                    <h1 style={{ fontSize: '48px', fontFamily: 'ArimoBold', color: '#702963', paddingLeft: '20px', paddingRight: '20px' }}>Socials</h1>
+                </div>
+            </div>
 
+            <div 
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'absolute',
+                top: '39%',
+                left: '-13%',
+                alignItems: 'center',
+                width: '100%',
+                paddingLeft: '50px',
+                paddingRight: '50px',
+              }}
+            >
                 <div
                     style={{
                         display: 'flex',
                         width: '100%',
+                        marginTop: '360px',
                         marginBottom: '15px',
-                        backgroundColor: 'white',
-                        borderRadius: 10,
-                        borderStyle: 'solid',
-                        borderWidth: '4px',
-                        borderColor: '#c3b1e1',
+                        marginLeft: '120px',
+                        backgroundColor: '#c3b1e1',
+                        borderTopRightRadius: 10,
+                        borderBottomRightRadius: 10,
+                        color: 'white',
                         justifyContent: 'center',
                         alignItems: 'center',
+                        paddingLeft: '30px',
+                        paddingRight: '30px',
                     }}
                 >
-                    <p style={{ textAlign: 'center', fontSize: 19, color: 'black', height: '130px' }}>
+                    <h1 style={{ fontSize: '48px', fontFamily: 'ArimoBold', color: '#702963', paddingRight: '40px' }}>Bio</h1>
+                    <p style={{ textAlign: 'left', fontSize: 19}}>
                         {bio}
                     </p>
                 </div>
-                <div style={{
+            </div>
+            <div style={{
                     display: 'flex',
-                }}>
-                    <img
-                        src={qrCodeUrl}
-                        width={qrCodeDimensions}
-                        height={qrCodeDimensions}
-                    />
-                </div>
+                    position: 'absolute',
+                    bottom: '1%',
+                }}
+            >
                 {(phoneNumber !== undefined && phoneNumber !== null && phoneNumber !== '')
                     ? <p>agent contact: {phoneNumber}</p>
                     : null}
+            </div>
+            <div style={{
+                display: 'flex',
+                position: 'absolute',
+                overflow: 'hidden',
+                bottom: '2%',
+                left: '2%',
+            }}>
+                <img
+                    src={qrCodeUrl}
+                    width={qrCodeDimensions}
+                    height={qrCodeDimensions}
+                />
             </div>
         </div >
     );

@@ -2,14 +2,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { EpkPayload } from "@/types/epk_payload";
 import { getURL } from "@/utils/url";
-import { Arimo } from "next/font/google";
 
-const arimo = Arimo({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-});
-
-const qrCodeDimensions = 150;
+const qrCodeDimensions = 75;
 
 export default function FunkyTheme({
     artistName,
@@ -29,9 +23,9 @@ export default function FunkyTheme({
     }&bgcolor=010F16&color=cbd5e1&data=https://instagram.com/${
         instagramHandle
     }`
+    const ratingString = (tappedRating === null || tappedRating === '') ? "Unranked on Tapped" : `${tappedRating}/ 5 stars on Tapped `
     return (
         <div
-            className={arimo.className}
             style={{
                 height: '100%',
                 width: '100%',
@@ -51,7 +45,7 @@ export default function FunkyTheme({
                 left: 0,
                 right: 0,
                 bottom: 0,
-                zIndex: -1,
+                // zIndex: -1,
             }}>
                 <div style={{
                     backgroundColor: '#e97451',
@@ -84,49 +78,57 @@ export default function FunkyTheme({
                 display: 'flex', 
                 flexDirection: 'column', 
                 backgroundColor: '#fbf5df',
-                borderRadius: 10,
+                borderRadius: '5%',
                 paddingLeft: 20,
                 paddingRight: 20,
+                marginRight: 20,
                 color: '#ff4433',
-              }}>
-                  <h1
-                      style={{
-                          display: 'flex',
-                          fontSize: '48px'
-                      }}
-                  >
-                      {artistName}
-                  </h1>
-                  <p>Northern Virginia</p>
-                  <p>{tappedRating} / 5 stars on Tapped</p>
-                  <p>Musician, Model, Actor, Audio Engineer</p>
-              </div>
-              <div
-                  style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      width: '380px',
-                      borderRadius: 10,
-                      paddingLeft: 20,
-                      paddingTop: 20,
-                      paddingBottom: 20,
-                      marginLeft: 30,
-                      backgroundColor: '#ffc000',
-                      color: 'white',
-                  }}
-              >
-                  <p style={{ fontSize: 18, }}>
-                      {bio}
-                  </p>
-              </div>
+              }}
+            >
+                <h1
+                    style={{
+                        display: 'flex',
+                        fontSize: '48px',
+                        margin: '4px',
+                        marginTop: '12px'
+                    }}
+                >
+                    {artistName}
+                </h1>
+                <div style={{display: 'flex', flexDirection: 'column'}}>
+                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '36px', fontFamily: 'JosefinSansBold', margin: '4px', marginBottom: '18px'}}>Location</p>
+                        </div>
+                        <div style={{display: 'flex'}}>
+                            <img src={getURL('/location_pin_icon.png')} alt="Location icon" style={{ width: '20px', height: '20px', marginTop: '4px' }} />
+                            <p style={{fontSize: '26px', fontFamily: 'JosefinSansItalic', margin: '4px'}}>Northern Virginia</p>
+                        </div>
+                    </div>
+                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '36px', fontFamily: 'JosefinSansBold', margin: '4px'}}>Rating</p>
+                        </div>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '26px', fontFamily: 'JosefinSansItalic', margin: '4px'}}>{ratingString}</p>
+                        </div>
+                    </div>
+                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '36px', fontFamily: 'JosefinSansBold', margin: '4px'}}>Profession</p>
+                        </div>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '26px', fontFamily: 'JosefinSansItalic', margin: '4px'}}>Musician, Model, Actor</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div
                 style={{
                     display: 'flex',
                     position: 'relative',
-                    width: 512,
-                    height: 512,
-                    paddingTop: 10,
+                    width: 400,
+                    height: 400,
                 }}
             >
                 <div
@@ -135,7 +137,6 @@ export default function FunkyTheme({
                         justifyContent: 'center',
                         alignItems: 'center',
                         width: '100%',
-                        height: '40vh',
                         position: 'relative',
                         overflow: 'hidden',
                         borderRadius: '5%',
@@ -144,29 +145,62 @@ export default function FunkyTheme({
                     <img
                         src={imageUrl}
                         alt="headshot of author"
-                        width={512}
-                        height={512}
+                        width={400}
+                        height={400}
                         style={{
                             objectFit: 'cover',
                         }}
                     />
-                    <div
-                        style={{
-                            display: 'flex',
-                            position: 'absolute',
-                            bottom: 0,
-                            left: 0,
-                            right: 0,
-                            height: '50%',
-                            backgroundImage: 'linear-gradient(transparent, #15242d)',
-                        }}
-                    ></div>
                 </div>
             </div>
+            </div>
+            <div style={{
+                    display: 'flex',
+                    position: 'absolute',
+                    top: '44%',
+
+                    backgroundColor: '#e3963e',
+                    borderRadius: 10,
+                    width: '90%',
+                    height: '300px',
+                }}
+            ></div>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    width: '100%',
+                    marginTop: 50,
+                    borderRadius: 10,
+                    paddingLeft: 20,
+                    paddingRight: 20,
+                    paddingTop: 20,
+                    paddingBottom: 20,
+                    backgroundColor: '#ffc000',
+                    color: 'white',
+                    height: '265px',
+                }}
+            >
+                <p style={{ fontSize: 22, }}>
+                    {bio}
+                </p>
+            </div>
+            <div style={{
+                    display: 'flex',
+                    position: 'absolute',
+                    bottom: '7%',
+                    backgroundColor: '#e3963e',
+                    borderRadius: 10,
+                    width: '100%',
+                    height: '290px',
+                }}
+            ></div>
             <div
                 style={{
                     display: 'flex',
                     flexDirection: 'row',
+                    position: 'absolute',
+                    bottom: '4%',
                     marginTop: 20,
                     justifyContent: 'space-between',
                     width: '100%',
@@ -177,158 +211,226 @@ export default function FunkyTheme({
                     display: 'flex', 
                     flexDirection: 'row', 
                     justifyContent: 'space-between',
+                    backgroundColor: '#ffc000',
+                    borderRadius: 10,
                     alignItems: 'center',
                     width: '100%',
                     marginRight: '20px',
                 }}>
                     <div style={{ 
                       display: 'flex', 
-                      color: 'black',
+                      color: 'white',
                       flexDirection: 'column',
                       alignItems: 'center',
                       flex: 1 }}
                     >
+                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <img
+                                src={getURL('/spotify_icon_white.png')}
+                                alt="spotify icon"
+                                width={80}
+                                height={80}
+                                style={{
+                                    objectFit: 'cover',
+                                    marginBottom: '5px',
+                                    width: 80,
+                                    height: 80,
+                                }}
+                            />
+                        </div>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <img
+                                src={getURL('/instagram_icon_white.png')}
+                                alt="instagram icon"
+                                width={50}
+                                height={50}
+                                style={{
+                                    objectFit: 'cover',
+                                    marginBottom: '5px',
+                                    width: 50,
+                                    height: 50,
+                                }}
+                            />
+                        </div>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <img
+                                src={getURL('/tiktok_icon_white.png')}
+                                alt="tiktok icon"
+                                width={50}
+                                height={50}
+                                style={{
+                                    objectFit: 'cover',
+                                    marginBottom: '5px',
+                                    width: 50,
+                                    height: 50,
+                                }}
+                            />
+                        </div>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <img
+                                src={getURL("/twitter_icon_white.png")}
+                                alt="twitter icon"
+                                width={50}
+                                height={50}
+                                style={{
+                                    objectFit: 'cover',
+                                    marginBottom: '5px',
+                                }}
+                            />
+                        </div>
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '800px'}}>
                         {(spotifyId !== undefined && spotifyId !== null && spotifyId !== '')
                             ? < div style={{
-                                display: 'flex', 
-                                alignItems: 'center', 
-                                justifyContent: 'flex-start', 
-                                paddingLeft: 5,
-                                paddingRight: 5,
+                                display: 'flex',
+                                margin: '4px',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                padding: 5,
                                 borderRadius: 10,
-                                width: '100%'
                             }}>
-                                <div
-                                    style={{
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        justifyContent: 'center',
-                                    }}
-                                >
-                                    <img
-                                        src={getURL('/spotify_icon.png')}
-                                        alt="spotify icon"
-                                        width={35}
-                                        height={35}
-                                        style={{
-                                            objectFit: 'cover',
-                                            marginBottom: '5px',
-                                        }}
-                                    />
-                                </div>
-                                <p style={{ 
-                                    marginLeft: '20px', 
-                                    fontSize: '20px',
-                                }}>
+                                <p style={{ marginLeft: '20px', fontSize: '20px', marginTop: '0px', marginBottom: '0px', fontFamily: 'JosefinSansBold' }}>
                                     open.spotify.com/artist/{spotifyId}
                                 </p>
                             </div>
                             : null}
                         {(instagramHandle !== undefined && instagramHandle !== null && instagramHandle !== '')
-                            ? <div style={{ 
-                                display: 'flex', 
-                                alignItems: 'center', 
-                                justifyContent: 'flex-start', 
-                                paddingLeft: 5, 
-                                paddingRight: 5, 
+                            ? <div style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                margin: '4px',
+                                paddingLeft: 5,
+                                paddingRight: 5,
                                 borderRadius: 10,
-                                width: '100%'
                             }}>
-                                <img
-                                    src={getURL("/instagram_icon.png")}
-                                    alt="Instagram icon"
-                                    width={35}
-                                    height={35}
-                                    style={{ objectFit: 'cover', }}
-                                />
-                                <p style={{ marginLeft: '20px', fontSize: '20px' }}>
+                                <p style={{ marginLeft: '20px', fontSize: '20px', marginTop: '0px', marginBottom: '0px', fontFamily: 'JosefinSansBold' }}>
                                     @{instagramHandle}
                                 </p>
                             </div>
                             : null}
 
                         {(tiktokHandle !== undefined && tiktokHandle !== null && tiktokHandle !== '')
-                            ? <div style={{ 
-                                display: 'flex', 
-                                alignItems: 'center', 
-                                justifyContent: 'flex-start', 
-                                paddingLeft: 5, 
-                                paddingRight: 5, 
+                            ? <div style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                margin: '4px',
+                                paddingLeft: 5,
+                                paddingRight: 5,
                                 borderRadius: 10,
-                                width: '100%'
                             }}>
-                                <img
-                                    src={getURL("/tiktok_icon.png")}
-                                    alt="TikTok icon"
-                                    width={35}
-                                    height={35}
-                                    style={{ objectFit: 'cover', }}
-                                />
-                                <p style={{ marginLeft: '20px', fontSize: '20px' }}>
+                                <p style={{ marginLeft: '20px', fontSize: '20px', marginTop: '0px', marginBottom: '0px', fontFamily: 'JosefinSansBold'  }}>
                                     @{tiktokHandle}
                                 </p>
                             </div>
                             : null}
 
                         {(twitterHandle !== undefined && twitterHandle !== null && twitterHandle !== '')
-                            ? <div style={{ 
-                                display: 'flex', 
-                                alignItems: 'center', 
-                                justifyContent: 'flex-start', 
-                                paddingLeft: 5, 
-                                paddingRight: 5, 
+                            ? <div style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                margin: '4px',
+                                paddingLeft: 5,
+                                paddingRight: 5,
                                 borderRadius: 10,
-                                width: '100%'
                             }}>
-                                <img
-                                    src={getURL("/twitter_icon.png")}
-                                    alt="Twitter icon"
-                                    width={35}
-                                    height={35}
-                                    style={{ objectFit: 'cover' }}
-                                />
-                                <p style={{ marginLeft: '20px', fontSize: '20px' }}>
+                                <p style={{ marginLeft: '20px', fontSize: '20px', marginTop: '0px', marginBottom: '30px', fontFamily: 'JosefinSansBold' }}>
                                     @{twitterHandle}
                                 </p>
                             </div>
                             : null}
                     </div>
-                    <div style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        flex: 1,
-                    }}>
-                        <img
-                            src={qrCodeUrl}
-                            width={qrCodeDimensions}
-                            height={qrCodeDimensions}
-                        />
                     </div>
                     <div style={{ 
                         display: 'flex', 
                         flexDirection: 'column', 
                         justifyContent: 'center', 
                         alignItems: 'center', 
-                        backgroundColor: '#fa8072', 
                         borderRadius: 10, 
                         color: 'white', 
                         paddingLeft: 5, 
                         paddingRight: 5,
                         marginTop: 50, 
-                        marginBottom: 50,
+                        marginBottom: 90,
                         flex: 1,
                       }}>
-                        <h2>Top Song</h2>
-                        <p style={{ 
-                            fontSize: '20px',
-                        }}>Trust Issues: 46,621</p>
+                            <h1 style={{fontFamily: 'JosefinSansBold', fontSize: '48px', margin: '4px', color: 'white'}}>Top Songs</h1>
+                            <div style={{display: 'flex', flexDirection: 'column', margin: '4px'}}>
+                                <div style={{display: 'flex', flexDirection: 'row'}}>
+                                    <div style={{display: 'flex'}}>
+                                        <p style={{fontSize: '26px', fontFamily: 'JosefinSans', margin: '4px'}}>Trust Issues |</p>
+                                    </div>
+                                    <div style={{display: 'flex'}}>
+                                        <p style={{fontSize: '24px', fontFamily: 'JosefinSansItalic', margin: '4px'}}>46,621 plays</p>
+                                    </div>
+                                </div>
+                                <div style={{display: 'flex', flexDirection: 'row'}}>
+                                    <div style={{display: 'flex'}}>
+                                        <p style={{fontSize: '26px', fontFamily: 'JosefinSans', margin: '4px'}}>Silhouette |</p>
+                                    </div>
+                                    <div style={{display: 'flex'}}>
+                                        <p style={{fontSize: '24px', fontFamily: 'JosefinSansItalic', margin: '4px'}}>32,695 plays</p>
+                                    </div>
+                                </div>
+                                <div style={{display: 'flex', flexDirection: 'row'}}>
+                                    <div style={{display: 'flex'}}>
+                                        <p style={{fontSize: '26px', fontFamily: 'JosefinSans', margin: '4px'}}>DNA |</p>
+                                    </div>
+                                    <div style={{display: 'flex'}}>
+                                        <p style={{fontSize: '24px', fontFamily: 'JosefinSansItalic', margin: '4px'}}>23,865 plays</p>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
-            {(phoneNumber !== undefined && phoneNumber !== null && phoneNumber !== '')
-                ? <p>agent contact: {phoneNumber}</p>
-                : null}
+            <div style={{
+                    display: 'flex',
+                    position: 'absolute',
+                    bottom: '1%',
+                }}
+            >
+                {(phoneNumber !== undefined && phoneNumber !== null && phoneNumber !== '')
+                    ? <p>agent contact: {phoneNumber}</p>
+                    : null}
+            </div>
+            <div style={{
+                display: 'flex',
+                position: 'absolute',
+                overflow: 'hidden',
+                bottom: '2%',
+                left: '2%',
+            }}>
+                <img
+                    src={qrCodeUrl}
+                    width={qrCodeDimensions}
+                    height={qrCodeDimensions}
+                />
+            </div>
         </div >
     );
 }

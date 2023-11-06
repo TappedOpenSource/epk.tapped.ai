@@ -3,7 +3,7 @@
 import { EpkPayload } from "@/types/epk_payload";
 import { getURL } from "@/utils/url";
 
-const qrCodeDimensions = 150;
+const qrCodeDimensions = 75;
 
 export default function TappedTheme({
     artistName,
@@ -23,6 +23,7 @@ export default function TappedTheme({
         }&bgcolor=010F16&color=cbd5e1&data=https://instagram.com/${
             instagramHandle
         }`
+    const ratingString = (tappedRating === null || tappedRating === '') ? "Unranked on Tapped" : `${tappedRating}/ 5 stars on Tapped `
     return (
         <div
             style={{
@@ -109,7 +110,7 @@ export default function TappedTheme({
                 display: 'flex',
                 position: 'absolute',
                 overflow: 'hidden',
-                top: '2%',
+                bottom: '2%',
                 left: '2%',
             }}>
                 <img
@@ -132,7 +133,7 @@ export default function TappedTheme({
                         width: '100%',
                         height: '100%',
                         overflow: 'hidden',
-                        borderRadius: '5%',
+                        borderRadius: 10,
                     }}
                 >
                     <img
@@ -165,22 +166,73 @@ export default function TappedTheme({
                         left: '50%',
                         transform: 'translateX(-50%)',
                         padding: '5px 10px',
-                        fontSize: '48px'
+                        fontSize: '48px',
                     }}
                 >
                     {artistName}
                 </h1>
             </div>
 
-            <p>Northern Virginia</p>
-            <p>{tappedRating} / 5 stars on Tapped</p>
-            <p>Musician, Model, Actor, Audio Engineer</p>
+            <div style={{
+                    display: 'flex',
+                    position: 'absolute',
+                    right: '0%',
+                    top: '10%',
+                    flexDirection: 'column',
+                    backgroundColor: '#5f9ea0',
+                    borderTopLeftRadius: 10,
+                    borderBottomLeftRadius: 10,
+                    paddingLeft: '10px',
+                    paddingRight: '10px',
+                }}
+            >
+                <div style={{display: 'flex', flexDirection: 'column'}}>
+                    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '28px', margin: '4px', fontFamily: 'InterBold'}}>Location |</p>
+                        </div>
+                        <div style={{display: 'flex'}}>
+                            <img src={getURL('/location_pin_icon.png')} alt="Location icon" style={{ width: '20px', height: '20px', marginTop: '4px' }} />
+                            <p style={{fontSize: '20px', margin: '4px', fontFamily: 'InterItalic'}}>Northern Virginia</p>
+                        </div>
+                    </div>
+                    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '28px', margin: '4px', fontFamily: 'InterBold'}}>Rating |</p>
+                        </div>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '20px', margin: '4px', fontFamily: 'InterItalic'}}>{ratingString}</p>
+                        </div>
+                    </div>
+                    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '28px', margin: '4px', fontFamily: 'InterBold'}}>Profession |</p>
+                        </div>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '20px', margin: '4px', fontFamily: 'InterItalic'}}>Musician, Model, Actor, Audio Engineer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style={{
+                    display: 'flex',
+                    position: 'absolute',
+                    left: '0%',
+                    top: '53%',
+                    backgroundColor: '#5f9ea0',
+                    borderTopRightRadius: 10,
+                    borderBottomRightRadius: 10,
+                    height: '280px',
+                    width: '50%'
+                }}
+            ></div>
 
             <div
                 style={{
                     display: 'flex',
                     flexDirection: 'row',
-                    marginTop: 20,
+                    marginTop: 40,
                     justifyContent: 'space-between',
                     width: '100%',
                     padding: '0 20px',
@@ -193,38 +245,97 @@ export default function TappedTheme({
                     flex: 1,
                     minWidth: 0,
                 }}>
+                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <img
+                                src={getURL('/spotify_icon_white.png')}
+                                alt="spotify icon"
+                                width={80}
+                                height={80}
+                                style={{
+                                    objectFit: 'cover',
+                                    marginBottom: '5px',
+
+                                }}
+                            />
+                        </div>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <img
+                                src={getURL('/instagram_icon_white.png')}
+                                alt="instagram icon"
+                                width={50}
+                                height={50}
+                                style={{
+                                    objectFit: 'cover',
+                                    marginBottom: '5px',
+                                    width: 50,
+                                    height: 50,
+                                }}
+                            />
+                        </div>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <img
+                                src={getURL('/tiktok_icon_white.png')}
+                                alt="tiktok icon"
+                                width={50}
+                                height={50}
+                                style={{
+                                    objectFit: 'cover',
+                                    marginBottom: '5px',
+                                    width: 50,
+                                    height: 50,
+                                }}
+                            />
+                        </div>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                                marginRight: '50px',
+                            }}
+                        >
+                            <img
+                                src={getURL("/twitter_icon_white.png")}
+                                alt="twitter icon"
+                                width={50}
+                                height={50}
+                                style={{
+                                    objectFit: 'cover',
+                                    marginBottom: '5px',
+                                }}
+                            />
+                        </div>
+                    </div>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         {(spotifyId !== undefined && spotifyId !== null && spotifyId !== '')
                             ? < div style={{
                                 display: 'flex',
-                                marginBottom: '10px',
+                                margin: '4px',
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 padding: 5,
                                 borderRadius: 10,
                             }}>
-                                <div
-                                    style={{
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        justifyContent: 'center',
-                                    }}
-                                >
-                                    <img
-                                        src={getURL('/spotify_icon.png')}
-                                        alt="spotify icon"
-                                        width={35}
-                                        height={35}
-                                        style={{
-                                            objectFit: 'cover',
-                                            marginBottom: '5px',
-                                        }}
-                                    />
-                                </div>
-                                <p style={{
-                                    marginLeft: '20px',
-                                    fontSize: '20px',
-                                }}>
+                                <p style={{ marginLeft: '20px', fontSize: '20px', marginTop: '0px', marginBottom: '0px', fontFamily: 'InterBold' }}>
                                     open.spotify.com/artist/{spotifyId}
                                 </p>
                             </div>
@@ -233,19 +344,12 @@ export default function TappedTheme({
                             ? <div style={{
                                 display: 'flex',
                                 alignItems: 'center',
-                                marginBottom: '10px',
+                                margin: '4px',
                                 paddingLeft: 5,
                                 paddingRight: 5,
                                 borderRadius: 10,
                             }}>
-                                <img
-                                    src={getURL("/instagram_icon.png")}
-                                    alt="Instagram icon"
-                                    width={35}
-                                    height={35}
-                                    style={{ objectFit: 'cover', }}
-                                />
-                                <p style={{ marginLeft: '20px', fontSize: '20px' }}>
+                                <p style={{ marginLeft: '20px', fontSize: '20px', marginTop: '0px', marginBottom: '0px', fontFamily: 'InterBold' }}>
                                     @{instagramHandle}
                                 </p>
                             </div>
@@ -255,19 +359,12 @@ export default function TappedTheme({
                             ? <div style={{
                                 display: 'flex',
                                 alignItems: 'center',
-                                marginBottom: '10px',
+                                margin: '4px',
                                 paddingLeft: 5,
                                 paddingRight: 5,
                                 borderRadius: 10,
                             }}>
-                                <img
-                                    src={getURL("/tiktok_icon.png")}
-                                    alt="TikTok icon"
-                                    width={35}
-                                    height={35}
-                                    style={{ objectFit: 'cover', }}
-                                />
-                                <p style={{ marginLeft: '20px', fontSize: '20px' }}>
+                                <p style={{ marginLeft: '20px', fontSize: '20px', marginTop: '0px', marginBottom: '0px', fontFamily: 'InterBold'  }}>
                                     @{tiktokHandle}
                                 </p>
                             </div>
@@ -277,19 +374,12 @@ export default function TappedTheme({
                             ? <div style={{
                                 display: 'flex',
                                 alignItems: 'center',
-                                marginBottom: '10px',
+                                margin: '4px',
                                 paddingLeft: 5,
                                 paddingRight: 5,
                                 borderRadius: 10,
                             }}>
-                                <img
-                                    src={getURL("/twitter_icon.png")}
-                                    alt="Twitter icon"
-                                    width={35}
-                                    height={35}
-                                    style={{ objectFit: 'cover' }}
-                                />
-                                <p style={{ marginLeft: '20px', fontSize: '20px' }}>
+                                <p style={{ marginLeft: '20px', fontSize: '20px', marginTop: '0px', marginBottom: '30px', fontFamily: 'InterBold' }}>
                                     @{twitterHandle}
                                 </p>
                             </div>
@@ -299,15 +389,38 @@ export default function TappedTheme({
                             flexDirection: 'column',
                             justifyContent: 'center',
                             alignItems: 'center',
-                            backgroundColor: '#202020',
-                            borderRadius: 10, color: '#63b2fd',
+                            borderRadius: 10,
+                            color: '#63b2fd',
                             paddingLeft: 4,
                             paddingRight: 4,
                         }}>
-                            <h2>Top Songs</h2>
-                            <p style={{
-                                fontSize: '20px',
-                            }}>Trust Issues: 46,621</p>
+                            <h1 style={{fontFamily: 'InterBold', fontSize: '48px', margin: '4px'}}>Top Songs</h1>
+                            <div style={{display: 'flex', flexDirection: 'column', margin: '4px'}}>
+                                <div style={{display: 'flex', flexDirection: 'row'}}>
+                                    <div style={{display: 'flex'}}>
+                                        <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px'}}>Trust Issues |</p>
+                                    </div>
+                                    <div style={{display: 'flex'}}>
+                                        <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>46,621 plays</p>
+                                    </div>
+                                </div>
+                                <div style={{display: 'flex', flexDirection: 'row'}}>
+                                    <div style={{display: 'flex'}}>
+                                        <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px'}}>Silhouette |</p>
+                                    </div>
+                                    <div style={{display: 'flex'}}>
+                                        <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>32,695 plays</p>
+                                    </div>
+                                </div>
+                                <div style={{display: 'flex', flexDirection: 'row'}}>
+                                    <div style={{display: 'flex'}}>
+                                        <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px'}}>DNA |</p>
+                                    </div>
+                                    <div style={{display: 'flex'}}>
+                                        <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>23,865 plays</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -317,19 +430,28 @@ export default function TappedTheme({
                         display: 'flex',
                         flexDirection: 'column',
                         borderRadius: 10,
-                        padding: 10,
                         flex: 1,
                         minWidth: 0,
                     }}
-                >
-                    <p style={{ textAlign: 'center', fontSize: 19, color: 'white' }}>
+                >   
+                    <h1 style={{color: '#63b2fd', margin: '4px', fontFamily: 'InterBold'}}>
+                        Who is {artistName}?
+                    </h1>
+                    <p style={{ textAlign: 'left', fontSize: 19, color: 'white' }}>
                         {bio}
                     </p>
                 </div>
             </div>
-            {(phoneNumber !== undefined && phoneNumber !== null && phoneNumber !== '')
-                ? <p>agent contact: {phoneNumber}</p>
-                : null}
+            <div style={{
+                    display: 'flex',
+                    position: 'absolute',
+                    bottom: '1%',
+                }}
+            >
+                {(phoneNumber !== undefined && phoneNumber !== null && phoneNumber !== '')
+                    ? <p>agent contact: {phoneNumber}</p>
+                    : null}
+            </div>
         </div >
     );
 }

@@ -77,7 +77,7 @@ export default function Results() {
         const result = await generateEpkSvg({
             theme: theme,
             ...form,
-            tappedRating: `${user?.overallRating}` ?? '0',
+            tappedRating: user?.overallRating ? `${user?.overallRating}` : null,
             twitterHandle: user?.twitterHandle ?? null,
             tiktokHandle: user?.tiktokHandle ?? null,
             instagramHandle: user?.instagramHandle ?? null,
@@ -128,9 +128,9 @@ export default function Results() {
     const payload: EpkPayload = {
         ...form,
         twitterHandle: user?.twitterHandle ?? null,
-        tiktokHandle: user?.twitterHandle ?? null,
+        tiktokHandle: user?.tiktokHandle ?? null,
         instagramHandle: user?.instagramHandle ?? null,
-        tappedRating: user?.overallRating ? `${user?.overallRating}` : '0',
+        tappedRating: user?.overallRating ? `${user?.overallRating}` : null,
     }
     const formString = JSON.stringify(payload);
     // const urlParams = Object.entries(user).map(([key, val]) => {
