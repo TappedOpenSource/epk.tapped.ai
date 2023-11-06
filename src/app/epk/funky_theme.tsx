@@ -44,7 +44,7 @@ export default function FunkyTheme({
                 left: 0,
                 right: 0,
                 bottom: 0,
-                zIndex: -1,
+                // zIndex: -1,
             }}>
                 <div style={{
                     backgroundColor: '#e97451',
