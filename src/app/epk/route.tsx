@@ -19,7 +19,6 @@ const themeComponents: Record<string, EPKComponent> = {
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const theme = searchParams.get('theme');
-  const tappedRating = searchParams.get('tappedRating');
   const epkString = searchParams.get('epkData') ?? '';
   const epkForm = JSON.parse(epkString) as EpkPayload;
 
@@ -30,6 +29,7 @@ export async function GET(request: Request) {
     tiktokHandle,
     instagramHandle,
     twitterHandle,
+    tappedRating,
     phoneNumber,
     notableSongs,
     location,
