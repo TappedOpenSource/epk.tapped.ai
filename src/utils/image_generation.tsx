@@ -2,9 +2,9 @@
 import TappedTheme from '@/app/epk/tapped_theme';
 import FunkyTheme from '@/app/epk/funky_theme';
 import MinimalistTheme from '@/app/epk/minimalist_theme';
-import { EpkForm } from '@/types/epk_form';
 import satori from 'satori'
-import { EPKComponent, EpkProps } from '@/types/epk_component';
+import { EPKComponent } from '@/types/epk_component';
+import { EpkPayload } from '@/types/epk_payload';
 
 const themeComponents: Record<string, EPKComponent> = {
     tapped: TappedTheme,
@@ -32,11 +32,10 @@ export async function generateEpkSvg({
     twitterHandle,
     tiktokHandle,
     instagramHandle,
-}: EpkProps & {
+}: EpkPayload & {
     theme: string,
     height: number;
     width: number;
-    tappedRating: string;
 }): Promise<string> {
     let fontDataRegular;
     let fontDataItalic;
