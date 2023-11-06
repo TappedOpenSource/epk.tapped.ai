@@ -4,7 +4,6 @@ import { EpkPayload } from "@/types/epk_payload";
 import { getURL } from "@/utils/url";
 
 const qrCodeDimensions = 75;
-let ratingString;
 
 export default function FunkyTheme({
     artistName,
@@ -24,12 +23,7 @@ export default function FunkyTheme({
     }&bgcolor=010F16&color=cbd5e1&data=https://instagram.com/${
         instagramHandle
     }`
-    let ratingString;
-    if (tappedRating === 'Unranked on Tapped') {
-        ratingString = tappedRating;
-    } else {
-        ratingString = `${tappedRating}/ 5 stars on Tapped `
-    }
+    const ratingString = (tappedRating === null || tappedRating === '') ? "unranked on tapped" : `${tappedRating}/ 5 stars on Tapped `
     return (
         <div
             style={{
