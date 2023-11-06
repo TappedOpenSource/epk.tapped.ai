@@ -24,11 +24,10 @@ export async function generateEpkSvg({
     bio,
     imageUrl,
     tappedRating,
-    spotifyId,
     phoneNumber,
     location,
     notableSongs,
-    job,
+    jobs,
     twitterHandle,
     tiktokHandle,
     instagramHandle,
@@ -95,14 +94,13 @@ export async function generateEpkSvg({
             artistName={artistName}
             location={location}
             notableSongs={notableSongs}
-            job={job}
+            jobs={jobs}
             bio={bio}
             imageUrl={imageUrl}
             tappedRating={tappedRating}
             tiktokHandle={tiktokHandle}
             instagramHandle={instagramHandle}
             twitterHandle={twitterHandle}
-            spotifyId={spotifyId}
             phoneNumber={phoneNumber}
         />,
         {

@@ -30,11 +30,10 @@ export async function GET(request: Request) {
     tiktokHandle,
     instagramHandle,
     twitterHandle,
-    spotifyId,
     phoneNumber,
     notableSongs,
     location,
-    job,
+    jobs,
   } = epkForm;
   console.log({
     artistName,
@@ -44,7 +43,6 @@ export async function GET(request: Request) {
     tiktokHandle,
     instagramHandle,
     twitterHandle,
-    spotifyId,
     phoneNumber,
   })
   console.log({ theme });
@@ -56,14 +54,13 @@ export async function GET(request: Request) {
       artistName={artistName}
       location={location}
       notableSongs={notableSongs}
-      job={job}
+      jobs={jobs}
       bio={bio}
       imageUrl={imageUrl}
       tappedRating={tappedRating}
       tiktokHandle={tiktokHandle}
       instagramHandle={instagramHandle}
       twitterHandle={twitterHandle}
-      spotifyId={spotifyId}
       phoneNumber={phoneNumber}
     />,
     {
