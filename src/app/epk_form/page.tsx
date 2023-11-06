@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { NextPage } from 'next';
 import { useRouter } from 'next/navigation';
 import FormDataManager from '@/components/FormDataManager';
 import SegmentedLine from '@/components/SegmentedLine';
@@ -10,7 +9,6 @@ import SubmitField from '@/components/form/submit_field';
 import BioField from '@/components/form/bio_field';
 import LocationField from '@/components/form/location_field';
 import CareerField from '@/components/form/career_field';
-import SpotifyField from '@/components/form/spotify_field';
 import IgField from '@/components/form/ig_field';
 import TiktokField from '@/components/form/tiktok_field';
 import TwitterField from '@/components/form/twitter_field';
@@ -19,11 +17,11 @@ import PhoneNumberField from '@/components/form/phone_number_field';
 import ImageUploadField from '@/components/form/image_field';
 import { useAuth } from '@/context/AuthProvider';
 
-const EpkForm: NextPage = () => {
+export default function EpkForm() {
   const { user } = useAuth();
+  const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isValid, setIsValid] = useState(false);
-  const router = useRouter();
   const [formData, setFormData] = useState<{ [key: string]: string }>({});
 
   const pages = [
@@ -31,10 +29,6 @@ const EpkForm: NextPage = () => {
     ImageUploadField,
     LocationField,
     CareerField,
-    // SpotifyField,
-    // IgField,
-    // TiktokField,
-    // TwitterField,
     NotableSongsField,
     PhoneNumberField,
     BioField,
@@ -136,5 +130,3 @@ const EpkForm: NextPage = () => {
     </div>
   );
 };
-
-export default EpkForm;

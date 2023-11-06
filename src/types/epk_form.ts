@@ -17,7 +17,7 @@ export type EpkForm = {
   // instagramHandle: string;
   // tiktokHandle: string;
   // twitterHandle: string;
-  notableSongs: string[];
+  notableSongs: { title: string, plays: number }[];
   phoneNumber: string;
   timestamp: Timestamp;
 };
