@@ -1,5 +1,6 @@
+import { UserModel } from '@/types/user_model';
 import { aiEnhanceBio } from '@/utils/api';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
   const EnhancedButton = ({ loading, enhanced, onClick }: {
     loading: boolean;
@@ -24,10 +25,16 @@ import React, { useEffect, useState } from 'react';
     );
   }
 
-const BioField = ({ formData, updateFormData, onValidation, user }) => {
+const BioField = ({ formData, updateFormData, onValidation, user }: {
+  formData: { [key: string]: any};
+  updateFormData: (data: { [key: string]: any }) => void;
+  onValidation: (isValid: boolean) => void;
+  user: UserModel;
+}) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [enhancded, setEnhanced] = useState(false);
+  const [enhanced, setEnhanced] = useState(false);
+  const [bio, setBio] = useState('');
 
   useEffect(() => {
     if (user && user.bio) {
@@ -35,6 +42,7 @@ const BioField = ({ formData, updateFormData, onValidation, user }) => {
         ...formData,
         bio: user.bio,
       });
+      setBio(user.bio);
     }
   }, [user]);
 
@@ -57,15 +65,18 @@ const BioField = ({ formData, updateFormData, onValidation, user }) => {
   };
 
   useEffect(() => {
-    justValidate(formData['bio'] || '');
-  }, [formData['bio']]);
+    console.log({ bio });
+    updateFormData({
+      ...formData,
+      bio,
+    });
+    justValidate(bio);
+  }, [bio]);
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    updateFormData({
-      ...formData,
-      [name]: value,
-    });
+    setBio(value);
     validateForUI(value);
   };
 
@@ -75,10 +86,7 @@ const BioField = ({ formData, updateFormData, onValidation, user }) => {
       const betterBio = await aiEnhanceBio({
         userId: user.id,
       });
-      updateFormData({
-        ...formData,
-        bio: betterBio,
-      });
+      setBio(betterBio);
       validateForUI(betterBio);
       setEnhanced(true);
     } catch (e) {
@@ -86,8 +94,6 @@ const BioField = ({ formData, updateFormData, onValidation, user }) => {
     }
     setLoading(false);
   }
-
-
 
   return (
     <div className="page flex h-full flex-col items-center justify-center">
@@ -101,15 +107,14 @@ const BioField = ({ formData, updateFormData, onValidation, user }) => {
             <textarea
               name="bio"
               placeholder="type here..."
-              value={formData['bio'] || ''}
-              maxLength={120}
+              value={bio}
               onChange={handleInputChange}
               className={`min-h-[200px] w-full h-full bg-transparent text-white font-semibold focus:outline-none`}
             />
             <div className='flex justify-end'>
               <EnhancedButton 
                 loading={loading} 
-                enhanced={enhancded}
+                enhanced={enhanced}
                 onClick={handleAiEnhance}
               />
             </div>

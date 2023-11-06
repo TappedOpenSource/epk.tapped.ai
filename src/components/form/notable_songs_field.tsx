@@ -4,7 +4,7 @@ const NotableSongsField = ({ formData, updateFormData, onValidation, user }) => 
   const [error, setError] = useState<string | null>(null);
 
   const validateForUI = (value) => {
-    if (value === '') {
+    if (value.length === 0) {
       setError('notable songs cannot be empty');
       onValidation(false);
     } else {
@@ -14,7 +14,7 @@ const NotableSongsField = ({ formData, updateFormData, onValidation, user }) => 
   };
 
   const justValidate = (value) => {
-    if (value.trim() === '') {
+    if (value.length === 0) {
       onValidation(false);
     } else {
       onValidation(true);

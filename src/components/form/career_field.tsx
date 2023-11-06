@@ -55,7 +55,7 @@ export default function CareerField({ formData, updateFormData, onValidation }) 
     'producer',
     'promoter',
     'dj',
-    'sound engineer',
+    'sound eng.',
     'model',
     'actor',
   ];
