@@ -81,7 +81,7 @@ export async function generateEpkSvg({
         ).then((res) => res.arrayBuffer());
     
         fontDataItalic = await fetch(
-            new URL('../app/fonts/Inter-Thin.ttf', import.meta.url)
+            new URL('../app/fonts/InterTight-Italic.ttf', import.meta.url)
         ).then((res) => res.arrayBuffer());
     
         fontDataBold = await fetch(

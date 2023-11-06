@@ -186,29 +186,29 @@ export default function TappedTheme({
                 }}
             >
                 <div style={{display: 'flex', flexDirection: 'column'}}>
-                    <div style={{display: 'flex', flexDirection: 'row'}}>
+                    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                         <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '20px', margin: '4px'}}>Location |</p>
+                            <p style={{fontSize: '28px', margin: '4px', fontFamily: 'InterBold'}}>Location |</p>
                         </div>
                         <div style={{display: 'flex'}}>
-                            <img src={getURL('/location_icon.png')} alt="Location icon" style={{ width: '20px', height: '20px', marginTop: '4px' }} />
-                            <p style={{fontSize: '20px', margin: '4px'}}>Northern Virginia</p>
-                        </div>
-                    </div>
-                    <div style={{display: 'flex', flexDirection: 'row'}}>
-                        <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '20px', margin: '4px'}}>Rating |</p>
-                        </div>
-                        <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '20px', margin: '4px'}}>{tappedRating} / 5 stars on Tapped</p>
+                            <img src={getURL('/location_pin_icon.png')} alt="Location icon" style={{ width: '20px', height: '20px', marginTop: '4px' }} />
+                            <p style={{fontSize: '20px', margin: '4px', fontFamily: 'InterItalic'}}>Northern Virginia</p>
                         </div>
                     </div>
-                    <div style={{display: 'flex', flexDirection: 'row'}}>
+                    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                         <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '20px', margin: '4px'}}>Profession |</p>
+                            <p style={{fontSize: '28px', margin: '4px', fontFamily: 'InterBold'}}>Rating |</p>
                         </div>
                         <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '20px', margin: '4px'}}>Musician, Model, Actor, Audio Engineer</p>
+                            <p style={{fontSize: '20px', margin: '4px', fontFamily: 'InterItalic'}}>{tappedRating} / 5 stars on Tapped</p>
+                        </div>
+                    </div>
+                    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '28px', margin: '4px', fontFamily: 'InterBold'}}>Profession |</p>
+                        </div>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '20px', margin: '4px', fontFamily: 'InterItalic'}}>Musician, Model, Actor, Audio Engineer</p>
                         </div>
                     </div>
                 </div>

@@ -80,28 +80,28 @@ export default function MinimalistTheme({
                 }}
               >
                 <div style={{display: 'flex', flexDirection: 'column', padding: '0 20px', color: 'white'}}>
-                  <h1 style={{ fontSize: '48px', fontFamily: 'ArimoBold', color: '#702963' }}>{artistName}</h1>
+                  <h1 style={{ fontSize: '48px', fontFamily: 'ArimoBold', color: '#702963', margin: '4px' }}>{artistName}</h1>
                   <div style={{display: 'flex', flexDirection: 'column'}}>
-                    <div style={{display: 'flex', flexDirection: 'row'}}>
+                    <div style={{display: 'flex', flexDirection: 'column'}}>
                         <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '20px', fontFamily: 'Arimo', margin: '4px'}}>Location |</p>
+                            <p style={{fontSize: '28px', fontFamily: 'ArimoBold', margin: '4px'}}>Location</p>
                         </div>
                         <div style={{display: 'flex'}}>
-                            <img src={getURL('/location_icon.png')} alt="Location icon" style={{ width: '20px', height: '20px', marginTop: '4px' }} />
+                            <img src={getURL('/location_pin_icon.png')} alt="Location icon" style={{ width: '20px', height: '20px', marginTop: '4px' }} />
                             <p style={{fontSize: '20px', fontFamily: 'ArimoItalic', margin: '4px'}}>Northern Virginia</p>
                         </div>
                     </div>
-                    <div style={{display: 'flex', flexDirection: 'row'}}>
+                    <div style={{display: 'flex', flexDirection: 'column'}}>
                         <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '20px', fontFamily: 'Arimo', margin: '4px'}}>Rating |</p>
+                            <p style={{fontSize: '28px', fontFamily: 'ArimoBold', margin: '4px'}}>Rating</p>
                         </div>
                         <div style={{display: 'flex'}}>
                             <p style={{fontSize: '20px', fontFamily: 'ArimoItalic', margin: '4px'}}>{tappedRating} / 5 stars on Tapped</p>
                         </div>
                     </div>
-                    <div style={{display: 'flex', flexDirection: 'row'}}>
+                    <div style={{display: 'flex', flexDirection: 'column'}}>
                         <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '20px', fontFamily: 'Arimo', margin: '4px'}}>Profession |</p>
+                            <p style={{fontSize: '28px', fontFamily: 'ArimoBold', margin: '4px'}}>Profession</p>
                         </div>
                         <div style={{display: 'flex'}}>
                             <p style={{fontSize: '20px', fontFamily: 'ArimoItalic', margin: '4px'}}>Musician, Model, Actor, Audio Engineer</p>
