@@ -24,7 +24,7 @@ const EpkForm: NextPage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isValid, setIsValid] = useState(false);
   const router = useRouter();
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState<{ [key: string]: string }>({});
 
   const pages = [
     NameField,
