@@ -23,6 +23,12 @@ export default function MinimalistTheme({
         }&bgcolor=010F16&color=cbd5e1&data=https://instagram.com/${
             instagramHandle
         }`
+    let ratingString;
+    if (tappedRating === 'Unranked on Tapped') {
+        ratingString = tappedRating;
+    } else {
+        ratingString = `${tappedRating}/ 5 stars on Tapped `
+    }
     return (
         <div
             style={{
@@ -96,7 +102,7 @@ export default function MinimalistTheme({
                             <p style={{fontSize: '28px', fontFamily: 'ArimoBold', margin: '4px'}}>Rating</p>
                         </div>
                         <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '20px', fontFamily: 'ArimoItalic', margin: '4px'}}>{tappedRating} / 5 stars on Tapped</p>
+                            <p style={{fontSize: '20px', fontFamily: 'ArimoItalic', margin: '4px'}}>{ratingString}</p>
                         </div>
                     </div>
                     <div style={{display: 'flex', flexDirection: 'column'}}>

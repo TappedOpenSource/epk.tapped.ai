@@ -23,6 +23,12 @@ export default function TappedTheme({
         }&bgcolor=010F16&color=cbd5e1&data=https://instagram.com/${
             instagramHandle
         }`
+    let ratingString;
+    if (tappedRating === 'Unranked on Tapped') {
+        ratingString = tappedRating;
+    } else {
+        ratingString = `${tappedRating}/ 5 stars on Tapped `
+    }
     return (
         <div
             style={{
@@ -200,7 +206,7 @@ export default function TappedTheme({
                             <p style={{fontSize: '28px', margin: '4px', fontFamily: 'InterBold'}}>Rating |</p>
                         </div>
                         <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '20px', margin: '4px', fontFamily: 'InterItalic'}}>{tappedRating} / 5 stars on Tapped</p>
+                            <p style={{fontSize: '20px', margin: '4px', fontFamily: 'InterItalic'}}>{ratingString}</p>
                         </div>
                     </div>
                     <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
