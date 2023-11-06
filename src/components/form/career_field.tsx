@@ -1,72 +1,95 @@
 import React, { useEffect, useState } from 'react';
 
-const CareerField = ({ formData, updateFormData, onValidation, user }) => {
+export default function CareerField({ formData, updateFormData, onValidation }) {
   const [error, setError] = useState(null);
-
-  useEffect(() => {
-    if (user && user.occupations) {
-      updateFormData({
-        ...formData,
-        job: user.occupations,
-      });
-    }
-  }, [user]);
-
-  const validateForUI = (value) => {
-    if (Array.isArray(value) && value.length === 0) {
-      setError('career cannot be empty');
-      onValidation(false);
-    } else {
-      setError(null);
-      onValidation(true);
-    }
-};
-
-const justValidate = (value) => {
-    if (Array.isArray(value) && value.length === 0) {
-      onValidation(false);
-    } else {
-      onValidation(true);
-    }
-};
-
-  useEffect(() => {
-    justValidate(formData['job'] || '');
-  }, [formData['job']]);
+  const [hasInteracted, setHasInteracted] = useState(false);
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    const arrayValue = value.split(',').map(item => item.trim());
+    setHasInteracted(true);
 
-    updateFormData({
-      ...formData,
-      [name]: arrayValue,
-    });
-    validateForUI(arrayValue);
+    const { value } = e.target;
+    const updatedValues = formData['jobs'] || [];
+
+    if (updatedValues.includes(value)) {
+      const index = updatedValues.indexOf(value);
+      updatedValues.splice(index, 1);
+    } else {
+      updatedValues.push(value);
+    }
+
+    updateFormData({ ...formData, ['jobs']: updatedValues });
+    validateForUI(updatedValues);
   };
+
+  const validateForUI = (values) => {
+    if (hasInteracted) {
+      if (!values || values.length === 0) {
+        setError('You must choose at least one option.');
+        onValidation(false);
+      } else {
+        setError(null);
+        onValidation(true);
+      }
+    } else {
+      setError(null);
+      onValidation(false);
+    }
+  };
+
+  const justValidate = (values) => {
+    if (!values || values.length === 0) {
+      onValidation(false);
+    } else {
+      onValidation(true);
+    }
+  };
+
+
+  useEffect(() => {
+    justValidate(formData['jobs']);
+  }, [formData['jobs']]);
+
+  const options = [
+    'artist',
+    'songwriter',
+    'producer',
+    'promoter',
+    'dj',
+    'sound engineer',
+    'model',
+    'actor',
+  ];
 
   return (
     <div className="page flex h-full flex-col items-center justify-center">
-      <div className="flex w-full flex-col items-start">
+      <div className="flex w-full flex-col items-start px-6">
         <h1 className="mb-2 text-2xl font-bold text-white">
-          what is your career (ex. musician, rapper, sound engineer)?
+          what&apos;s your professions (can choose multiple)?
         </h1>
-        <div className="flex h-full w-full items-center justify-center">
-          <input
-            type="text"
-            name="job"
-            placeholder="type here..."
-            value={formData['job'] ? formData['job'].join(', ') : ''}
-            onChange={handleInputChange}
-            className={`white_placeholder w-full appearance-none rounded ${
-              error ? 'border-2 border-red-500' : ''
-            } bg-[#63b2fd] px-4 py-2 leading-tight text-white focus:bg-white focus:text-black font-semibold focus:outline-none`}
-          />
+        <div className="flex flex-wrap w-full justify-between">
+          {options.map((option) => (
+            <div key={option} className="w-1/2 flex items-center justify-center mb-4 pr-2">
+              <input
+                type="radio"
+                id={option}
+                name="jobs"
+                value={option}
+                checked={(formData['jobs'] || []).includes(option)}
+                onChange={handleInputChange}
+                className="sr-only"
+              />
+              <label
+                htmlFor={option}
+                className={`w-full text-center px-4 py-2 rounded-xl cursor-pointer transition duration-200 ease-in-out 
+                ${(formData['jobs'] || []).includes(option) ? 'bg-white font-bold text-black' : 'bg-[#63b2fd] font-bold text-white'}`}
+              >
+                {option}
+              </label>
+            </div>
+          ))}
         </div>
-        {error && <p className="mt-2 text-red-500">{error}</p>}
+        {error && <p className="text-red-500">{error}</p>}
       </div>
     </div>
   );
-};
-
-export default CareerField;
+}

@@ -130,7 +130,9 @@ export default function Results() {
         twitterHandle: user?.twitterHandle ?? null,
         tiktokHandle: user?.tiktokHandle ?? null,
         instagramHandle: user?.instagramHandle ?? null,
-        tappedRating: user?.overallRating ? `${user?.overallRating}` : null,
+        tappedRating: (
+            user?.overallRating !== undefined &&
+            user?.overallRating !== null) ? `${user?.overallRating}` : null,
     }
     const formString = JSON.stringify(payload);
     // const urlParams = Object.entries(user).map(([key, val]) => {

@@ -13,7 +13,6 @@ export default function TappedTheme({
     tiktokHandle,
     instagramHandle,
     twitterHandle,
-    spotifyId,
     phoneNumber,
 }: EpkPayload) {
     const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${
@@ -23,7 +22,7 @@ export default function TappedTheme({
         }&bgcolor=010F16&color=cbd5e1&data=https://instagram.com/${
             instagramHandle
         }`
-    const ratingString = (tappedRating === null || tappedRating === '') ? "Unranked on Tapped" : `${tappedRating}/ 5 stars on Tapped `
+    const ratingString = (tappedRating === null || tappedRating === '') ? "Unranked on Tapped" : `${tappedRating} / 5 stars on Tapped `
     return (
         <div
             style={{
@@ -326,7 +325,7 @@ export default function TappedTheme({
                         </div>
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        {(spotifyId !== undefined && spotifyId !== null && spotifyId !== '')
+                        {/* {(spotifyId !== undefined && spotifyId !== null && spotifyId !== '')
                             ? < div style={{
                                 display: 'flex',
                                 margin: '4px',
@@ -339,7 +338,7 @@ export default function TappedTheme({
                                     open.spotify.com/artist/{spotifyId}
                                 </p>
                             </div>
-                            : null}
+                            : null} */}
                         {(instagramHandle !== undefined && instagramHandle !== null && instagramHandle !== '')
                             ? <div style={{
                                 display: 'flex',

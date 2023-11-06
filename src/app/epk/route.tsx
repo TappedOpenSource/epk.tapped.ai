@@ -2,14 +2,8 @@ import { ImageResponse } from "next/og";
 import TappedTheme from "./tapped_theme";
 import FunkyTheme from "./funky_theme";
 import MinimalistTheme from "./minimalist_theme";
-import { EpkForm } from "@/types/epk_form";
 import { EPKComponent } from "@/types/epk_component";
 import { EpkPayload } from "@/types/epk_payload";
-
-// // @ts-ignore
-// import QRCodeImpl from "qr.js/lib/QRCode";
-// // @ts-ignore
-// import ErrorCorrectLevel from "qr.js/lib/ErrorCorrectLevel";
 
 const width = 900;
 const height = 1200;
@@ -53,10 +47,6 @@ export async function GET(request: Request) {
     spotifyId,
     phoneNumber,
   })
-  // const qrcode = new QRCodeImpl(-1, ErrorCorrectLevel[level]);
-  // qrcode.addData("https://jonaylor.xyz");
-  // qrcode.make();
-  // const cells = qrcode.modules;
   console.log({ theme });
 
   const ThemeComponent: EPKComponent = themeComponents[theme || 'tapped'];

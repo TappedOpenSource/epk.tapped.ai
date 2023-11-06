@@ -31,7 +31,7 @@ const EpkForm: NextPage = () => {
     ImageUploadField,
     LocationField,
     CareerField,
-    SpotifyField,
+    // SpotifyField,
     // IgField,
     // TiktokField,
     // TwitterField,

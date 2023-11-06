@@ -1,4 +1,3 @@
-import { useAuth } from '@/context/AuthProvider';
 import { aiEnhanceBio } from '@/utils/api';
 import React, { useEffect, useState } from 'react';
 
@@ -103,6 +102,7 @@ const BioField = ({ formData, updateFormData, onValidation, user }) => {
               name="bio"
               placeholder="type here..."
               value={formData['bio'] || ''}
+              maxLength={120}
               onChange={handleInputChange}
               className={`min-h-[200px] w-full h-full bg-transparent text-white font-semibold focus:outline-none`}
             />

@@ -3,7 +3,6 @@ import {
     QueryDocumentSnapshot, 
     SnapshotOptions,
     Timestamp,
-    doc,
 } from "firebase/firestore";
 
 export type EpkForm = {
@@ -13,12 +12,12 @@ export type EpkForm = {
   imageUrl: string;
   bio: string;
   location: string;
-  job: string;
-  spotifyId: string;
+  jobs: string[];
+  // spotifyId: string;
   // instagramHandle: string;
   // tiktokHandle: string;
   // twitterHandle: string;
-  notableSongs: string;
+  notableSongs: string[];
   phoneNumber: string;
   timestamp: Timestamp;
 };
@@ -36,8 +35,8 @@ export const epkFormConverter = {
       imageUrl: data.imageUrl,
       bio: data.bio,
       location: data.location,
-      job: data.job,
-      spotifyId: data.spotifyId,
+      jobs: data.jobs,
+      // spotifyId: data.spotifyId,
       // instagramHandle: data.instagramHandle,
       // tiktokHandle: data.tiktokHandle,
       // twitterHandle: data.twitterHandle,

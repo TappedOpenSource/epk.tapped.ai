@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
 const NotableSongsField = ({ formData, updateFormData, onValidation, user }) => {
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   const validateForUI = (value) => {
-    if (value.trim() === '') {
+    if (value === '') {
       setError('notable songs cannot be empty');
       onValidation(false);
     } else {
@@ -22,7 +22,7 @@ const NotableSongsField = ({ formData, updateFormData, onValidation, user }) => 
   };
 
   useEffect(() => {
-    justValidate(formData['notableSongs'] || '');
+    justValidate(formData['notableSongs'] || []);
   }, [formData['notableSongs']]);
 
   const handleInputChange = (e) => {
@@ -38,7 +38,7 @@ const NotableSongsField = ({ formData, updateFormData, onValidation, user }) => 
     <div className="page flex h-full flex-col items-center justify-center">
       <div className="flex w-full flex-col items-start">
         <h1 className="mb-2 text-2xl font-bold text-white">
-          do you have any notable songs?
+          what are your most streamed songs?
         </h1>
         <div className="flex h-full w-full items-center justify-center">
           <input

@@ -13,7 +13,6 @@ export default function MinimalistTheme({
     tiktokHandle,
     instagramHandle,
     twitterHandle,
-    spotifyId,
     phoneNumber,
 }: EpkPayload) {
     const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${
@@ -23,7 +22,7 @@ export default function MinimalistTheme({
         }&bgcolor=010F16&color=cbd5e1&data=https://instagram.com/${
             instagramHandle
         }`
-    const ratingString = (tappedRating === null || tappedRating === '') ? "Unranked on Tapped" : `${tappedRating}/ 5 stars on Tapped `
+    const ratingString = (tappedRating === null || tappedRating === '') ? "Unranked on Tapped" : `${tappedRating} / 5 stars on Tapped `
     return (
         <div
             style={{
@@ -177,7 +176,7 @@ export default function MinimalistTheme({
                     flexDirection: 'column',
                 }}
                 >
-                {(spotifyId !== undefined && spotifyId !== null && spotifyId !== '')
+                {/* {(spotifyId !== undefined && spotifyId !== null && spotifyId !== '')
                     ? < div style={{
                         display: 'flex',
                         alignItems: 'center',
@@ -201,7 +200,7 @@ export default function MinimalistTheme({
                             open.spotify.com/artist/{spotifyId}
                         </p>
                     </div>
-                    : null}
+                    : null} */}
                 {(instagramHandle !== undefined && instagramHandle !== null && instagramHandle !== '')
                     ? <div style={{
                         display: 'flex',
