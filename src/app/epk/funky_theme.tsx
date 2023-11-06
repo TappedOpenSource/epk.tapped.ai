@@ -23,7 +23,7 @@ export default function FunkyTheme({
     }&bgcolor=010F16&color=cbd5e1&data=https://instagram.com/${
         instagramHandle
     }`
-    const ratingString = (tappedRating === null || tappedRating === '') ? "unranked on tapped" : `${tappedRating}/ 5 stars on Tapped `
+    const ratingString = (tappedRating === null || tappedRating === '') ? "Unranked on Tapped" : `${tappedRating}/ 5 stars on Tapped `
     return (
         <div
             style={{
