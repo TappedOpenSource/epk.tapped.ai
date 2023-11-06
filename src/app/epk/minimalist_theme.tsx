@@ -9,6 +9,7 @@ export default function MinimalistTheme({
     artistName,
     bio,
     imageUrl,
+    jobs,
     tappedRating,
     tiktokHandle,
     instagramHandle,
@@ -104,7 +105,7 @@ export default function MinimalistTheme({
                             <p style={{fontSize: '28px', fontFamily: 'ArimoBold', margin: '4px'}}>Profession</p>
                         </div>
                         <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '20px', fontFamily: 'ArimoItalic', margin: '4px'}}>Musician, Model, Actor, Audio Engineer</p>
+                            <p style={{fontSize: '20px', fontFamily: 'ArimoItalic', margin: '4px'}}>{jobs.join(', ')}</p>
                         </div>
                     </div>
                 </div>

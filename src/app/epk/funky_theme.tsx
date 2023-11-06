@@ -9,6 +9,7 @@ export default function FunkyTheme({
     artistName,
     bio,
     imageUrl,
+    jobs,
     tappedRating,
     tiktokHandle,
     instagramHandle,
@@ -117,7 +118,7 @@ export default function FunkyTheme({
                             <p style={{fontSize: '36px', fontFamily: 'JosefinSansBold', margin: '4px'}}>Profession</p>
                         </div>
                         <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '26px', fontFamily: 'JosefinSansItalic', margin: '4px'}}>Musician, Model, Actor</p>
+                            <p style={{fontSize: '26px', fontFamily: 'JosefinSansItalic', margin: '4px'}}>{jobs.join(', ')}</p>
                         </div>
                     </div>
                 </div>

@@ -8,6 +8,7 @@ const qrCodeDimensions = 75;
 export default function TappedTheme({
     artistName,
     bio,
+    jobs,
     imageUrl,
     tappedRating,
     tiktokHandle,
@@ -208,7 +209,7 @@ export default function TappedTheme({
                             <p style={{fontSize: '28px', margin: '4px', fontFamily: 'InterBold'}}>Profession |</p>
                         </div>
                         <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '20px', margin: '4px', fontFamily: 'InterItalic'}}>Musician, Model, Actor, Audio Engineer</p>
+                            <p style={{fontSize: '20px', margin: '4px', fontFamily: 'InterItalic'}}>{jobs.join(', ')}</p>
                         </div>
                     </div>
                 </div>
