@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { storage, auth } from '@/utils/firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import Image from 'next/image';

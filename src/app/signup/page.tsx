@@ -1,3 +1,6 @@
+'use client';
+
+import { logout } from "@/utils/auth";
 import Link from "next/link";
 
 export default function SignUp() {
@@ -17,6 +20,13 @@ export default function SignUp() {
                 >
                     sign up
                 </Link>
+                <div className="h-4" />
+                <button
+                    onClick={() => logout()}
+                    className='text-gray-500 px-4 py-2'
+                >
+                    logout
+                </button>
             </div>
         </>
     );
