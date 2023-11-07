@@ -392,6 +392,9 @@ export default function TappedTheme({
                             : null}
                         <div style={{
                             display: 'flex',
+                            position: 'absolute',
+                            bottom: '-100%',
+                            left: '5%',
                             flexDirection: 'column',
                             justifyContent: 'center',
                             alignItems: 'center',
