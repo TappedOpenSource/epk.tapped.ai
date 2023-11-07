@@ -313,7 +313,7 @@ export default function MinimalistTheme({
                     }}
                 >
                     <h1 style={{ fontSize: '48px', fontFamily: 'ArimoBold', color: '#702963', paddingRight: '40px' }}>Bio</h1>
-                    <p style={{ textAlign: 'left', fontSize: 19}}>
+                    <p style={{ textAlign: 'left', fontSize: 16}}>
                         {bio}
                     </p>
                 </div>

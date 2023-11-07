@@ -179,11 +179,11 @@ export default function FunkyTheme({
                     paddingTop: 20,
                     paddingBottom: 20,
                     backgroundColor: '#ffc000',
-                    color: 'white',
+                    color: 'black',
                     height: '265px',
                 }}
             >
-                <p style={{ fontSize: 22, }}>
+                <p style={{ fontSize: 18, }}>
                     {bio}
                 </p>
             </div>
@@ -373,14 +373,14 @@ export default function FunkyTheme({
                         justifyContent: 'center', 
                         alignItems: 'center', 
                         borderRadius: 10, 
-                        color: 'white', 
+                        color: 'black', 
                         paddingLeft: 5, 
                         paddingRight: 5,
                         marginTop: 50, 
                         marginBottom: 90,
                         flex: 1,
                       }}>
-                            <h1 style={{fontFamily: 'JosefinSansBold', fontSize: '48px', margin: '4px', color: 'white'}}>Top Songs</h1>
+                            <h1 style={{fontFamily: 'JosefinSansBold', fontSize: '48px', margin: '4px', color: 'black'}}>Top Songs</h1>
                             <div style={{display: 'flex', flexDirection: 'column', margin: '4px'}}>
                                 <div style={{display: 'flex', flexDirection: 'row'}}>
                                     <div style={{display: 'flex'}}>
