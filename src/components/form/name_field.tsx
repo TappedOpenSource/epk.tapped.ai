@@ -10,7 +10,7 @@ const NameField = ({ formData, updateFormData, onValidation, user }) => {
         artistName: user.artistName ?? user.username,
       });
     }
-  }, [user, formData, updateFormData]);
+  }, [user]);
 
   const validateForUI = (value) => {
     if (value.trim() === '') {
@@ -22,18 +22,16 @@ const NameField = ({ formData, updateFormData, onValidation, user }) => {
     }
   };
 
-
-
   useEffect(() => {
-  const justValidate = (value) => {
-    if (value.trim() === '') {
-      onValidation(false);
-    } else {
-      onValidation(true);
-    }
-  };
+    const justValidate = (value) => {
+      if (value.trim() === '') {
+        onValidation(false);
+      } else {
+        onValidation(true);
+      }
+    };
     justValidate(formData['artistName'] || '');
-  }, [formData['artistName'], formData, updateFormData]);
+  }, [formData['artistName']]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -57,9 +55,8 @@ const NameField = ({ formData, updateFormData, onValidation, user }) => {
             placeholder="type here..."
             value={formData['artistName'] || ''}
             onChange={handleInputChange}
-            className={`white_placeholder w-full appearance-none rounded ${
-              error ? 'border-2 border-red-500' : ''
-            } bg-[#63b2fd] px-4 py-2 leading-tight text-white focus:bg-white focus:text-black font-semibold focus:outline-none`}
+            className={`white_placeholder w-full appearance-none rounded ${error ? 'border-2 border-red-500' : ''
+              } bg-[#63b2fd] px-4 py-2 leading-tight text-white focus:bg-white focus:text-black font-semibold focus:outline-none`}
           />
         </div>
         {error && <p className="mt-2 text-red-500">{error}</p>}

@@ -147,7 +147,7 @@ export default function TappedTheme({
                             objectFit: 'cover',
                         }}
                     />
-                    <div
+                    {/* <div
                         style={{
                             display: 'flex',
                             position: 'absolute',
@@ -157,7 +157,7 @@ export default function TappedTheme({
                             height: '50%',
                             backgroundImage: 'linear-gradient(transparent, #15242d)',
                         }}
-                    ></div>
+                    ></div> */}
                 </div>
 
                 <h1
@@ -225,7 +225,7 @@ export default function TappedTheme({
                     backgroundColor: '#5f9ea0',
                     borderTopRightRadius: 10,
                     borderBottomRightRadius: 10,
-                    height: '280px',
+                    height: '200px',
                     width: '50%'
                 }}
             ></div>
@@ -247,7 +247,11 @@ export default function TappedTheme({
                     flex: 1,
                     minWidth: 0,
                 }}>
-                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+                    <div style={{
+                        display: 'flex', 
+                        flexDirection: 'row', 
+                        justifyContent: 'space-between'
+                    }}>
                         <div
                             style={{
                                 display: 'flex',
@@ -436,10 +440,18 @@ export default function TappedTheme({
                         minWidth: 0,
                     }}
                 >   
-                    <h1 style={{color: '#63b2fd', margin: '4px', fontFamily: 'InterBold'}}>
+                    <h1 style={{
+                        color: '#63b2fd', 
+                        margin: '4px', 
+                        fontFamily: 'InterBold',
+                    }}>
                         Who is {artistName}?
                     </h1>
-                    <p style={{ textAlign: 'left', fontSize: 19, color: 'white' }}>
+                    <p style={{ 
+                        textAlign: 'center', 
+                        fontSize: 16, 
+                        color: 'white',
+                     }}>
                         {bio}
                     </p>
                 </div>

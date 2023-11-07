@@ -15,14 +15,12 @@ import { getCustomClaims } from '@/utils/auth';
 import { useRouter } from 'next/navigation';
 import Loading from '@/components/loading';
 
-// Create the authentication context
 export const AuthContext = createContext<{
   authUser: User | null;
   user: UserModel | null;
   claim: string | null;
 }>({ authUser: null, user: null, claim: null });
 
-// Custom hook to access the authentication context
 export const useAuth = () => useContext(AuthContext);
 
 interface AuthContextProviderProps {
@@ -61,7 +59,6 @@ export function AuthContextProvider({
       } else {
         setAuthUser(null);
       }
-      // Set loading to false once authentication state is determined
       setLoading(false);
     });
 

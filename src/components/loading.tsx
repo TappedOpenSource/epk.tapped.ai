@@ -3,7 +3,7 @@ import { logout } from "@/utils/auth";
 export default function Loading() {
     return (
         <>
-            <div className="min-h-screen flex justify-center items-center">
+            <div className="min-h-screen flex flex-col justify-center items-center">
                 <p>loading...</p>
                 <div className="h-4" />
                 <button

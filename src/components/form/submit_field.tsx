@@ -1,5 +1,6 @@
 import { useAuth } from '@/context/AuthProvider';
 import { EpkForm } from '@/types/epk_form';
+import { aiEnhanceBio } from '@/utils/api';
 import { addEpkForm } from '@/utils/database';
 import { Timestamp } from 'firebase/firestore';
 import { useRouter } from 'next/navigation';
@@ -37,6 +38,12 @@ const SubmitField = ({ formData, updateFormData, onValidation }: {
     if (!authUser) {
       return;
     }
+
+    const enhancedBio = await aiEnhanceBio({
+      userId: authUser.uid,
+    })
+
+    formData['bio'] = enhancedBio;
 
     console.log({
       userId: authUser.uid,

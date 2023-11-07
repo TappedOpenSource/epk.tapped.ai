@@ -31,7 +31,7 @@ export default function EpkForm() {
     CareerField,
     NotableSongsField,
     PhoneNumberField,
-    BioField,
+    // BioField,
     SubmitField,
   ];
 
