@@ -17,7 +17,14 @@ export default function Home() {
           </span>
         </h1>
         <h2 className='text-lg md:text-xl text-extrathin text-center md:text-start'>
-          create an electronic press kit and get booked for live performances just like the pros
+          create an electronic press kit using just your{' '}
+          <Link
+            href="https://tapped.ai"
+            className='underline text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-sky-300'
+          >
+            Tapped
+          </Link>
+          {' '}profile
         </h2>
         <div className='h-8' />
         <Link
@@ -26,17 +33,6 @@ export default function Home() {
           get started
         </Link>
       </main>
-      <section className='py-24 bg-white'>
-        <div className='bg-white relative flex flex-col justify-center items-center py-24'>
-          <Image
-            src="/images/diagram.png"
-            alt="diagram of epk generator"
-            fill={true}
-            // layout='responsive'
-            objectFit='contain'
-          />
-        </div>
-      </section>
       <section>
         <div className='flex flex-col md:flex-row justify-around p-24'>
           <div>
