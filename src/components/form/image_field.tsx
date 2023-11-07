@@ -19,8 +19,20 @@ const ImageUploadField = ({ formData, updateFormData, onValidation, user }) => {
             imageUrl: user.profilePicture,
         });
     }
-}, [user]);
+    }, [user]);
 
+    useEffect(() => {
+        justValidate(formData['imageUrl'] || '');
+    }, [formData['imageUrl']]);
+    
+    const justValidate = (url) => {
+        if (!url) {
+        onValidation(false);
+        } else {
+        onValidation(true);
+        }
+    };
+  
   const validateForUI = (url) => {
     if (!url) {
       setError('Image is required');
