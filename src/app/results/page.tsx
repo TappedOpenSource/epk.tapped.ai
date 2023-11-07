@@ -68,41 +68,7 @@ export default function Results() {
         );
     }
 
-    const pdfHandler = async (themeIndex: number) => {
-        if (form === null) {
-            return;
-        }
 
-        const theme = themes[themeIndex];
-        const result = await generateEpkSvg({
-            theme: theme,
-            ...form,
-            tappedRating: user?.overallRating ? `${user?.overallRating}` : null,
-            twitterHandle: user?.twitterHandle ?? null,
-            tiktokHandle: user?.tiktokHandle ?? null,
-            instagramHandle: user?.instagramHandle ?? null,
-            height,
-            width,
-        });
-
-        const doc = new PDFDocument({
-            compress: false,
-            size: [width, height],
-        })
-        SVGtoPDF(doc, result, 0, 0, {
-            width,
-            height,
-            preserveAspectRatio: `xMidYMid meet`,
-        })
-        const stream = doc.pipe(blobStream())
-        stream.on('finish', () => {
-            const blob = stream.toBlob('application/pdf')
-            const objectUrl = URL.createObjectURL(blob)
-            console.log({ objectUrl })
-            router.push(objectUrl);
-        })
-        doc.end()
-    }
 
     if (error) {
         return (
@@ -127,9 +93,9 @@ export default function Results() {
     console.debug({ user, claim });
     const payload: EpkPayload = {
         ...form,
-        twitterHandle: user?.twitterHandle ?? null,
-        tiktokHandle: user?.tiktokHandle ?? null,
-        instagramHandle: user?.instagramHandle ?? null,
+        twitterHandle: user?.twitterHandle ?? form?.twitterHandle ?? null,
+        tiktokHandle: user?.tiktokHandle ?? form?.tiktokHandle ?? null,
+        instagramHandle: user?.instagramHandle ?? form?.instagramHandle ?? null,
         tappedRating: (
             user?.overallRating !== undefined &&
             user?.overallRating !== null) ? `${user?.overallRating}` : null,
@@ -156,7 +122,39 @@ export default function Results() {
             theme,
             url: getURL(`/epk?${urlParams}`),
         };
-    })
+    });
+
+    const pdfHandler = async (themeIndex: number) => {
+        if (form === null) {
+            return;
+        }
+
+        const theme = themes[themeIndex];
+        const result = await generateEpkSvg({
+            ...payload,
+            theme: theme,
+            height,
+            width,
+        });
+
+        const doc = new PDFDocument({
+            compress: false,
+            size: [width, height],
+        })
+        SVGtoPDF(doc, result, 0, 0, {
+            width,
+            height,
+            preserveAspectRatio: `xMidYMid meet`,
+        })
+        const stream = doc.pipe(blobStream())
+        stream.on('finish', () => {
+            const blob = stream.toBlob('application/pdf')
+            const objectUrl = URL.createObjectURL(blob)
+            console.log({ objectUrl })
+            router.push(objectUrl);
+        })
+        doc.end()
+    }
 
     return (
         <>

@@ -448,7 +448,7 @@ export default function TappedTheme({
                         Who is {artistName}?
                     </h1>
                     <p style={{ 
-                        textAlign: 'center', 
+                        textAlign: 'start', 
                         fontSize: 16, 
                         color: 'white',
                      }}>
