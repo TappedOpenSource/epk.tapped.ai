@@ -26,6 +26,7 @@ export default function TappedTheme({
             instagramHandle
         }`
     const ratingString = (tappedRating === null || tappedRating === '') ? "Unranked on Tapped" : `${tappedRating} / 5 stars on Tapped `
+    const socialsDivHeight = (instagramHandle !== '' && twitterHandle !== '' && tiktokHandle !== '') ? '220px' : '200px'
     return (
         <div
             style={{
@@ -225,7 +226,7 @@ export default function TappedTheme({
                     backgroundColor: '#5f9ea0',
                     borderTopRightRadius: 10,
                     borderBottomRightRadius: 10,
-                    height: '200px',
+                    height: socialsDivHeight,
                     width: '50%'
                 }}
             ></div>
@@ -385,7 +386,7 @@ export default function TappedTheme({
                                 paddingRight: 5,
                                 borderRadius: 10,
                             }}>
-                                <p style={{ marginLeft: '20px', fontSize: '20px', marginTop: '0px', marginBottom: '80px', fontFamily: 'InterBold' }}>
+                                <p style={{ marginLeft: '20px', fontSize: '20px', marginTop: '0px', paddingBottom: '20px', fontFamily: 'InterBold' }}>
                                     @{twitterHandle}
                                 </p>
                             </div>
