@@ -38,6 +38,7 @@ const SubmitField = ({ formData, updateFormData, onValidation }: {
     if (!authUser) {
       return;
     }
+    setLoading(true);
 
     const enhancedBio = await aiEnhanceBio({
       userId: authUser.uid,
@@ -62,6 +63,7 @@ const SubmitField = ({ formData, updateFormData, onValidation }: {
         timestamp: Timestamp.now(),
       }
     });
+    setLoading(false);
     router.push(`/results?id=${formData.id}`);
   };
 
