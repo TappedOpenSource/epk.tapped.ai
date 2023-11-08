@@ -390,47 +390,6 @@ export default function TappedTheme({
                                 </p>
                             </div>
                             : null}
-                        <div style={{
-                            display: 'flex',
-                            position: 'absolute',
-                            bottom: '-100%',
-                            left: '5%',
-                            flexDirection: 'column',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            borderRadius: 10,
-                            color: '#63b2fd',
-                            paddingLeft: 4,
-                            paddingRight: 4,
-                        }}>
-                            <h1 style={{fontFamily: 'InterBold', fontSize: '48px', margin: '4px'}}>Top Songs</h1>
-                            <div style={{display: 'flex', flexDirection: 'column', margin: '4px'}}>
-                                <div style={{display: 'flex', flexDirection: 'row'}}>
-                                    <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px'}}>{notableSongs[0].title} |</p>
-                                    </div>
-                                    <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>{notableSongs[0].plays} plays</p>
-                                    </div>
-                                </div>
-                                <div style={{display: 'flex', flexDirection: 'row'}}>
-                                    <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px'}}>{notableSongs[1].title} |</p>
-                                    </div>
-                                    <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>{notableSongs[1].plays} plays</p>
-                                    </div>
-                                </div>
-                                <div style={{display: 'flex', flexDirection: 'row'}}>
-                                    <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px'}}>{notableSongs[2].title} |</p>
-                                    </div>
-                                    <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>{notableSongs[2].plays} plays</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -457,6 +416,47 @@ export default function TappedTheme({
                      }}>
                         {bio}
                     </p>
+                </div>
+            </div>
+            <div style={{
+                display: 'flex',
+                position: 'absolute',
+                bottom: '10%',
+                left: '10%',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: 10,
+                color: '#63b2fd',
+                paddingLeft: 4,
+                paddingRight: 4,
+            }}>
+                <h1 style={{fontFamily: 'InterBold', fontSize: '48px', margin: '4px'}}>Top Songs</h1>
+                <div style={{display: 'flex', flexDirection: 'column', margin: '4px'}}>
+                    <div style={{display: 'flex', flexDirection: 'row'}}>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px'}}>{notableSongs[0].title} |</p>
+                        </div>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>{notableSongs[0].plays} plays</p>
+                        </div>
+                    </div>
+                    <div style={{display: 'flex', flexDirection: 'row'}}>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px'}}>{notableSongs[1].title} |</p>
+                        </div>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>{notableSongs[1].plays} plays</p>
+                        </div>
+                    </div>
+                    <div style={{display: 'flex', flexDirection: 'row'}}>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px'}}>{notableSongs[2].title} |</p>
+                        </div>
+                        <div style={{display: 'flex'}}>
+                            <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>{notableSongs[2].plays} plays</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div style={{
