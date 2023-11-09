@@ -3,7 +3,16 @@
 import { EpkPayload } from "@/types/epk_payload";
 import { getURL } from "@/utils/url";
 
+const maxSongTitleLength = 15;
 const qrCodeDimensions = 75;
+
+const truncatedSongTitle = (title: string) => {
+    if (title.length > maxSongTitleLength) {
+        return title.substring(0, maxSongTitleLength) + '...';
+    }
+    return title;
+
+}
 
 export default function TappedTheme({
     artistName,
@@ -404,7 +413,7 @@ export default function TappedTheme({
                             <div style={{display: 'flex', flexDirection: 'column', margin: '4px'}}>
                                 <div style={{display: 'flex', flexDirection: 'row'}}>
                                     <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px'}}>{notableSongs[0].title} |</p>
+                                        <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px 0px'}}>{truncatedSongTitle(notableSongs[0].title)} |</p>
                                     </div>
                                     <div style={{display: 'flex'}}>
                                         <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>{notableSongs[0].plays} plays</p>
@@ -412,7 +421,7 @@ export default function TappedTheme({
                                 </div>
                                 <div style={{display: 'flex', flexDirection: 'row'}}>
                                     <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px'}}>{notableSongs[1].title} |</p>
+                                        <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px 0px'}}>{truncatedSongTitle(notableSongs[1].title)} |</p>
                                     </div>
                                     <div style={{display: 'flex'}}>
                                         <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>{notableSongs[1].plays} plays</p>
@@ -420,7 +429,7 @@ export default function TappedTheme({
                                 </div>
                                 <div style={{display: 'flex', flexDirection: 'row'}}>
                                     <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px'}}>{notableSongs[2].title} |</p>
+                                        <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px 0px'}}>{truncatedSongTitle(notableSongs[2].title)} |</p>
                                     </div>
                                     <div style={{display: 'flex'}}>
                                         <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>{notableSongs[2].plays} plays</p>
