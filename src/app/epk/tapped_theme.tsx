@@ -27,14 +27,12 @@ export default function TappedTheme({
     location,
     notableSongs,
 }: EpkPayload) {
-    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${
-        qrCodeDimensions
-        }x${
-            qrCodeDimensions
-        }&bgcolor=010F16&color=cbd5e1&data=https://instagram.com/${
-            instagramHandle
+    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${qrCodeDimensions
+        }x${qrCodeDimensions
+        }&bgcolor=010F16&color=cbd5e1&data=https://instagram.com/${instagramHandle
         }`
     const ratingString = (tappedRating === null || tappedRating === '') ? "Unranked on Tapped" : `${tappedRating} / 5 stars on Tapped `
+    const socialsDivHeight = (instagramHandle !== '' && twitterHandle !== '' && tiktokHandle !== '') ? '220px' : '200px'
     return (
         <div
             style={{
@@ -62,9 +60,9 @@ export default function TappedTheme({
                     height: '900px',
                 }}
             >
-                <img 
+                <img
                     src={getURL('/blue_circle_1.png')}
-                    alt="Blurred Circle 1" 
+                    alt="Blurred Circle 1"
                     width='900px'
                     height='900px'
                     style={{
@@ -84,9 +82,9 @@ export default function TappedTheme({
                     height: '800px',
                 }}
             >
-                <img 
+                <img
                     src={getURL('/blue_circle_1.png')}
-                    alt="Blurred Circle 2" 
+                    alt="Blurred Circle 2"
                     width='800px'
                     height='800px'
                     style={{
@@ -107,9 +105,9 @@ export default function TappedTheme({
                     transform: 'translateX(-50%)',
                 }}
             >
-                <img 
+                <img
                     src={getURL('/blue_circle_3.png')}
-                    alt="Blurred Circle 3" 
+                    alt="Blurred Circle 3"
                     width='700px'
                     height='700px'
                     style={{
@@ -185,58 +183,58 @@ export default function TappedTheme({
             </div>
 
             <div style={{
-                    display: 'flex',
-                    position: 'absolute',
-                    right: '0%',
-                    top: '10%',
-                    flexDirection: 'column',
-                    backgroundColor: '#5f9ea0',
-                    borderTopLeftRadius: 10,
-                    borderBottomLeftRadius: 10,
-                    paddingLeft: '10px',
-                    paddingRight: '10px',
-                }}
+                display: 'flex',
+                position: 'absolute',
+                right: '0%',
+                top: '10%',
+                flexDirection: 'column',
+                backgroundColor: '#5f9ea0',
+                borderTopLeftRadius: 10,
+                borderBottomLeftRadius: 10,
+                paddingLeft: '10px',
+                paddingRight: '10px',
+            }}
             >
-                <div style={{display: 'flex', flexDirection: 'column'}}>
-                    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-                        <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '28px', margin: '4px', fontFamily: 'InterBold'}}>Location |</p>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                        <div style={{ display: 'flex' }}>
+                            <p style={{ fontSize: '28px', margin: '4px', fontFamily: 'InterBold' }}>Location |</p>
                         </div>
-                        <div style={{display: 'flex'}}>
+                        <div style={{ display: 'flex' }}>
                             <img src={getURL('/location_pin_icon.png')} alt="Location icon" style={{ width: '20px', height: '20px', marginTop: '4px' }} />
-                            <p style={{fontSize: '20px', margin: '4px', fontFamily: 'InterItalic'}}>{location}</p>
+                            <p style={{ fontSize: '20px', margin: '4px', fontFamily: 'InterItalic' }}>{location}</p>
                         </div>
                     </div>
-                    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-                        <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '28px', margin: '4px', fontFamily: 'InterBold'}}>Rating |</p>
+                    <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                        <div style={{ display: 'flex' }}>
+                            <p style={{ fontSize: '28px', margin: '4px', fontFamily: 'InterBold' }}>Rating |</p>
                         </div>
-                        <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '20px', margin: '4px', fontFamily: 'InterItalic'}}>{ratingString}</p>
+                        <div style={{ display: 'flex' }}>
+                            <p style={{ fontSize: '20px', margin: '4px', fontFamily: 'InterItalic' }}>{ratingString}</p>
                         </div>
                     </div>
-                    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-                        <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '28px', margin: '4px', fontFamily: 'InterBold'}}>Profession |</p>
+                    <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                        <div style={{ display: 'flex' }}>
+                            <p style={{ fontSize: '28px', margin: '4px', fontFamily: 'InterBold' }}>Profession |</p>
                         </div>
-                        <div style={{display: 'flex'}}>
-                            <p style={{fontSize: '20px', margin: '4px', fontFamily: 'InterItalic'}}>{jobs.join(', ')}</p>
+                        <div style={{ display: 'flex' }}>
+                            <p style={{ fontSize: '20px', margin: '4px', fontFamily: 'InterItalic' }}>{jobs.join(', ')}</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div style={{
-                    display: 'flex',
-                    position: 'absolute',
-                    left: '0%',
-                    top: '53%',
-                    backgroundColor: '#5f9ea0',
-                    borderTopRightRadius: 10,
-                    borderBottomRightRadius: 10,
-                    height: '200px',
-                    width: '50%'
-                }}
+                display: 'flex',
+                position: 'absolute',
+                left: '0%',
+                top: '53%',
+                backgroundColor: '#5f9ea0',
+                borderTopRightRadius: 10,
+                borderBottomRightRadius: 10,
+                height: socialsDivHeight,
+                width: '50%'
+            }}
             ></div>
 
             <div
@@ -257,8 +255,8 @@ export default function TappedTheme({
                     minWidth: 0,
                 }}>
                     <div style={{
-                        display: 'flex', 
-                        flexDirection: 'row', 
+                        display: 'flex',
+                        flexDirection: 'row',
                         justifyContent: 'space-between'
                     }}>
                         <div
@@ -379,7 +377,7 @@ export default function TappedTheme({
                                 paddingRight: 5,
                                 borderRadius: 10,
                             }}>
-                                <p style={{ marginLeft: '20px', fontSize: '20px', marginTop: '0px', marginBottom: '0px', fontFamily: 'InterBold'  }}>
+                                <p style={{ marginLeft: '20px', fontSize: '20px', marginTop: '0px', marginBottom: '0px', fontFamily: 'InterBold' }}>
                                     @{tiktokHandle}
                                 </p>
                             </div>
@@ -394,51 +392,13 @@ export default function TappedTheme({
                                 paddingRight: 5,
                                 borderRadius: 10,
                             }}>
-                                <p style={{ marginLeft: '20px', fontSize: '20px', marginTop: '0px', marginBottom: '80px', fontFamily: 'InterBold' }}>
+                                <p style={{ marginLeft: '20px', fontSize: '20px', marginTop: '0px', paddingBottom: '20px', fontFamily: 'InterBold' }}>
                                     @{twitterHandle}
                                 </p>
                             </div>
                             : null}
-                        <div style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            borderRadius: 10,
-                            color: '#63b2fd',
-                            paddingLeft: 4,
-                            paddingRight: 4,
-                        }}>
-                            <h1 style={{fontFamily: 'InterBold', fontSize: '48px', margin: '4px'}}>Top Songs</h1>
-                            <div style={{display: 'flex', flexDirection: 'column', margin: '4px'}}>
-                                <div style={{display: 'flex', flexDirection: 'row'}}>
-                                    <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px 0px'}}>{truncatedSongTitle(notableSongs[0].title)} |</p>
-                                    </div>
-                                    <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>{notableSongs[0].plays} plays</p>
-                                    </div>
-                                </div>
-                                <div style={{display: 'flex', flexDirection: 'row'}}>
-                                    <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px 0px'}}>{truncatedSongTitle(notableSongs[1].title)} |</p>
-                                    </div>
-                                    <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>{notableSongs[1].plays} plays</p>
-                                    </div>
-                                </div>
-                                <div style={{display: 'flex', flexDirection: 'row'}}>
-                                    <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '26px', fontFamily: 'Inter', margin: '4px 0px'}}>{truncatedSongTitle(notableSongs[2].title)} |</p>
-                                    </div>
-                                    <div style={{display: 'flex'}}>
-                                        <p style={{fontSize: '24px', fontFamily: 'InterItalic', margin: '4px'}}>{notableSongs[2].plays} plays</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </div >
+                </div >
 
                 <div
                     style={{
@@ -448,28 +408,66 @@ export default function TappedTheme({
                         flex: 1,
                         minWidth: 0,
                     }}
-                >   
+                >
                     <h1 style={{
-                        color: '#63b2fd', 
-                        margin: '4px', 
+                        color: '#63b2fd',
+                        margin: '4px',
                         fontFamily: 'InterBold',
                     }}>
                         Who is {artistName}?
                     </h1>
-                    <p style={{ 
-                        textAlign: 'start', 
-                        fontSize: 16, 
+                    <p style={{
+                        textAlign: 'start',
+                        fontSize: 16,
                         color: 'white',
-                     }}>
+                    }}>
                         {bio}
                     </p>
                 </div>
+            </div >
+            <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: 10,
+                color: '#63b2fd',
+                paddingLeft: 4,
+                paddingRight: 4,
+            }}>
+                <h1 style={{ fontFamily: 'InterBold', fontSize: '48px', margin: '4px' }}>Top Songs</h1>
+                <div style={{ display: 'flex', flexDirection: 'column', margin: '4px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'row' }}>
+                        <div style={{ display: 'flex' }}>
+                            <p style={{ fontSize: '26px', fontFamily: 'Inter', margin: '4px 0px' }}>{truncatedSongTitle(notableSongs[0].title)} |</p>
+                        </div>
+                        <div style={{ display: 'flex' }}>
+                            <p style={{ fontSize: '24px', fontFamily: 'InterItalic', margin: '4px' }}>{notableSongs[0].plays} plays</p>
+                        </div>
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'row' }}>
+                        <div style={{ display: 'flex' }}>
+                            <p style={{ fontSize: '26px', fontFamily: 'Inter', margin: '4px 0px' }}>{truncatedSongTitle(notableSongs[1].title)} |</p>
+                        </div>
+                        <div style={{ display: 'flex' }}>
+                            <p style={{ fontSize: '24px', fontFamily: 'InterItalic', margin: '4px' }}>{notableSongs[1].plays} plays</p>
+                        </div>
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'row' }}>
+                        <div style={{ display: 'flex' }}>
+                            <p style={{ fontSize: '26px', fontFamily: 'Inter', margin: '4px 0px' }}>{truncatedSongTitle(notableSongs[2].title)} |</p>
+                        </div>
+                        <div style={{ display: 'flex' }}>
+                            <p style={{ fontSize: '24px', fontFamily: 'InterItalic', margin: '4px' }}>{notableSongs[2].plays} plays</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div style={{
-                    display: 'flex',
-                    position: 'absolute',
-                    bottom: '1%',
-                }}
+                display: 'flex',
+                position: 'absolute',
+                bottom: '1%',
+            }}
             >
                 {(phoneNumber !== undefined && phoneNumber !== null && phoneNumber !== '')
                     ? <p>agent contact: {phoneNumber}</p>

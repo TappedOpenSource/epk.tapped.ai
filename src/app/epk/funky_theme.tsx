@@ -181,6 +181,10 @@ export default function FunkyTheme({
                     backgroundColor: '#ffc000',
                     color: 'black',
                     height: '265px',
+                    wordWrap: 'break-word',
+                    whiteSpace: 'normal',
+                    hyphens: 'auto',
+                    overflowWrap: 'break-word',
                 }}
             >
                 <p style={{ fontSize: 18, }}>

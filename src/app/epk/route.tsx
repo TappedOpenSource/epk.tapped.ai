@@ -5,6 +5,7 @@ import MinimalistTheme from "./minimalist_theme";
 import { EPKComponent } from "@/types/epk_component";
 import { EpkPayload } from "@/types/epk_payload";
 
+
 const width = 900;
 const height = 1200;
 
@@ -47,6 +48,60 @@ export async function GET(request: Request) {
   })
   console.log({ theme });
 
+  let chosenFont: string;
+  let chosenFontItalic: string;
+  let chosenFontBold: string;
+  let fontDataRegular;
+  let fontDataItalic;
+  let fontDataBold;
+
+  if (theme === 'funky'){
+      chosenFont = 'JosefinSans';
+      chosenFontItalic = 'JosefinSansItalic';
+      chosenFontBold = 'JosefinSansBold'
+      fontDataRegular = await fetch(
+          new URL('../fonts/JosefinSans-Medium.ttf', import.meta.url)
+      ).then((res) => res.arrayBuffer());
+  
+      fontDataItalic = await fetch(
+          new URL('../fonts/JosefinSans-Italic.ttf', import.meta.url)
+      ).then((res) => res.arrayBuffer());
+  
+      fontDataBold = await fetch(
+          new URL('../fonts/JosefinSans-Bold.ttf', import.meta.url)
+      ).then((res) => res.arrayBuffer());
+  } else if (theme === 'minimalist'){
+      chosenFont = 'Arimo';
+      chosenFontItalic = 'ArimoItalic';
+      chosenFontBold = 'ArimoBold'
+      fontDataRegular = await fetch(
+          new URL('../fonts/Arimo-Medium.ttf', import.meta.url)
+      ).then((res) => res.arrayBuffer());
+  
+      fontDataItalic = await fetch(
+          new URL('../fonts/Arimo-Italic.ttf', import.meta.url)
+      ).then((res) => res.arrayBuffer());
+  
+      fontDataBold = await fetch(
+          new URL('../fonts/Arimo-Bold.ttf', import.meta.url)
+      ).then((res) => res.arrayBuffer());
+  } else {
+      chosenFont = 'Inter';
+      chosenFontItalic = 'InterItalic';
+      chosenFontBold = 'InterBold'
+      fontDataRegular = await fetch(
+          new URL('../fonts/Inter-Medium.ttf', import.meta.url)
+      ).then((res) => res.arrayBuffer());
+  
+      fontDataItalic = await fetch(
+          new URL('../fonts/InterTight-Italic.ttf', import.meta.url)
+      ).then((res) => res.arrayBuffer());
+  
+      fontDataBold = await fetch(
+          new URL('../fonts/Inter-Bold.ttf', import.meta.url)
+      ).then((res) => res.arrayBuffer());
+  }
+
   const ThemeComponent: EPKComponent = themeComponents[theme || 'tapped'];
 
   return new ImageResponse(
@@ -67,6 +122,20 @@ export async function GET(request: Request) {
       height,
       width,
       debug: false,
+      fonts: [
+        {
+            name: chosenFont,
+            data: fontDataRegular,
+        },
+        {
+            name: chosenFontItalic,
+            data: fontDataItalic,
+        },
+        {
+            name: chosenFontBold,
+            data: fontDataBold,
+        },
+      ],
     },
   );
 }

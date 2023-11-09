@@ -179,6 +179,57 @@ export default function MinimalistTheme({
                     flexDirection: 'column',
                 }}
                 >
+                    {(tiktokHandle !== undefined && tiktokHandle !== null && tiktokHandle !== '')
+                        ? <div style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            paddingLeft: 5,
+                            paddingRight: 5,
+                            marginLeft: 20,
+                            borderRadius: 10,
+                            height: '85px',
+                        }}>
+                            <img
+                                src={getURL("/tiktok_icon_white.png")}
+                                alt="TikTok icon"
+                                width={50}
+                                height={50}
+                                style={{ objectFit: 'cover', }}
+                            />
+                            <p style={{ marginLeft: '20px', fontSize: '20px', fontFamily: 'ArimoBold' }}>
+                                @{tiktokHandle}
+                            </p>
+                        </div>
+                    : null}
+
+                    {(twitterHandle !== undefined && twitterHandle !== null && twitterHandle !== '')
+                        ? <div style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            paddingLeft: 5,
+                            paddingRight: 5,
+                            marginLeft: 20,
+                            borderRadius: 10,
+                            height: '85px',
+                        }}>
+                            <img
+                                src={getURL("/twitter_icon_white.png")}
+                                alt="Twitter icon"
+                                width={50}
+                                height={50}
+                                style={{ objectFit: 'cover' }}
+                            />
+                            <p style={{ marginLeft: '20px', fontSize: '20px', fontFamily: 'ArimoBold' }}>
+                                @{twitterHandle}
+                            </p>
+                        </div>
+                    : null}
+                </div>
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                }}
+                >
                 {/* {(spotifyId !== undefined && spotifyId !== null && spotifyId !== '')
                     ? < div style={{
                         display: 'flex',
@@ -226,56 +277,6 @@ export default function MinimalistTheme({
                         </p>
                     </div>
                 : null}
-                </div>
-
-                <div style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                }}
-                >
-                    {(tiktokHandle !== undefined && tiktokHandle !== null && tiktokHandle !== '')
-                        ? <div style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            paddingLeft: 5,
-                            paddingRight: 5,
-                            borderRadius: 10,
-                            height: '85px',
-                        }}>
-                            <img
-                                src={getURL("/tiktok_icon_white.png")}
-                                alt="TikTok icon"
-                                width={50}
-                                height={50}
-                                style={{ objectFit: 'cover', }}
-                            />
-                            <p style={{ marginLeft: '20px', fontSize: '20px', fontFamily: 'ArimoBold' }}>
-                                @{tiktokHandle}
-                            </p>
-                        </div>
-                    : null}
-
-                    {(twitterHandle !== undefined && twitterHandle !== null && twitterHandle !== '')
-                        ? <div style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            paddingLeft: 5,
-                            paddingRight: 5,
-                            borderRadius: 10,
-                            height: '85px',
-                        }}>
-                            <img
-                                src={getURL("/twitter_icon_white.png")}
-                                alt="Twitter icon"
-                                width={50}
-                                height={50}
-                                style={{ objectFit: 'cover' }}
-                            />
-                            <p style={{ marginLeft: '20px', fontSize: '20px', fontFamily: 'ArimoBold' }}>
-                                @{twitterHandle}
-                            </p>
-                        </div>
-                    : null}
                 </div>
                 <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                     <h1 style={{ fontSize: '48px', fontFamily: 'ArimoBold', color: '#702963', paddingLeft: '20px', paddingRight: '20px' }}>Socials</h1>
