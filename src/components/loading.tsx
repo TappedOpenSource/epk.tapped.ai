@@ -5,7 +5,7 @@ export default function Loading() {
     const router = useRouter();
     const onLogout = async () => {
         await logout();
-        router.push("/");
+        router.push("/login");
     }
 
     return (
