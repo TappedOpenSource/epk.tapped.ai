@@ -34,25 +34,19 @@ export default function Home() {
         </Link>
       </main>
       <section>
-        <div className='flex flex-col md:flex-row justify-around p-24'>
-          <div>
-            instagram testimonial from Niral
-          </div>
-          <div>
-            image of Nirals EPK
-          </div>
+        <div className='flex justify-center items-center'>
+
+        <blockquote
+          className="twitter-tweet"
+          data-theme="dark">
+          <p lang="en" dir="ltr">
+            i’m excited to announce our new product “epk generator”.<br />where you are able to create 3 music resumes in less than 3 minutes. <br />check it out here: <a href="https://t.co/zuWBPxRbo5">https://t.co/zuWBPxRbo5</a><a href="https://twitter.com/AntlerGlobal?ref_src=twsrc%5Etfw">@AntlerGlobal</a> is coming to an end, so that means we have to go in overdrive for <a href="https://twitter.com/tappedai?ref_src=twsrc%5Etfw">@tappedai</a>. <a href="https://t.co/pVeN9V3HVR">pic.twitter.com/pVeN9V3HVR</a>
+            </p>
+              &mdash; ilias anwar (@iliasanwar_) <a href="https://twitter.com/iliasanwar_/status/1722448416515506480?ref_src=twsrc%5Etfw">November 9, 2023</a>
+            </blockquote>
+            <script async src="https://platform.twitter.com/widgets.js" />
         </div>
-      </section>
-      <section>
-        <div className='flex flex-col md:flex-row justify-around p-24'>
-          <div>
-            image of ffeel&apos;s EPK
-          </div>
-          <div>
-            instagram testimonial from ffeel
-          </div>
-        </div>
-      </section>
-    </>
-  );
+          </section>
+        </>
+        );
 }
